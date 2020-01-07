@@ -11,9 +11,9 @@
 			<telefon>55300455</telefon>
 		</anvarligMegler>
 		<referanse>OPGNR-123</referanse>
-		<oppgjorsavdeling id="912345678">
+		<oppgjoersavdeling id="912345678">
 			<foretaksnavn>Megleroppjør AS</foretaksnavn>
-		</oppgjorsavdeling>
+		</oppgjoersavdeling>
 	</megler>
 
 	<mottaker id="945811714">

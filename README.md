@@ -7,7 +7,7 @@ Digital samhandling mellom banker og eiendomsmeglere i forbindelse med gjennomf�
 ## Beskrivelse av prosjektet
 Prosjektet er et samarbeid mellom Eiendom Norge, Finans Norge og Bits, samt deres medlemmer for å utarbeide bransjestandarder/spesifikasjoner for digital samhandling ved eiendomshandel.
 
-Prosjektleder: Klara Opdahl (klara.opdahl@bits.no).
+Prosjektleder: Monique Lier Nes (monique.nes@bits.no).
 
 ### Overordnede mål
 Muliggjøre en sikker og effektiv utveklsing av standardiserte og strukturerte data mellom bank-fagsystem og megler-fagsystem som er nødvendige for å gjennomføre elektronisk tinglysing.

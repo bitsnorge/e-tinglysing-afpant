@@ -13,9 +13,9 @@
 			<telefonDirekte>99999999</telefonDirekte>
 		</anvarligMegler>
 		<referanse>17-19-9999</referanse>
-		<oppgjorsavdeling id="983570658">
+		<oppgjoersavdeling id="983570658">
 			<foretaksnavn>Weboppgjør AS</foretaksnavn>
-		</oppgjorsavdeling>
+		</oppgjoersavdeling>
 	</megler>
 	<mottaker id="920058817">
 		<foretaksnavn>Nordea Bank Abp, filial i Norge</foretaksnavn>

@@ -37,7 +37,7 @@
 			<xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="parter" type="Rettssubjekter"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="salgsobjekt" type="Salgsobjekt"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="oppgjorsinformasjon" type="Oppgjorsinformasjon"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="oppgjoersinformasjon" type="Oppgjoersinformasjon"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -81,7 +81,7 @@
 			<xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="parter" type="Parter"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="restgjeldforespoerseldetaljer" type="Restgjeldforespoerseldetaljer"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="restgjeldsforespoerseldetaljer" type="Restgjeldsforespoerseldetaljer"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -161,8 +161,8 @@
 	<xs:complexType name="Avsender">
 		<xs:annotation>
 			<xs:documentation>Avsender angir hvem som har sendt meldingen.
-        Avsender skal motta meldingssvar dersom ikke organisasjonsnummer i returnerTil er angitt.
-        Dersom returnerTil er angitt, skal meldingssvar sendes dit.
+        Avsender skal motta meldingssvar dersom ikke organisasjonsnummer i returnertil er angitt.
+        Dersom returnertil er angitt, skal meldingssvar sendes dit.
         Kontaktperson angir hvem som er relevant for denne saken dersom det er behov for direkte kontakt.
         Referanse er avsenders referanse</xs:documentation>
 		</xs:annotation>
@@ -171,7 +171,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="kontaktperson" type="Kontaktperson"/>
 					<xs:element minOccurs="1" name="referanse" type="xs:string"/>
-					<xs:element minOccurs="0" name="returnerTil" type="Organisasjon"/>
+					<xs:element minOccurs="0" name="returnertil" type="Organisasjon"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -199,9 +199,9 @@
 		<xs:complexContent>
 			<xs:extension base="Organisasjon">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="anvarligMegler" type="Kontaktperson"/>
+					<xs:element minOccurs="0" name="ansvarligmegler" type="Kontaktperson"/>
 					<xs:element minOccurs="1" name="referanse" type="xs:string"/>
-					<xs:element minOccurs="0" name="oppgjorsavdeling" type="Organisasjon"/>
+					<xs:element minOccurs="0" name="oppgjoersavdeling" type="Organisasjon"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -255,19 +255,19 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="Oppgjorsinformasjon">
+	<xs:complexType name="Oppgjoersinformasjon">
 		<xs:annotation>
 			<xs:documentation>Oppgjørsinformasjon inneholder detaljer relatert til oppgjøret</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element minOccurs="1" maxOccurs="1" name="salgssum" type="xs:double"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="omkostningerKjoeper" type="xs:double"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="omkostningerkjoeper" type="xs:double"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="akseptdato" type="xs:date"/>
 			<xs:element minOccurs="1" maxOccurs="1" name="overtagelsesdato" type="xs:date"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="andelFellesgjeld" type="xs:double"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="andelFellesformue" type="xs:double"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="spesielleForhold" type="xs:boolean"/>
-			<xs:element minOccurs="1" maxOccurs="1" name="onskerElektroniskTinglysing" type="xs:boolean"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="andelfellesgjeld" type="xs:double"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="andelfellesformue" type="xs:double"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="spesielleforhold" type="xs:boolean"/>
+			<xs:element minOccurs="1" maxOccurs="1" name="oenskerelektronisktinglysing" type="xs:boolean"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -336,22 +336,6 @@
 	<xs:complexType name="Broek">
 		<xs:attribute name="teller" type="xs:long"/>
 		<xs:attribute name="nevner" type="xs:long"/>
-	</xs:complexType>
-
-	<xs:complexType name="Rettighetshaver">
-		<xs:annotation>
-			<xs:documentation>Kan brukes for å beskrive en rettighetshaver som enten er en privatperson med fødselsnummer, eller en organisasjon med organisasjonsnummer.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element minOccurs="0" maxOccurs="1" name="Nummer" type="xs:string"/>
-			<xs:element minOccurs="0" maxOccurs="1" name="Navn" type="xs:string"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="Rettighetshavere">
-		<xs:sequence>
-			<xs:element minOccurs="1" maxOccurs="unbounded" name="RettighetsHaver" nillable="true" type="Rettighetshaver"/>
-		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="Registerenheter">
@@ -430,7 +414,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="1" maxOccurs="1" name="navn" type="xs:string"/>
 			<xs:element minOccurs="0" maxOccurs="1" name="epost" type="xs:string"/>
-			<xs:element minOccurs="0" maxOccurs="1" name="telefonDirekte" type="xs:string"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="telefondirekte" type="xs:string"/>
 			<xs:element minOccurs="0" maxOccurs="1" name="telefon" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -535,7 +519,7 @@
 		<xs:attribute name="dato" type="xs:date" use="required"/>
 	</xs:complexType>
 
-	<xs:complexType name="Restgjeldforespoerseldetaljer">
+	<xs:complexType name="Restgjeldsforespoerseldetaljer">
 		<xs:sequence>
 			<xs:element name="saldoperdato" type="RestgjeldForespurteDatoer"/>
 			<xs:element name="sperret" type="xs:boolean" minOccurs="1"/>

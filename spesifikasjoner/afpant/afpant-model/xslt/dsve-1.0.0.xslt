@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:decimal-format name="nb-no-space" decimal-separator="," grouping-separator=" " NaN=" "/>
@@ -225,7 +225,7 @@
 		</xsl:call-template>
 		<xsl:call-template name="megler"/>
 		<xsl:call-template name="parter"/>
-		<xsl:call-template name="restgjeldforespoersel"/>
+		<xsl:call-template name="restgjeldsforespoersel"/>
 		<xsl:call-template name="avsender"/>
 		<hr/>
 	</xsl:template>
@@ -437,14 +437,14 @@
 		<xsl:call-template name="tinglyst"/>
 	</xsl:template>
 
-	<xsl:template name="restgjeldforespoersel">
+	<xsl:template name="restgjeldsforespoersel">
 		<div class="hovedseksjon">
 			<xsl:call-template name="seksjon">
 				<xsl:with-param name="tittel" select="'Forspurte datoer for restgjeld'"/>
 			</xsl:call-template>
 			<div class="tabell innhold">
 				<div class="kropp">
-					<xsl:for-each select="restgjeldforespoerseldetaljer/saldoperdato/saldo">
+					<xsl:for-each select="restgjeldsforespoerseldetaljer/saldoperdato/saldo">
 						<div class="rad">
 							<div class="celle kol1">
 								<xsl:text>Saldo&#x20;per&#x20;</xsl:text>
@@ -735,7 +735,7 @@
 							<div class="celle kol2">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/salgssum"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/salgssum"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -746,7 +746,7 @@
 							<div class="celle">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/omkostningerKjoeper"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/omkostningerkjoeper"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -757,7 +757,7 @@
 							<div class="celle">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/andelFellesgjeld"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/andelfellesgjeld"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -768,7 +768,7 @@
 							<div class="celle">
 								<xsl:call-template name="formatNumber">
 									<xsl:with-param name="prefix" select="'kr. '"/>
-									<xsl:with-param name="numericValue" select="oppgjorsinformasjon/andelFellesformue"/>
+									<xsl:with-param name="numericValue" select="oppgjoersinformasjon/andelfellesformue"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -778,7 +778,7 @@
 							</div>
 							<div class="celle">
 								<xsl:call-template name="dato">
-									<xsl:with-param name="dato" select="oppgjorsinformasjon/akseptdato"/>
+									<xsl:with-param name="dato" select="oppgjoersinformasjon/akseptdato"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -788,7 +788,7 @@
 							</div>
 							<div class="celle">
 								<xsl:call-template name="dato">
-									<xsl:with-param name="dato" select="oppgjorsinformasjon/overtagelsesdato"/>
+									<xsl:with-param name="dato" select="oppgjoersinformasjon/overtagelsesdato"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -797,8 +797,8 @@
 								<xsl:text>Spesielle forhold:&#x20;</xsl:text>
 							</div>
 							<div class="celle">
-								<xsl:if test="oppgjorsinformasjon/spesielleForhold='true'">Ja</xsl:if>
-								<xsl:if test="oppgjorsinformasjon/spesielleForhold='false'">Nei</xsl:if>
+								<xsl:if test="oppgjoersinformasjon/spesielleforhold='true'">Ja</xsl:if>
+								<xsl:if test="oppgjoersinformasjon/spesielleforhold='false'">Nei</xsl:if>
 							</div>
 						</div>
 						<div class="rad">
@@ -806,8 +806,8 @@
 								<xsl:text>Elektronisk tinglysing:&#x20;</xsl:text>
 							</div>
 							<div class="celle">
-								<xsl:if test="oppgjorsinformasjon/onskerElektroniskTinglysing">Ja</xsl:if>
-								<xsl:if test="not(oppgjorsinformasjon/onskerElektroniskTinglysing)">Nei</xsl:if>
+								<xsl:if test="oppgjoersinformasjon/oenskerelektronisktinglysing">Ja</xsl:if>
+								<xsl:if test="not(oppgjoersinformasjon/oenskerelektronisktinglysing)">Nei</xsl:if>
 							</div>
 						</div>
 					</div>
@@ -1122,8 +1122,8 @@
 					<xsl:value-of select="format-number( number($kontakt/telefon), '## ## ## ##', 'nb-no-space')"/>
 				</a>&#x20;(telefon)</div>
 			<div>
-				<a href="tel:{$kontakt/telefonDirekte}">
-					<xsl:value-of select="format-number( number($kontakt/telefonDirekte), '## ## ## ##', 'nb-no-space')"/>
+				<a href="tel:{$kontakt/telefondirekte}">
+					<xsl:value-of select="format-number( number($kontakt/telefondirekte), '## ## ## ##', 'nb-no-space')"/>
 				</a>
 				<xsl:text>&#x20;(direkte)</xsl:text>
 			</div>
@@ -1242,11 +1242,11 @@
 						</xsl:if>
 					</div>
 					<div class="celle">
-						<xsl:if test="avsender/returnerTil">
+						<xsl:if test="avsender/returnertil">
 							<xsl:text>Returneres til:&#x20;</xsl:text>
 							<div style="padding-bottom:8px;">
 								<xsl:call-template name="organisasjon">
-									<xsl:with-param name="organisasjon" select="avsender/returnerTil"/>
+									<xsl:with-param name="organisasjon" select="avsender/returnertil"/>
 								</xsl:call-template>
 							</div>
 						</xsl:if>
@@ -1268,24 +1268,24 @@
 			<div class="tabell innhold">
 				<div class="rad">
 					<div class="celle kol1">
-						<xsl:if test="megler/anvarligMegler">
+						<xsl:if test="megler/ansvarligmegler">
 							<div style="padding-bottom:8px;">
 								<xsl:call-template name="organisasjon">
 									<xsl:with-param name="organisasjon" select="megler"/>
 								</xsl:call-template>
 							</div>
 							<xsl:call-template name="kontaktperson">
-								<xsl:with-param name="kontakt" select="megler/anvarligMegler"/>
+								<xsl:with-param name="kontakt" select="megler/ansvarligmegler"/>
 								<xsl:with-param name="referanse" select="megler/referanse"/>
 							</xsl:call-template>
 						</xsl:if>
 					</div>
 					<div class="celle">
-						<xsl:if test="megler/oppgjorsavdeling">
+						<xsl:if test="megler/oppgjoersavdeling">
 							<xsl:text>Oppgjørsavdeling:&#x20;</xsl:text>
 							<div style="padding-bottom:8px;">
 								<xsl:call-template name="organisasjon">
-									<xsl:with-param name="organisasjon" select="megler/oppgjorsavdeling"/>
+									<xsl:with-param name="organisasjon" select="megler/oppgjoersavdeling"/>
 								</xsl:call-template>
 							</div>
 						</xsl:if>

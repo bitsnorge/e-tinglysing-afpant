@@ -18,9 +18,9 @@
 			<telefon>55300455</telefon>
 		</anvarligMegler>
 		<referanse>OPGNR-123</referanse>
-		<oppgjorsavdeling id="912345678">
+		<oppgjoersavdeling id="912345678">
 			<foretaksnavn>Megleroppjør AS</foretaksnavn>
-		</oppgjorsavdeling>
+		</oppgjoersavdeling>
 	</megler>
 
 	<parter>
@@ -80,16 +80,16 @@
 	</salgsobjekt>
 
 
-	<oppgjorsinformasjon>
+	<oppgjoersinformasjon>
 		<salgssum>20000000</salgssum>
-		<omkostningerKjoeper>300000</omkostningerKjoeper>
+		<omkostningerkjoeper>300000</omkostningerkjoeper>
 		<akseptdato>2019-01-26</akseptdato>
 		<overtagelsesdato>2019-04-15</overtagelsesdato>
-		<andelFellesgjeld>2000000</andelFellesgjeld>
-		<andelFellesformue>300</andelFellesformue>
-		<spesielleForhold>true</spesielleForhold>
-		<onskerElektroniskTinglysing>true</onskerElektroniskTinglysing>
-	</oppgjorsinformasjon>
+		<andelfellesgjeld>2000000</andelfellesgjeld>
+		<andelfellesformue>300</andelfellesformue>
+		<spesielleforhold>true</spesielleforhold>
+		<oenskerelektronisktinglysing>true</oenskerelektronisktinglysing>
+	</oppgjoersinformasjon>
 
 	<metadata>
 		<ressurser>
