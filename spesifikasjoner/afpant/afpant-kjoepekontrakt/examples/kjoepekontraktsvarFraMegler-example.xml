@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kjoepekontraktsvarFraMegler xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../afpant/afpant-model/xsd/dsve-1.0.0.xsd">
+  <kjoepekontrakter>
+    <kjoepekontrakt>
+      <bank id="945811714">
+        <foretaksnavn>DNB Eiendom</foretaksnavn>
+        <referanse>OPGNR-123</referanse>
+      </bank>
+      <megler id="910968955">
+        <foretaksnavn>DNB Eiendom</foretaksnavn>
+        <ansvarligmegler>
+          <navn>Ole Olsen</navn>
+          <epost>ole@megler.no</epost>
+          <telefondirekte>99223452</telefondirekte>
+          <telefon>55300455</telefon>
+        </ansvarligmegler>
+        <referanse>OPGNR-123</referanse>
+        <oppgjoersavdeling id="912345678">
+          <foretaksnavn>Megleroppjør AS</foretaksnavn>
+        </oppgjoersavdeling>
+      </megler>
+      <oppgjoersinformasjon>
+        <salgssum>20000000</salgssum>
+        <omkostningerkjoeper>300000</omkostningerkjoeper>
+        <akseptdato>2019-01-26</akseptdato>
+        <overtagelsesdato>2019-04-15</overtagelsesdato>
+        <andelfellesgjeld>2000000</andelfellesgjeld>
+        <andelfellesformue>300</andelfellesformue>
+      </oppgjoersinformasjon>
+      <salgsobjekter>
+        <salgsobjekt>
+          <matrikkelSalgsobjekt>
+            <matrikkel kommunenavn="Bergen" kommunenummer="1201" gaardsnummer="21" bruksnummer="275" festenummer="0" seksjonsnummer="0" eiendomsnivaa="E"/>
+          </matrikkelSalgsobjekt>
+          <parter>
+            <selgere>
+              <rettssubjekt>
+                <person id="23456789909">
+                  <fornavn>Kari</fornavn>
+                  <etternavn>Normann</etternavn>
+                </person>
+                <andel teller="1" nevner="1"/>
+              </rettssubjekt>
+            </selgere>
+            <kjoepere>
+              <rettssubjekt>
+                <person id="3212345678">
+                  <fornavn>Ola</fornavn>
+                  <etternavn>Normann</etternavn>
+                </person>
+                <andel teller="1" nevner="2"/>
+              </rettssubjekt>
+              <rettssubjekt>
+                <organisasjon id="987654321">
+                  <foretaksnavn>Ola Eiendom AS</foretaksnavn>
+                </organisasjon>
+                <andel teller="1" nevner="2"/>
+              </rettssubjekt>
+            </kjoepere>
+          </parter>
+          <adresse>
+            <gatenavn>Krinkelkroken 1</gatenavn>
+            <postnummer>5014</postnummer>
+            <poststed>Bergen</poststed>
+          </adresse>
+        </salgsobjekt>
+        <salgsobjekt>
+          <aksjeleilighetSalgsobjekt>
+            <aksjeleilighet organisasjonsnummer="" organisasjonsnavn="" leilighetsnummer=""/>
+            <aksjer>
+              <akjsenummerFra>1</akjsenummerFra>
+              <akjsenummerTil>2</akjsenummerTil>
+              <paalydende>25</paalydende>
+            </aksjer>
+          </aksjeleilighetSalgsobjekt>
+          <parter>
+            <selgere>
+              <rettssubjekt>
+                <person id="23456789909">
+                  <fornavn>Kari</fornavn>
+                  <etternavn>Normann</etternavn>
+                </person>
+                <andel teller="1" nevner="1"/>
+              </rettssubjekt>
+            </selgere>
+            <kjoepere>
+              <rettssubjekt>
+                <person id="3212345678">
+                  <fornavn>Ola</fornavn>
+                  <etternavn>Normann</etternavn>
+                </person>
+                <andel teller="1" nevner="2"/>
+              </rettssubjekt>
+              <rettssubjekt>
+                <organisasjon id="987654321">
+                  <foretaksnavn>Ola Eiendom AS</foretaksnavn>
+                </organisasjon>
+                <andel teller="1" nevner="2"/>
+              </rettssubjekt>
+            </kjoepere>
+          </parter>
+          <adresse>
+            <gatenavn>Krinkelkroken 1</gatenavn>
+            <postnummer>5014</postnummer>
+            <poststed>Bergen</poststed>
+          </adresse>
+        </salgsobjekt>
+      </salgsobjekter>
+      <lenkeTilSalgsoppgave>link</lenkeTilSalgsoppgave>
+      <signertKjoepekontrakt>
+        <kjoepekontraktData>U2lnbmVydCBncnVubmJva3N1dHNrcmlmdAo=</kjoepekontraktData>
+        <kjoepekontraktFormat>application/pdf</kjoepekontraktFormat>
+      </signertKjoepekontrakt>
+      <metadata>
+        <opprettet>2016-01-31T20:07:42</opprettet>
+      </metadata>
+    </kjoepekontrakt>
+  </kjoepekontrakter>
+</kjoepekontraktsvarFraMegler>
+

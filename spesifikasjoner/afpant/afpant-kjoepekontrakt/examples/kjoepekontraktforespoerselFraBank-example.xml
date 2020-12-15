@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kjoepekontraktforespoerselFraBank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../afpant-model/xsd/dsve-1.0.0.xsd">
+	<megler id="945811714">
+		<foretaksnavn>DNB Eiendom</foretaksnavn>
+		<referanse>OPGNR-123</referanse>
+	</megler>
+	<bank id="945811714">
+		<foretaksnavn>DNB</foretaksnavn>
+		<referanse>bankReferanse</referanse>
+	</bank>
+	<kjoepere>
+		<kjoeper>
+			<organisasjon id="1234567890">
+				<foretaksnavn>Orginisasjonsnavn</foretaksnavn>
+			</organisasjon>
+		</kjoeper>
+		<kjoeper>
+			<person id="12345678901">
+				<fornavn>Fornavn</fornavn>
+				<etternavn>Etternavn</etternavn>
+			</person>
+		</kjoeper>
+	</kjoepere>
+</kjoepekontraktforespoerselFraBank>

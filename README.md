@@ -104,7 +104,7 @@ Innmelding av organisasjoner og støttede meldingstyper gjøres via Kartverket A
 #### Dokumentpakke 2 -  Digital datautveksling bank/megler (under utarbeidelse)
 ##### Kjøpekontrakt 
 * Overføring av / forespørsel om signert kjøpekontrakt (PDF/PadES/SDO) mellom megler/bank.
-* [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-kj%C3%B8pekontrakt/afpant-kj%C3%B8pekontrakt.md)
+* [Spesifikasjon](spesifikasjoner/afpant/afpant-kjoepekontrakt/kjoepekontrakt-0-1-0.md)
 ##### Pantefrafall
 * Forespørsel om pantefrafall fra megler til bank
 * [Spesifikasjon](https://github.com/bitsnorge/e-tinglysing-afpant/blob/master/spesifikasjoner/afpant/afpant-pantefrafall/afpant-pantefrafall.md)
