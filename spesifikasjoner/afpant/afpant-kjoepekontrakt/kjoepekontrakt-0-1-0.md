@@ -6,7 +6,7 @@ Innholdsfortegnelse
 =================
 
 * [Kjøpekontrakt](#kjøpekontrakt)
-* [Table of Contents](#table-of-contents)
+* [Innholdsfortegnelse](#innholdsfortegnelse)
   * [Kjøpekontrakt løsningsbeskrivelse](#kjøpekontrakt-løsningsbeskrivelse)
   * [Innledning](#innledning)
     * [Overordnet beskrivelse](#overordnet-beskrivelse)
@@ -17,7 +17,7 @@ Innholdsfortegnelse
     * [Kjøpekontrakten er ikke signert](#kjøpekontrakten-er-ikke-signert)
     * [Kunden har kjøpt flere boliger](#kunden-har-kjøpt-flere-boliger)
     * [Oversendt informasjon er endret](#oversendt-informasjon-er-endret)
-    * [Det finnes ingen kjøp på kunden](#det-finnes-ingen-kjøp-på-kunden)
+    * [Det finnes ingen oppdrag på kunden](#det-finnes-ingen-oppdrag-på-kunden)
     * [Oversendelse uten forespørsel fra bank](#oversendelse-uten-forespørsel-fra-bank)
     * [Boligen blir kjøpt på forkjøpsrett](#boligen-blir-kjøpt-på-forkjøpsrett)
     * [Ny, signert kjøpekontrakt](#ny-signert-kjøpekontrakt)
@@ -28,7 +28,11 @@ Innholdsfortegnelse
     * [Meldingstype: KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank)
     * [Meldingstype: KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler)
     * [Meldingstype: KjoepekontraktFraMegler](#meldingstype-kjoepekontraktframegler)
-
+  * [Avklaringer](#avklaringer)
+    * [Modell/struktur](#modellstruktur)
+    * ["Endringsmelding"](#endringsmelding)
+    * [Hvor gamle kjøpekontrakter skal returneres?](#hvor-gamle-kjøpekontrakter-skal-returneres)
+  
 Kjøpekontrakt løsningsbeskrivelse
 ---
 ## Innledning
@@ -192,12 +196,6 @@ Håndtering av meldingstype [KjoepekontraktforespoerselFraBank](#meldingstype-kj
 
 [Se XML-eksempel](./examples/kjoepekontraktsvarFraMegler-example.xml)
 
-> Hvilke data skal minimum være på plass for en skal kalle det kjøpekontrakt? I den funksjonelle beskrivelsen over står det _Dersom ikke all strukturert informasjon er lagt inn i meglersystemet enda, skal megler sende det som finnes av informasjon_
-
-> Hvor gamle kjøpekontrakter skal returneres?   
-> Når "arkiveres" eller ferdigstilles et oppdrag?   
-> Må også ta hensyn til GDPR. Hvor lange er det hensiktsmessig/lovlig å lagre data.
-
 #### Manifest
 (BrokerServiceInitiation.Manifest.PropertyList)
 
@@ -240,8 +238,6 @@ I disse tilfellene må bank:
 #### Validering og ruting(meglersystem)
 Megler må sette `kjoepekontrakt.bank.referanse` dersom megler tidligere har mottatt [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank) 
 
-> Trenger banken i disse tilfellen å få vite hvilke endringer som er gjort i de strukturerte data evt. om den signert kjøpekontrakten er endret?
-
 #### Payload
 En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afpant-model/xsd/dsve-1.0.0.xsd)
 
@@ -252,4 +248,24 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 |--- |--- |--- |--- |
 |messageType|String|Yes|KjoepekontraktFraMegler|
 	
+## Avklaringer
+
+### Modell/struktur
+I løsningsbeskrivelsen står det «Dersom ikke all strukturert informasjon er lagt inn i meglersystemet enda, skal megler sende det som finnes av informasjon»
+
+I modellen som vi har foreslått vil ikke dette fungere fordi vi har satt som mange elementer som mulig til required (ikke valgfri)
+
+Dette er stort sett ikke vanskelig å endre, men skulle gjerne ha hatt en rask diskusjon hva som er minimum av hvilke data som må være på plass for at det er en kjøpekontrakt.
+(Jo mer presis modellen er jo enklere er det å implementere den, samtidig må den ikke være for rigid)
+
+### "Endringsmelding"
+Vi har valgt at megler bare pusher meldinger til bank og at ikke bank må forespørre etter en endringsmelding. Dette er gjort for å ha det likt endring av intensjon.
+Vi kommer til å endre teksten i løsningsbeskrivelsen for dette.
+
+Dersom en megler sender KjoepekontraktFraMegler fordi det det har skjedd endringer, sendes hele kjøpekontrakten på nytt.
+Skulle gjerne ha diskutert hvordan det er hensiktsmessig å formidle hvilke endringer megler har gjort.
+
+### Hvor gamle kjøpekontrakter skal returneres?   
+* Når "arkiveres" eller ferdigstilles et oppdrag?   
+* Må også ta hensyn til GDPR. Hvor lange er det hensiktsmessig/lovlig å lagre data.
 
