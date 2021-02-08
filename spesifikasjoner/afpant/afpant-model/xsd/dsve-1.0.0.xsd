@@ -292,8 +292,10 @@
 
   <xs:complexType name="Salgsobjekt">
     <xs:annotation>
-      <xs:documentation>Salgsobjekt i kjøpekontrakt. Skal realsameie ligge under Salgsobjektet (generelt) eller kun på
-        matrikkel?
+      <xs:documentation>
+        Realsameie er definert som et salgsobjekt, men skal ikke inngå i hverken pantedokument eller skjøte.
+        Et realsameie eies en eiendom og ikke person og når hovedeiendommen overskjøte følger realsameiet med og skal således
+        ikke inngå i skjøte.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -303,7 +305,6 @@
         <xs:element name="aksjeleilighetSalgsobjekt" type="AksjeleilighetSalgsobjekt"/>
       </xs:choice>
       <xs:element name="parter" type="Rettssubjekter" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="realsameier" minOccurs="0" maxOccurs="1" type="Realsameier"/>
       <xs:element minOccurs="0" maxOccurs="1" name="adresse" type="Adresse"/>
     </xs:sequence>
   </xs:complexType>
@@ -325,6 +326,7 @@
     <xs:annotation></xs:annotation>
     <xs:sequence>
       <xs:element name="matrikkel" type="Matrikkel" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="realsameier" minOccurs="0" maxOccurs="1" type="Realsameier"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -380,11 +382,11 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="salgssum" type="xs:double"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="omkostningerkjoeper" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="omkostningerkjoeper" type="xs:double"/>
       <xs:element minOccurs="1" maxOccurs="1" name="akseptdato" type="xs:date"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="overtagelsesdato" type="xs:date"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="andelfellesgjeld" type="xs:double"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="andelfellesformue" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="overtagelsesdato" type="xs:date"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="andelfellesgjeld" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="andelfellesformue" type="xs:double"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -454,8 +456,8 @@
   </xs:complexType>
 
   <xs:complexType name="Broek">
-    <xs:attribute name="teller" type="xs:long"/>
-    <xs:attribute name="nevner" type="xs:long"/>
+    <xs:attribute name="teller" type="xs:long" use="required"/>
+    <xs:attribute name="nevner" type="xs:long" use="required"/>
   </xs:complexType>
 
   <xs:complexType name="Registerenheter">
@@ -531,7 +533,7 @@
 
   <xs:complexType name="Adresse">
     <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="gatenavn" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="gatenavn" type="xs:string"/>
       <xs:element minOccurs="1" maxOccurs="1" name="postnummer" type="xs:string"/>
       <xs:element minOccurs="1" maxOccurs="1" name="poststed" type="xs:string"/>
     </xs:sequence>

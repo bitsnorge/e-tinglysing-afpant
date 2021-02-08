@@ -29,7 +29,6 @@ Innholdsfortegnelse
     * [Meldingstype: KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler)
     * [Meldingstype: KjoepekontraktFraMegler](#meldingstype-kjoepekontraktframegler)
   * [Avklaringer](#avklaringer)
-    * [Modell/struktur](#modellstruktur)
     * ["Endringsmelding"](#endringsmelding)
     * [Hvor gamle kjøpekontrakter skal returneres?](#hvor-gamle-kjøpekontrakter-skal-returneres)
   
@@ -63,7 +62,7 @@ Følgende informasjon skal oversendes som strukturerte data;
 |**Oppgjørsavdeling:** Inkludert oppgjørsmeglers fulle adresse                                       |      |
 |**Oppdragsnummer:**                                                                                 |      |
 |**Oppgjørsinformasjon:** Kontonummer / KID nummer / Øvrig merking                                   | :white_check_mark: |
-|**Eiendomsinformasjon:** Kommunenummer / Gårdsnummer / Bruksnummer / Festenummer / Seksjonsnummer / Adresse / Postnummer (det må være mulig med flere gårds- og bruksnummer) Ved andel/aksje: Organisasjonsnummer / Andelsnummer /Aksjenummer(Informasjon om personlige sameier og hvorvidt de skal pantsettes må inkluderes) |      |
+|**Eiendomsinformasjon:** Kommunenummer / Gårdsnummer / Bruksnummer / Festenummer / Seksjonsnummer / Adresse / Postnummer (det må være mulig med flere gårds- og bruksnummer) Ved andel/aksje: Organisasjonsnummer / Andelsnummer /Aksjenummer(Informasjon om personlige sameier og hvorvidt de skal pantsettes må inkluderes) | :white_check_mark: |
 |**Salgssum:**                                                                                       | :white_check_mark: |
 |**Omkostninger for kjøper:** (Eks. boligkjøperforsikring pga. manglende felt)                       | :white_check_mark: |
 |**Oppgjørsbeløp:** Kjøpesum + kjøpsomkostninger (det skal angis om beløpet er tentativt eller satt) | :white_check_mark: |
@@ -148,6 +147,9 @@ Meldingstype: [KjoepekontraktFraMegler](#meldingstype-kjoepekontraktframegler)
 
 Alle banker som implementerer støtte for mottak av [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler) 
 må også støtte mottak av [KjoepekontraktFraMegler](#meldingstype-kjoepekontraktframegler).
+
+## Kjoepekontrakt complexType
+Forklaring til ....
 
 ## Meldingstyper
 
@@ -249,14 +251,6 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 |messageType|String|Yes|KjoepekontraktFraMegler|
 	
 ## Avklaringer
-
-### Modell/struktur
-I løsningsbeskrivelsen står det «Dersom ikke all strukturert informasjon er lagt inn i meglersystemet enda, skal megler sende det som finnes av informasjon»
-
-I modellen som vi har foreslått vil ikke dette fungere fordi vi har satt som mange elementer som mulig til required (ikke valgfri)
-
-Dette er stort sett ikke vanskelig å endre, men skulle gjerne ha hatt en rask diskusjon hva som er minimum av hvilke data som må være på plass for at det er en kjøpekontrakt.
-(Jo mer presis modellen er jo enklere er det å implementere den, samtidig må den ikke være for rigid)
 
 ### "Endringsmelding"
 Vi har valgt at megler bare pusher meldinger til bank og at ikke bank må forespørre etter en endringsmelding. Dette er gjort for å ha det likt endring av intensjon.

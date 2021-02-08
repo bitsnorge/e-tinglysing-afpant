@@ -30,7 +30,13 @@
       <salgsobjekter>
         <salgsobjekt>
           <matrikkelSalgsobjekt>
-            <matrikkel kommunenavn="Bergen" kommunenummer="1201" gaardsnummer="21" bruksnummer="275" festenummer="0" seksjonsnummer="0" eiendomsnivaa="E"/>
+            <matrikkel kommunenavn="Bergen" kommunenummer="4601" gaardsnummer="21" bruksnummer="275" festenummer="0" seksjonsnummer="0" eiendomsnivaa="E"/>
+            <realsameier>
+              <realsameie>
+                <matrikkel kommunenavn="Bergen" kommunenummer="4601" gaardsnummer="13" bruksnummer="132" eiendomsnivaa="E"/>
+                <eierbroek teller="2" nevner="100031"/>
+              </realsameie>
+            </realsameier>
           </matrikkelSalgsobjekt>
           <parter>
             <selgere>
@@ -106,7 +112,7 @@
           </adresse>
         </salgsobjekt>
       </salgsobjekter>
-      <lenkeTilSalgsoppgave>link</lenkeTilSalgsoppgave>
+      <lenkeTilSalgsoppgave>lenke</lenkeTilSalgsoppgave>
       <signertKjoepekontrakt>
         <kjoepekontraktData>U2lnbmVydCBncnVubmJva3N1dHNrcmlmdAo=</kjoepekontraktData>
         <kjoepekontraktFormat>application/pdf</kjoepekontraktFormat>
