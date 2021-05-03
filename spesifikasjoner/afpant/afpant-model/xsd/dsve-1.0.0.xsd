@@ -211,7 +211,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" name="ansvarligmegler" type="Kontaktperson"/>
 					<xs:element minOccurs="1" name="referanse" type="xs:string"/>
-					<xs:element minOccurs="0" name="oppgjoersavdeling" type="Organisasjon"/>
+					<xs:element minOccurs="1" name="oppgjoersavdeling" type="Organisasjon"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

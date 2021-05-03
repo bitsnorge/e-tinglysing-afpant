@@ -6,7 +6,7 @@
 
 **Avsender**: Meglerforetak, orgnummer, Anvarlig megler, mobilnummer og mailadresse.
 
-**Oppgjørsavdeling**: 
+**Oppgjørsavdeling**: Foretak, orgnummer, postadresse
 
 **Oppdragsnummer**: (bank må også svare opp med denne referansen)
 
@@ -19,18 +19,19 @@ Organisasjonsnummer / Andelsnummer
 
 *Det må være mulig med flere gårds- og bruksnummer*
 
-
 **Salgssum**: 
 
-**Omkostninger for kjøper**: 
+**Omkostninger for kjøper**: Total sum kjøpers omkostninger
 
 **Akseptdato**: 
 
 **Overtagelsesdato**: Denne skal ikke fylles ut dersom nybygg
 
-**Andel fellesgjeld**:
+**Andel fellesgjeld**: 
 
 **Andel fellesformue**:
+
+**Felleskostnader pr måned**:
 
 **Selger**: Navn og personnummer på alle selgere. Her må det også være mulig å legge inn hjemmelshaver dersom eiendommen er tinglyst på andre enn selgere
 
