@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SignedMortgageDeedProcessedMessage" type="SignedMortgageDeedProcessedMessage"/>
+
+  <xs:complexType name="SignedMortgageDeedProcessedMessage">
+    <xs:annotation>
+      <xs:documentation>Retur av ACK/NACK notification fra fagsystem til bank
+        (etter behandling av mottatt pantedokument
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MessageType" type="MessageType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Status" type="Status">
+        <xs:annotation>
+          <xs:documentation>Kun status 'RoutedSuccessfully' er å anse som ACK (positive acknowledgement). Øvrige
+            statuser er å anse som NACK (negative acknowledgement).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Inneholder en utfyllende human-readable beskrivelse
+            om hvorfor en forsendelse ble NACK'et.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="externalSystemId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:annotation>
+              <xs:documentation>ID/oppdragsnummer/key i eksternt meglersystem/fagsystem.</xs:documentation>
+            </xs:annotation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="MessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SignedMortgageDeedProcessed"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RoutedSuccessfully"/>
+      <xs:enumeration value="UnknownCadastre">
+        <xs:annotation>
+          <xs:documentation>Ukjent matrikkelenhet.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DebitorMismatch">
+        <xs:annotation>
+          <xs:documentation>Fant matrikkelenhet, men antall kjøpere eller
+            navn/id på kjøpere matcher ikke debitorer i pantedokumentet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Rejected">
+        <xs:annotation>
+          <xs:documentation>Sendt til et organisasjonsnummer som ikke lenger har
+            et aktivt kundeforhold hos leverandøren - feil config i
+            Altinn AFPANT, eller ugyldig forsendelse.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

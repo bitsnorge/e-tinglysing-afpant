@@ -128,6 +128,7 @@ Ved bruk av ServiceEngine webservices vil Altinn Formidlingstjenester automatisk
 </table>
 
 ## SignedMortgageDeedProcessedMessage objekt
+Se også [definert skjema.](../afpant-model/xsd/pantedokument-1.0.0.xsd)
 <table>
 	<tbody>
 		<tr>
@@ -136,22 +137,22 @@ Ved bruk av ServiceEngine webservices vil Altinn Formidlingstjenester automatisk
 			<td><p><strong>Beskrivelse</strong></p></td>
 		</tr>
 		<tr>
-			<td><p>messageType</p></td>
+			<td><p>MessageType</p></td>
 			<td><p>String</p></td>
 			<td><p>Denne kan være en av følgende:</p><ul><li>SignedMortgageDeedProcessed</li></ul></td>
 		</tr>
 		<tr>
-			<td><p>status</p></td>
+			<td><p>Status</p></td>
 			<td><p>String (enum)</p></td>
 			<td>Denne kan være en av følgende statuser:	<ul><li>RoutedSuccessfully</li><li>UnknownCadastre (ukjent matrikkelenhet)</li><li>DebitorMismatch (fant matrikkelenhet, men antall kjøpere eller navn/id på kjøpere matcher ikke debitorer i pantedokumentet)</li><li>Rejected (sendt til et organisasjonsnummer som ikke lenger har et aktivt kundeforhold hos leverandøren - feil config i Altinn AFPANT, eller ugyldig forsendelse)</li></ul> Kun status 'RoutedSuccessfully' er å anse som ACK (positive acknowledgement). Øvrige statuser er å anse som NACK (negative acknowledgement).</td>
 		</tr>
 		<tr>
-			<td><p>statusDescription</p></td>
+			<td><p>StatusDescription</p></td>
 			<td><p>String</p></td>
 			<td><p>Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et.</td>
 		</tr>
 		<tr>
-			<td><p>externalSystemId</p></td>
+			<td><p>ExternalSystemId</p></td>
 			<td><p>String</p></td>
 			<td><p>Optional: ID/oppdragsnummer/key i eksternt meglersystem/fagsystem.</p></td>
 		</tr>
