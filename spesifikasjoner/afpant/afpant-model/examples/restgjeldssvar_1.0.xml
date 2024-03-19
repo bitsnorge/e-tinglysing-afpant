@@ -1,0 +1,96 @@
+<restgjeldssvar>
+  <avsender id="string">
+    <foretaksnavn>string</foretaksnavn>
+    <!--Optional:-->
+    <adresse>
+      <!--Optional:-->
+      <gatenavn>string</gatenavn>
+      <postnummer>string</postnummer>
+      <poststed>string</poststed>
+    </adresse>
+    <!--Optional:-->
+    <kontaktperson>
+      <navn>string</navn>
+      <!--Optional:-->
+      <epost>string</epost>
+      <!--Optional:-->
+      <telefondirekte>string</telefondirekte>
+      <!--Optional:-->
+      <telefon>string</telefon>
+    </kontaktperson>
+    <referanse>string</referanse>
+    <!--Optional:-->
+    <returnertil id="string">
+      <foretaksnavn>string</foretaksnavn>
+      <!--Optional:-->
+      <adresse>
+        <!--Optional:-->
+        <gatenavn>string</gatenavn>
+        <postnummer>string</postnummer>
+        <poststed>string</poststed>
+      </adresse>
+    </returnertil>
+  </avsender>
+  <mottaker id="string">
+    <foretaksnavn>string</foretaksnavn>
+    <!--Optional:-->
+    <adresse>
+      <!--Optional:-->
+      <gatenavn>string</gatenavn>
+      <postnummer>string</postnummer>
+      <poststed>string</poststed>
+    </adresse>
+    <!--Optional:-->
+    <referanse>string</referanse>
+  </mottaker>
+  <laanliste>
+    <!--1 or more repetitions:-->
+    <laan>
+      <rammelaan>true</rammelaan>
+      <!--Optional:-->
+      <oevreGrenseRammelaan>1.051732E7</oevreGrenseRammelaan>
+      <fastrente>true</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <laanenummer>string</laanenummer>
+      <kontonummer>string</kontonummer>
+      <!--Optional:-->
+      <kidnummer>string</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>string</betalingsmelding>
+      <saldo>1000.00</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>string</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+  </laanliste>
+  <registerenheterMedDokumentreferanser>
+    <!--1 or more repetitions:-->
+    <registerenhetMedDokumentreferanse>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <matrikkel kommunenavn="string" kommunenummer="string" gaardsnummer="string" bruksnummer="string" festenummer="string" seksjonsnummer="string" eiendomsnivaa="F_1"/>
+      <borettsandel organisasjonsnummer="string" borettslagnavn="string" andelsnummer="string"/>
+      <aksjeleilighet organisasjonsnummer="string" organisasjonsnavn="string" leilighetsnummer="string"/>
+      <pantedokumentreferanser>
+        <!--Zero or more repetitions:-->
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2006-11-10T19:00:47+01:00" beloep="201"/>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+  </registerenheterMedDokumentreferanser>
+  <sperretForVidereOpplaan>false</sperretForVidereOpplaan>
+  <bekreftelsePantrettSlettes>false</bekreftelsePantrettSlettes>
+  <metadata>
+    <!--Optional:-->
+    <ressurser>
+      <!--Zero or more repetitions:-->
+      <vedlegg>
+        <navn>string</navn>
+        <mimetype>string</mimetype>
+        <!--Optional:-->
+        <beskrivelse>string</beskrivelse>
+      </vedlegg>
+    </ressurser>
+    <opprettet>2014-04-14T05:47:22+02:00</opprettet>
+  </metadata>
+</restgjeldssvar>

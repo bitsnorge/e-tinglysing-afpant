@@ -1,0 +1,92 @@
+<innfrielsessaldoforespoersel>
+  <avsender id="string">
+    <foretaksnavn>string</foretaksnavn>
+    <!--Optional:-->
+    <adresse>
+      <!--Optional:-->
+      <gatenavn>string</gatenavn>
+      <postnummer>string</postnummer>
+      <poststed>string</poststed>
+    </adresse>
+    <!--Optional:-->
+    <kontaktperson>
+      <navn>string</navn>
+      <!--Optional:-->
+      <epost>string</epost>
+      <!--Optional:-->
+      <telefondirekte>string</telefondirekte>
+      <!--Optional:-->
+      <telefon>string</telefon>
+    </kontaktperson>
+    <referanse>string</referanse>
+    <!--Optional:-->
+    <returnertil id="string">
+      <foretaksnavn>string</foretaksnavn>
+      <!--Optional:-->
+      <adresse>
+        <!--Optional:-->
+        <gatenavn>string</gatenavn>
+        <postnummer>string</postnummer>
+        <poststed>string</poststed>
+      </adresse>
+    </returnertil>
+  </avsender>
+  <mottaker id="string">
+    <foretaksnavn>string</foretaksnavn>
+    <!--Optional:-->
+    <adresse>
+      <!--Optional:-->
+      <gatenavn>string</gatenavn>
+      <postnummer>string</postnummer>
+      <poststed>string</poststed>
+    </adresse>
+    <!--Optional:-->
+    <referanse>string</referanse>
+  </mottaker>
+  <registerenheterMedHjemmelshavere>
+    <!--1 or more repetitions:-->
+    <registerenhetMedHjemmelshavere>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <matrikkel kommunenavn="string" kommunenummer="string" gaardsnummer="string" bruksnummer="string" festenummer="string" seksjonsnummer="string" eiendomsnivaa="F"/>
+      <borettsandel organisasjonsnummer="string" borettslagnavn="string" andelsnummer="string"/>
+      <aksjeleilighet organisasjonsnummer="string" organisasjonsnavn="string" leilighetsnummer="string"/>
+      <hjemmelshavere>
+        <!--1 or more repetitions:-->
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <organisasjon id="string">
+            <foretaksnavn>string</foretaksnavn>
+            <!--Optional:-->
+            <adresse>
+              <!--Optional:-->
+              <gatenavn>string</gatenavn>
+              <postnummer>string</postnummer>
+              <poststed>string</poststed>
+            </adresse>
+          </organisasjon>
+          <person id="string">
+            <fornavn>string</fornavn>
+            <etternavn>string</etternavn>
+          </person>
+        </hjemmelshaver>
+      </hjemmelshavere>
+    </registerenhetMedHjemmelshavere>
+  </registerenheterMedHjemmelshavere>
+  <innfrielsesdatoer>
+    <!--1 or more repetitions:-->
+    <innfrielsesdato>2005-03-13</innfrielsesdato>
+  </innfrielsesdatoer>
+  <metadata>
+    <!--Optional:-->
+    <ressurser>
+      <!--Zero or more repetitions:-->
+      <vedlegg>
+        <navn>string</navn>
+        <mimetype>string</mimetype>
+        <!--Optional:-->
+        <beskrivelse>string</beskrivelse>
+      </vedlegg>
+    </ressurser>
+    <opprettet>2004-01-17T04:42:06</opprettet>
+  </metadata>
+</innfrielsessaldoforespoersel>
