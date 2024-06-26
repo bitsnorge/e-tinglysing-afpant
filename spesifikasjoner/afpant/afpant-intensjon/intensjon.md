@@ -21,6 +21,8 @@ Alle som implementerer støtte for mottak av "_IntensjonFraBank_" eller mottak a
 
 Mottakere av meldingstypen "_IntensjonFraBank_" må benytte avsenders saksnummer (_IntensjonFraBank.Avsender.Referanse_) i all videre kommunikasjon til avsenderbank.
 
+Intensjonssendringer stoppes dersom forutsetningene ikke lengre er tilstede. Dette uavhengig av om det er implementert støtte for [AvbruttSamhandling](#meldingstype-avbruttsamhandling)
+
 ## Validering og ruting
 ### Ruting (meglersystem)
 - mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
@@ -106,3 +108,22 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 ##### Modell
 ![model intensjonsendring](examples/intensjonsendring-model.png "Modell intensjonsendring")
 <hr/>
+
+
+## Meldingstype: AvbruttSamhandling
+Sendes når forutseningen for samhandling ikke lenger er tilstede. 
+Dette kan for eksempel gjelde hvis kjøper i oppdraget er endret slik at opprinnelig kunde ikke lenger inngår i oppdraget og GDPR tilsier at man ikke lenger kan motta informasjon fra megler.
+Det er opp til megler/megler sitt system å avgjøre når denne meldingen skal sendes.
+Det er opp til mottaker å avgjøre hva som skjer i systmet i etterkant av denne meldingen.
+
+Meldingtypen "AvbruttSamhandling" gir ikke ACK/NACK fra mottaker.
+
+I AKELDO kan meldingstypen "AvbruttSamhandling" finnes både på en aktørs 'sendeliste' og 'mottaksliste'.
+Det lages ikke en avbrutt melding per "hovedmelding". Ved mottak skal man anta at all samhandling avsluttes for eksempel både kjøpekontrak og intensjon.
+
+### Manifest
+(BrokerServiceInitiation.Manifest.PropertyList)
+
+|Manifest key|Type|Obligatorisk| Beskrivelse        |
+|--- |--- |--- |--------------------|
+|messageType|String|Ja| AvbruttSamhandling |

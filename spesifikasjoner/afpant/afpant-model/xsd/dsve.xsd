@@ -14,6 +14,7 @@
   <xs:element name="intensjonsendring" type="Intensjonsendring"/>
   <xs:element name="gjennomfoertetinglysing" type="GjennomfoertEtinglysing"/>
   <xs:element name="oppnaaddprioritetok" type="OppnaaddPrioritetOk"/>
+  <xs:element name="avbruttsamhandling" type="AvbruttSamhandling"/>
 
   <xs:complexType name="KjoepekontraktforespoerselFraBank">
     <xs:annotation>
@@ -788,4 +789,28 @@
       <xs:element name="kjoeper" type="Aktoer" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="AvbruttSamhandling">
+    <xs:annotation>
+      <xs:documentation>
+        Avbrutt samhandling er en meldings om sendes for tidligere etablert sammhandling hvor forutsettningen for samhandling ikke lenger er tilstede.
+        Typisk kan dette sendes hvor man ikke lenger vil sende intensjonsendring eller kjoepekontraktEndringFraMegler.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="begrunnelse" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            En menneskelig forstårlig tekst som kan forklare hvorfor samhandling er avsluttet
+            Eksempel: "Kjøper har trukket seg fra kjøpet", "Forkjøpsrett er benyttet", "Kjøper har ikke godkjent finansiering"
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
 </xs:schema>

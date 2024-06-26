@@ -16,14 +16,17 @@ Hvilke endringer/felter som krever at megler sender på nytt er angitt med _hake
 Alle banker som implementerer støtte for mottak av [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler) 
 må også støtte mottak av [KjoepekontraktFraMegler](#meldingstype-kjoepekontraktframegler).
 
+Kjøpekontraktsendringer stoppes dersom forutsetningene ikke lengre er tilstede. Dette uavhengig av om det er implementert støtte for [AvbruttSamhandling](#AvbruttSamhandling).
+
 # Meldingstyper
 ## Oversikt over meldingstyper for kjøpekontrakt
-| Navn | Beskrivelse | Payload/vedlagt fil | 
-|------|------|----|
-| [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank) | Bank forespør kjøpekontrakt fra megler | XSD: KjoepekontraktforespoerselFraBank | 
-| [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler)  | Meglers svar på Kjøpekontraktforespørsel fra bank | XSD: KjoepekontraktSvarFraMegler |
-| [KjoepekontraktEndringFraMegler](#kjoepekontraktendringframegler-ved-endring) | Megler sender endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten. Denne meldingen skal ikke besvares. | XSD: KjoepekontraktFraMegler |
-|[KjoepekontraktUoppfordretFraMegler](#kjoepekontraktuoppfordretframegler-sendes-uoppfordret)|Megler sender kjøpekontrakt uoppfordret til bank som ikke har forespurt kjøpekontrakt. Denne meldingen skal ikke besvares.|XSD: KjoepekontraktFraMegler|
+| Navn                                                                                         | Beskrivelse                                                                                                                                                | Payload/vedlagt fil                    | 
+|----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| [KjoepekontraktforespoerselFraBank](#meldingstype-kjoepekontraktforespoerselfrabank)         | Bank forespør kjøpekontrakt fra megler                                                                                                                     | XSD: KjoepekontraktforespoerselFraBank | 
+| [KjoepekontraktSvarFraMegler](#meldingstype-kjoepekontraktsvarframegler)                     | Meglers svar på Kjøpekontraktforespørsel fra bank                                                                                                          | XSD: KjoepekontraktSvarFraMegler       |
+| [KjoepekontraktEndringFraMegler](#kjoepekontraktendringframegler-ved-endring)                | Megler sender endringer og tillegg i kjøpekontrakten uoppfordret, til bank som allerede har forespurt kjøpekontrakten. Denne meldingen skal ikke besvares. | XSD: KjoepekontraktFraMegler           |
+| [AvbruttSamhandling](#AvbruttSamhandling)                             | Megler sender til bank hvis det er endringer som gjør at videre samhandling ikke er aktuelt.                                                               | XSD: AvbruttSamhandling                |
+| [KjoepekontraktUoppfordretFraMegler](#kjoepekontraktuoppfordretframegler-sendes-uoppfordret) | Megler sender kjøpekontrakt uoppfordret til bank som ikke har forespurt kjøpekontrakt. Denne meldingen skal ikke besvares.                                 | XSD: KjoepekontraktFraMegler           |
 
 # Meldingstype: KjoepekontraktforespoerselFraBank
 Bank forespør kjøpekontrakt fra megler
@@ -133,6 +136,14 @@ Meglers systemleverandør slutter å sende oppdateringer via kjoepekontraktEndri
 
 
 _Denne meldingen skal ikke besvares._ 
+
+### AvbruttSamhandling
+Sendes når forutseningen for samhandling ikke lenger er tilstede. 
+Dette kan for eksempel gjelde hvis kjøper i oppdraget er endret slik at opprinnelig kunde ikke lenger inngår i oppdraget og GDPR tilsier at man ikke lenger kan motta informasjon fra megler.
+Det er opp til megler/megler sitt system å avgjøre når denne meldingen skal sendes.
+Det er opp til mottaker å avgjøre hva som skjer i systmet i etterkant av denne meldingen.
+
+_Denne meldingen skal ikke besvares._
 
 ## Validering og ruting(banksystem)
 Mottakende systemleverandør søker blant lånesaker hvor saksnummer matcher `kjoepekontrakt.bank.referanse` dersom den er angitt.

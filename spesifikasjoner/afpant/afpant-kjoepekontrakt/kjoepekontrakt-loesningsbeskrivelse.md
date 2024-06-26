@@ -78,6 +78,30 @@ Hvilke felter som skal trigge en melding til banken om at det har skjedd en endr
 
 Meldingstype: [kjoepekontraktEndringFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktendringframegler-ved-endring) 
 
+## Avbrutt samhandling
+
+Sendes når forutseningen for samhandling ikke lenger er tilstede. Dette kan for eksempel gjelde hvis kjøper i oppdraget er endret slik at opprinnelig kunde ikke lenger inngår i oppdraget og GDPR tilsier at man ikke lenger kan motta informasjon fra megler.
+Det er opp til mottaker å avgjøre hva som skjer i systmet i etterkant av denne meldingen.
+
+Meldingtypen "AvbruttSamhandling" gir ikke ACK/NACK fra mottaker.
+
+I AKELDO kan meldingstypen "AvbruttSamhandling" finnes både på en aktørs 'sendeliste' og 'mottaksliste'. 
+Det lages ikke en avbrutt melding per "hovedmelding". Ved mottak skal man anta at all samhandling avsluttes for eksempel både kjøpekontrak og intensjon.
+
+### Manifest
+(BrokerServiceInitiation.Manifest.PropertyList)
+
+|Manifest key|Type|Obligatorisk| Beskrivelse        |
+|--- |--- |--- |--------------------|
+|messageType|String|Ja| AvbruttSamhandling |
+
+Meldingstype: [AvbruttSamhandling](./kjoepekontrakt-teknisk-beskrivelse.md#AvbruttSamhandling)
+
+
+## Uoppfordret
+
+Meldingstype: [kjoepekontraktUoppfordretFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktuoppfordretframegler-sendes-uoppfordret)
+
 # Alternative flyter
 
 ## Kjøpekontrakten er ikke signert
@@ -125,8 +149,6 @@ I tilfeller hvor megler har informasjon om banken som har verifisert finansierin
 til bank når denne er signert, uten å først ha mottatt en forespørsel fra banken. 
 Dette innebærer at megler kan sende kjøpekontrakt og strukturerte data ved hjelp av en pushmelding til banken.
 I slike tilfeller vil megler da ikke kunne fylle ut bankens referanse i meldingen!
-
-Meldingstype: [kjoepekontraktUoppfordretFraMegler](./kjoepekontrakt-teknisk-beskrivelse.md#kjoepekontraktuoppfordretframegler-sendes-uoppfordret) 
 
 
 
