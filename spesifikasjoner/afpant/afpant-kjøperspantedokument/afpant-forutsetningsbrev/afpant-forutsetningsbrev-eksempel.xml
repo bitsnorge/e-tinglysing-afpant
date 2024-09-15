@@ -28,26 +28,24 @@
     <Beloep>251230</Beloep>
     <ForstePrioritet>false</ForstePrioritet>
     <Prioritet>
-            <PrioritetsAngivelse>
-            <Rekkefolge>PrioritetEtter</Rekkefolge>
-            <Panthaver>
-                <Nummer>987412548</Nummer>
-                <Navn>Husbanken</Navn>
-            </Panthaver>
-            <Beloep>1250000</Beloep>
-            <PrioritetsBeskrivelse>Tekst av noe slag</PrioritetsBeskrivelse>
-            </PrioritetsAngivelse>
-    </Prioritet>
-    <Prioritet>
-            <PrioritetsAngivelse>
-            <Rekkefolge>PrioritetLikestiltMed</Rekkefolge>
-            <Panthaver>
-                <Nummer>921345687</Nummer>
-                <Navn>Sparebanken Vest</Navn>
-            </Panthaver>
-            <Beloep>2000000</Beloep>
-            <PrioritetsBeskrivelse>Bank til annet familie medlem</PrioritetsBeskrivelse>
-            </PrioritetsAngivelse>
+      <PrioritetsAngivelse>
+        <Rekkefolge>PrioritetEtter</Rekkefolge>
+        <Panthaver>
+          <Nummer>987412548</Nummer>
+          <Navn>Husbanken</Navn>
+        </Panthaver>
+        <Beloep>1250000</Beloep>
+        <PrioritetsBeskrivelse>Tekst av noe slag</PrioritetsBeskrivelse>
+      </PrioritetsAngivelse>
+      <PrioritetsAngivelse>
+        <Rekkefolge>PrioritetLikestiltMed</Rekkefolge>
+        <Panthaver>
+          <Nummer>921345687</Nummer>
+          <Navn>Sparebanken Vest</Navn>
+        </Panthaver>
+        <Beloep>2000000</Beloep>
+        <PrioritetsBeskrivelse>Bank til annet familie medlem</PrioritetsBeskrivelse>
+      </PrioritetsAngivelse>
     </Prioritet>
   </PantedokumentDetaljer>
   <OverfoerselDetaljer>
@@ -58,7 +56,6 @@
     <KID>10001000222111</KID>
     <KreditorSaksnummer>Lånesak 124-221/22</KreditorSaksnummer>
     <MeglerSaksnummer>117-00-1002 Lånegaten 15 B</MeglerSaksnummer>
-    <BeloepGjelder>dekning av kjøpesum for ovennevnte eiendom</BeloepGjelder>
     <ProdusertDato>2019-01-25T10:15:23.2962746+01:00</ProdusertDato>
   </OverfoerselDetaljer>
   <Avsender>
