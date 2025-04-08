@@ -281,18 +281,9 @@
             <div class="celle">
                 <xsl:choose>
                     <xsl:when test="matrikkel">
-                        <div>Matrikkel:</div>
-                        <div class="innhold">
-                            Kommune: <xsl:value-of select="matrikkel/@kommunenavn"/> (<xsl:value-of select="matrikkel/@kommunenummer"/>)<br/>
-                            Gårdsnr: <xsl:value-of select="matrikkel/@gaardsnummer"/><br/>
-                            Bruksnr: <xsl:value-of select="matrikkel/@bruksnummer"/>
-                            <xsl:if test="matrikkel/@festenummer">
-                                <br/>Festenr: <xsl:value-of select="matrikkel/@festenummer"/>
-                            </xsl:if>
-                            <xsl:if test="matrikkel/@seksjonsnummer">
-                                <br/>Seksjonsnr: <xsl:value-of select="matrikkel/@seksjonsnummer"/>
-                            </xsl:if>
-                        </div>
+                        <xsl:call-template name="matrikkel">
+                            <xsl:with-param name="matrikkel" select="matrikkel"/>
+                        </xsl:call-template>    
                     </xsl:when>
                     <xsl:when test="borettsandel">
                         <div>Borettsandel:</div>
@@ -450,18 +441,9 @@
                 <div class="celle">
                     <xsl:choose>
                         <xsl:when test="matrikkel">
-                            <div>Matrikkel:</div>
-                            <div class="innhold">
-                                Kommune: <xsl:value-of select="matrikkel/@kommunenavn"/> (<xsl:value-of select="matrikkel/@kommunenummer"/>)<br/>
-                                Gårdsnr: <xsl:value-of select="matrikkel/@gaardsnummer"/><br/>
-                                Bruksnr: <xsl:value-of select="matrikkel/@bruksnummer"/>
-                                <xsl:if test="matrikkel/@festenummer">
-                                    <br/>Festenr: <xsl:value-of select="matrikkel/@festenummer"/>
-                                </xsl:if>
-                                <xsl:if test="matrikkel/@seksjonsnummer">
-                                    <br/>Seksjonsnr: <xsl:value-of select="matrikkel/@seksjonsnummer"/>
-                                </xsl:if>
-                            </div>
+                            <xsl:call-template name="matrikkel">
+                                <xsl:with-param name="matrikkel" select="matrikkel"/>
+                            </xsl:call-template>
                         </xsl:when>
                         <xsl:when test="borettsandel">
                             <div>Borettsandel:</div>
@@ -521,6 +503,29 @@
                 </div>
             </div>
         </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template name="matrikkel">
+        <xsl:param name="matrikkel"/>
+        <div>
+        <xsl:text>Kommune:&#x20;</xsl:text>
+        <xsl:value-of select="$matrikkel/@kommunenavn"/>
+        <xsl:text>&#x20;</xsl:text>
+        <xsl:value-of select="$matrikkel/@kommunenummer"/>
+        <xsl:text>,&#x20;gårdsnr.:&#x20;</xsl:text>
+        <xsl:value-of select="$matrikkel/@gaardsnummer"/>
+        <xsl:text>,&#x20;bruksnr.:&#x20;</xsl:text>
+        <xsl:value-of select="$matrikkel/@bruksnummer"/>
+        <!-- Siden XSD sier at seksjonsnummer / festenummer er optional tester vi også mot tom streng (PH) -->
+        <xsl:if test="not($matrikkel/@seksjonsnummer = '0') and not($matrikkel/@seksjonsnummer = '')">
+            <xsl:text>,&#x20;sekjsonsnr.:&#x20;</xsl:text>
+            <xsl:value-of select="$matrikkel/@seksjonsnummer"/>
+        </xsl:if>
+        <xsl:if test="not($matrikkel/@festenummer = '0') and not($matrikkel/@festenummer = '')">
+            <xsl:text>,&#x20;festenr.:&#x20;</xsl:text>
+            <xsl:value-of select="$matrikkel/@festenummer"/>
+        </xsl:if>
+        </div>
     </xsl:template>
 
 </xsl:stylesheet>
