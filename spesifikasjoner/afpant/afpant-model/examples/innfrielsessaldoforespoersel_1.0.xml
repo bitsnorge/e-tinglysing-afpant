@@ -49,8 +49,6 @@
     <registerenhetMedHjemmelshavere>
       <!--You have a CHOICE of the next 3 items at this level-->
       <matrikkel kommunenavn="Oslo" kommunenummer="0301" gaardsnummer="1" bruksnummer="2" festenummer="3" seksjonsnummer="4" eiendomsnivaa="F"/>
-      <borettsandel organisasjonsnummer="123456789" borettslagnavn="Borettslaget" andelsnummer="1"/>
-      <aksjeleilighet organisasjonsnummer="123456789" organisasjonsnavn="Aksjeselskapet" leilighetsnummer="1"/>
       <hjemmelshavere>
         <!--1 or more repetitions:-->
         <hjemmelshaver>
@@ -67,6 +65,52 @@
           </organisasjon>
           <person id="01017613245">
             <fornavn>Kari</fornavn>
+            <etternavn>Nordmann</etternavn>
+          </person>
+        </hjemmelshaver>
+      </hjemmelshavere>
+    </registerenhetMedHjemmelshavere>
+    <registerenhetMedHjemmelshavere>
+      <borettsandel organisasjonsnummer="123456789" borettslagnavn="Borettslaget" andelsnummer="1"/>
+      <hjemmelshavere>
+        <!--1 or more repetitions:-->
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <organisasjon id="928000004">
+            <foretaksnavn>HJEMMELSHAVER 2 AS</foretaksnavn>
+            <!--Optional:-->
+            <adresse>
+              <!--Optional:-->
+              <gatenavn>Gatenavn 5</gatenavn>
+              <postnummer>1234</postnummer>
+              <poststed>Oslo</poststed>
+            </adresse>
+          </organisasjon>
+          <person id="01017613246">
+            <fornavn>Jan</fornavn>
+            <etternavn>Nordmann</etternavn>
+          </person>
+        </hjemmelshaver>
+      </hjemmelshavere>
+    </registerenhetMedHjemmelshavere>
+    <registerenhetMedHjemmelshavere>
+      <aksjeleilighet organisasjonsnummer="123456789" organisasjonsnavn="Aksjeselskapet" leilighetsnummer="1"/>
+      <hjemmelshavere>
+        <!--1 or more repetitions:-->
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <organisasjon id="928000004">
+            <foretaksnavn>HJEMMELSHAVER 2 AS</foretaksnavn>
+            <!--Optional:-->
+            <adresse>
+              <!--Optional:-->
+              <gatenavn>Gatenavn 5</gatenavn>
+              <postnummer>1234</postnummer>
+              <poststed>Oslo</poststed>
+            </adresse>
+          </organisasjon>
+          <person id="01017613246">
+            <fornavn>Jan</fornavn>
             <etternavn>Nordmann</etternavn>
           </person>
         </hjemmelshaver>
