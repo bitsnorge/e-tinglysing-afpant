@@ -227,7 +227,10 @@
         <div class="rad">
             <div class="celle">
                 <div>Lånenummer: <xsl:value-of select="laanenummer"/></div>
-                <div>Kontonummer: <xsl:value-of select="kontonummer"/></div>
+                <div>Kontonummer: <xsl:call-template name="formatAccountNumber">
+                    <xsl:with-param name="numericValue" select="kontonummer"/>
+                </xsl:call-template>
+                </div>
                 <xsl:if test="kidnummer">
                     <div>KID: <xsl:value-of select="kidnummer"/></div>
                 </xsl:if>
@@ -315,6 +318,12 @@
                 </xsl:if>
             </div>
         </div>
+    </xsl:template>
+
+    <!-- Helper template for formatting Norwegian account numbers -->
+    <xsl:template name="formatAccountNumber">
+        <xsl:param name="numericValue" select="."/>
+        <xsl:value-of select="concat(substring($numericValue, 1, 4), '.', substring($numericValue, 5, 2), '.', substring($numericValue, 7, 5))"/>
     </xsl:template>
 
     <!-- Helper template for formatting dates -->
