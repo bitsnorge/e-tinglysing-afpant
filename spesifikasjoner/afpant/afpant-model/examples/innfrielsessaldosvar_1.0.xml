@@ -77,11 +77,25 @@
     <registerenhetMedDokumentreferanse>
       <!--You have a CHOICE of the next 3 items at this level-->
       <matrikkel kommunenavn="Oslo" kommunenummer="0301" gaardsnummer="1" bruksnummer="2" festenummer="3" seksjonsnummer="4" eiendomsnivaa="F"/>
+      <pantedokumentreferanser>
+        <!--Zero or more repetitions:-->
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="101010"/>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+    <registerenhetMedDokumentreferanse>
+      <!--You have a CHOICE of the next 3 items at this level-->
       <borettsandel organisasjonsnummer="123456789" borettslagnavn="Borettslaget" andelsnummer="1"/>
+      <pantedokumentreferanser>
+        <!--Zero or more repetitions:-->
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="2010111"/>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+    <registerenhetMedDokumentreferanse>
+      <!--You have a CHOICE of the next 3 items at this level-->
       <aksjeleilighet organisasjonsnummer="123456789" organisasjonsnavn="Aksjeselskapet" leilighetsnummer="1"/>
       <pantedokumentreferanser>
         <!--Zero or more repetitions:-->
-        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="201"/>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="13"/>
       </pantedokumentreferanser>
     </registerenhetMedDokumentreferanse>
   </registerenheterMedDokumentreferanser>
