@@ -350,6 +350,23 @@
         <xsl:value-of select="format-number(number($numericValue), '### ### ### ###', 'nb-no-space')"/>
     </xsl:template>
 
+    <!-- Helper template for formatting norwegian phone numbers -->
+    <xsl:template name="formatPhoneNumber">
+        <xsl:param name="prefix"/>
+        <xsl:param name="phoneValue" select="."/>
+        <xsl:choose>
+            <xsl:when test="string-length($phoneValue) = 8">
+                <xsl:value-of select="concat(substring($phoneValue, 1, 2), ' ', substring($phoneValue, 3, 2), ' ', substring($phoneValue, 5, 2), ' ', substring($phoneValue, 7, 2))"/>
+            </xsl:when>
+            <xsl:when test="string-length($phoneValue) = 11 and substring($phoneValue, 1, 1) = '+'">
+                <xsl:value-of select="concat(substring($phoneValue, 1, 3), ' ', substring($phoneValue, 4, 2), ' ', substring($phoneValue, 6, 2), ' ', substring($phoneValue, 8, 2), ' ', substring($phoneValue, 10, 2))"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$phoneValue"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <!-- Avsender template -->
     <xsl:template match="avsender">
         <div class="rad">
@@ -380,7 +397,9 @@
                         <div><a href="mailto:{kontaktperson/epost}"><xsl:value-of select="kontaktperson/epost"/></a></div>
                     </xsl:if>
                     <xsl:if test="kontaktperson/telefon">
-                        <div>Tlf: <a href="tel:{kontaktperson/telefon}"><xsl:value-of select="kontaktperson/telefon"/></a></div>
+                        <div>Tlf: <a href="tel:{kontaktperson/telefon}"><xsl:call-template name="formatPhoneNumber">
+                            <xsl:with-param name="phoneValue" select="kontaktperson/telefon"/>
+                        </xsl:call-template></a></div>
                     </xsl:if>
                 </div>
             </div>
