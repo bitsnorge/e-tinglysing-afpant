@@ -1,3 +1,4 @@
+<?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
 <innfrielsessaldoforespoersel>
   <avsender id="928000000">
     <foretaksnavn>AVSENDER AS</foretaksnavn>
