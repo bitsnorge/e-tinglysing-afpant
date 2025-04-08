@@ -1,59 +1,59 @@
 <innfrielsessaldosvar>
-  <avsender id="string">
-    <foretaksnavn>string</foretaksnavn>
+  <avsender id="928000000">
+    <foretaksnavn>AVSENDER AS</foretaksnavn>
     <!--Optional:-->
     <adresse>
       <!--Optional:-->
-      <gatenavn>string</gatenavn>
-      <postnummer>string</postnummer>
-      <poststed>string</poststed>
+      <gatenavn>Gatenavn 1</gatenavn>
+      <postnummer>1234</postnummer>
+      <poststed>Oslo</poststed>
     </adresse>
     <!--Optional:-->
     <kontaktperson>
-      <navn>string</navn>
+      <navn>Ola Nordmann</navn>
       <!--Optional:-->
-      <epost>string</epost>
+      <epost>ola.nordmann@foretaksnavn.no</epost>
       <!--Optional:-->
-      <telefondirekte>string</telefondirekte>
+      <telefondirekte>12345678</telefondirekte>
       <!--Optional:-->
-      <telefon>string</telefon>
+      <telefon>12345678</telefon>
     </kontaktperson>
-    <referanse>string</referanse>
+    <referanse>REF-123</referanse>
     <!--Optional:-->
-    <returnertil id="string">
-      <foretaksnavn>string</foretaksnavn>
+    <returnertil id="928000001">
+      <foretaksnavn>RETURNERTIL AS</foretaksnavn>
       <!--Optional:-->
       <adresse>
         <!--Optional:-->
-        <gatenavn>string</gatenavn>
-        <postnummer>string</postnummer>
-        <poststed>string</poststed>
+        <gatenavn>Gatenavn 2</gatenavn>
+        <postnummer>1234</postnummer>
+        <poststed>Oslo</poststed>
       </adresse>
     </returnertil>
   </avsender>
-  <mottaker id="string">
-    <foretaksnavn>string</foretaksnavn>
+  <mottaker id="928000002">
+    <foretaksnavn>MOTTAKER AS</foretaksnavn>
     <!--Optional:-->
     <adresse>
       <!--Optional:-->
-      <gatenavn>string</gatenavn>
-      <postnummer>string</postnummer>
-      <poststed>string</poststed>
+      <gatenavn>Gatenavn 3</gatenavn>
+      <postnummer>1234</postnummer>
+      <poststed>Oslo</poststed>
     </adresse>
     <!--Optional:-->
-    <referanse>string</referanse>
+    <referanse>REF-456</referanse>
   </mottaker>
   <laanliste>
     <!--1 or more repetitions:-->
     <laan>
       <laantakerIkkeHjemmelshaver>false</laantakerIkkeHjemmelshaver>
       <transporterklaering>true</transporterklaering>
-      <laanenummer>string</laanenummer>
-      <kontonummer>string</kontonummer>
+      <laanenummer>1234567890</laanenummer>
+      <kontonummer>1234567890</kontonummer>
       <!--Optional:-->
-      <kidnummer>string</kidnummer>
+      <kidnummer>1234567890</kidnummer>
       <!--Optional:-->
-      <betalingsmelding>string</betalingsmelding>
+      <betalingsmelding>Betaling til innfrielsessaldo</betalingsmelding>
       <saldoerPerDato>
         <!--1 or more repetitions:-->
         <saldoPerDato>
@@ -63,7 +63,7 @@
       </saldoerPerDato>
       <laantakereHjemmelshaver>
         <!--Zero or more repetitions:-->
-        <navn>string</navn>
+        <navn>Kari Nordmann</navn>
       </laantakereHjemmelshaver>
     </laan>
   </laanliste>
@@ -71,9 +71,9 @@
     <!--1 or more repetitions:-->
     <registerenhetMedDokumentreferanse>
       <!--You have a CHOICE of the next 3 items at this level-->
-      <matrikkel kommunenavn="string" kommunenummer="string" gaardsnummer="string" bruksnummer="string" festenummer="string" seksjonsnummer="string" eiendomsnivaa="F"/>
-      <borettsandel organisasjonsnummer="string" borettslagnavn="string" andelsnummer="string"/>
-      <aksjeleilighet organisasjonsnummer="string" organisasjonsnavn="string" leilighetsnummer="string"/>
+      <matrikkel kommunenavn="Oslo" kommunenummer="0301" gaardsnummer="1" bruksnummer="2" festenummer="3" seksjonsnummer="4" eiendomsnivaa="F"/>
+      <borettsandel organisasjonsnummer="123456789" borettslagnavn="Borettslaget" andelsnummer="1"/>
+      <aksjeleilighet organisasjonsnummer="123456789" organisasjonsnavn="Aksjeselskapet" leilighetsnummer="1"/>
       <pantedokumentreferanser>
         <!--Zero or more repetitions:-->
         <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="201"/>
@@ -85,10 +85,10 @@
     <ressurser>
       <!--Zero or more repetitions:-->
       <vedlegg>
-        <navn>string</navn>
-        <mimetype>string</mimetype>
+        <navn>Vedlegg 1</navn>
+        <mimetype>application/pdf</mimetype>
         <!--Optional:-->
-        <beskrivelse>string</beskrivelse>
+        <beskrivelse>Beskrivelse av vedlegg 1</beskrivelse>
       </vedlegg>
     </ressurser>
     <opprettet>2003-09-03T02:04:43</opprettet>
