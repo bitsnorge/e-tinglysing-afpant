@@ -238,19 +238,32 @@
                     <div>Betalingsmelding: <xsl:value-of select="betalingsmelding"/></div>
                 </xsl:if>
                 
-                <div class="rolleoverskrift">Saldoer per dato</div>
-                <xsl:for-each select="saldoerPerDato/saldoPerDato">
-                    <div class="innhold">
-                        <xsl:call-template name="formatNumber">
-                            <xsl:with-param name="prefix" select="'Kr. '"/>
-                            <xsl:with-param name="numericValue" select="beloep"/>
-                        </xsl:call-template>
-                        <xsl:text> per </xsl:text>
-                        <xsl:call-template name="format-date">
-                            <xsl:with-param name="date" select="dato"/>
-                        </xsl:call-template>
-                    </div>
-                </xsl:for-each>
+                <table class="innhold" style="border-collapse: collapse;">
+                    <caption class="rolleoverskrift" style="text-align: left;">Saldoer per dato</caption>
+                    <thead>
+                        <tr class="headerrad">
+                            <th style="text-align: left; padding-right: 10px;">Dato</th>
+                            <th style="text-align: left; ">Beløp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:for-each select="saldoerPerDato/saldoPerDato">
+                            <tr>
+                                <td style="padding-right: 10px;">
+                                    <xsl:call-template name="format-date">
+                                        <xsl:with-param name="date" select="dato"/>
+                                    </xsl:call-template>
+                                </td>
+                                <td style="text-align: left; ">
+                                    <xsl:call-template name="formatNumber">
+                                        <xsl:with-param name="prefix" select="'Kr. '"/>
+                                        <xsl:with-param name="numericValue" select="beloep"/>
+                                    </xsl:call-template>
+                                </td>
+                            </tr>
+                        </xsl:for-each>
+                    </tbody>
+                </table>
 
                 <xsl:if test="laantakereHjemmelshaver/navn">
                     <div class="rolleoverskrift">Låntakere som er hjemmelshavere</div>
