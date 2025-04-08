@@ -242,7 +242,7 @@
                 <xsl:for-each select="saldoerPerDato/saldoPerDato">
                     <div class="innhold">
                         <xsl:call-template name="formatNumber">
-                            <xsl:with-param name="prefix" select="'NOK '"/>
+                            <xsl:with-param name="prefix" select="'Kr. '"/>
                             <xsl:with-param name="numericValue" select="beloep"/>
                         </xsl:call-template>
                         <xsl:text> per </xsl:text>
@@ -310,7 +310,7 @@
                                 <xsl:with-param name="datetime" select="@registreringstidspunkt"/>
                             </xsl:call-template><br/>
                             Beløp: <xsl:call-template name="formatNumber">
-                                <xsl:with-param name="prefix" select="'NOK '"/>
+                                <xsl:with-param name="prefix" select="'Kr. '"/>
                                 <xsl:with-param name="numericValue" select="@beloep"/>
                             </xsl:call-template>
                         </div>
