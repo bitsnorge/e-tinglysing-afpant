@@ -135,6 +135,7 @@
                     <div id="body">
                         <xsl:apply-templates select="innfrielsessaldoforespoersel"/>
                         <xsl:apply-templates select="innfrielsessaldosvar"/>
+                        <xsl:apply-templates select="restgjeldsforespoersel"/>
                     </div>
                 </div>
             </body>
@@ -146,6 +147,9 @@
         </xsl:if>
         <xsl:if test="innfrielsessaldosvar">
             <xsl:text>Svar på innfrielsessaldo</xsl:text>
+        </xsl:if>
+        <xsl:if test="restgjeldsforespoersel">
+            <xsl:text>Forespørsel om restgjeld</xsl:text>
         </xsl:if>
     </xsl:template>
     <xsl:template match="/innfrielsessaldoforespoersel">
@@ -167,6 +171,29 @@
         <xsl:call-template name="ressurser"/>
         <xsl:call-template name="avsender"/>
         <hr/>
+    </xsl:template>
+    <xsl:template match="/restgjeldsforespoersel">
+        <xsl:call-template name="mottaker"/>
+        <xsl:call-template name="eiendom">
+            <xsl:with-param name="registerenhetsliste" select="registerenheterMedHjemmelshavere/registerenhetMedHjemmelshavere"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="prisantydning"/>
+        <xsl:call-template name="ressurser"/>
+        <xsl:call-template name="avsender"/>
+        <hr/>
+    </xsl:template>
+    <xsl:template match="prisantydning">
+        <div class="hovedseksjon">
+            <xsl:call-template name="seksjon">
+                <xsl:with-param name="tittel" select="'Prisantydning'"/>
+            </xsl:call-template>
+            <div class="innhold">
+                <xsl:call-template name="formatNumber">
+                    <xsl:with-param name="prefix" select="'NOK '"/>
+                    <xsl:with-param name="numericValue" select="."/>
+                </xsl:call-template>
+            </div>
+        </div>
     </xsl:template>
     <xsl:template name="formatAccountNumber">
         <xsl:param name="numericValue" select="."/>
