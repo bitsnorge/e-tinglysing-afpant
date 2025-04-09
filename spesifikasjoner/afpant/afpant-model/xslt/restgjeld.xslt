@@ -23,7 +23,9 @@
                     }
 
                     .seksjonsoverskrift {
-                        padding-bottom: 8px
+                        padding-bottom: 8px;
+                        margin: 0;
+                        font-size: 18px;
                     }
 
                     .rolleoverskrift {
@@ -54,7 +56,7 @@
                         min-height: 100%;
                         position: relative;
                         margin: 10px;
-                        font-family: helvetica;
+                        font-family: helvetica, sans-serif;
                         max-width: 210mm
                     }
 
@@ -89,6 +91,14 @@
 
                     .kropp {
                         display: table-row-group
+                    }
+
+                    .h3 {
+                        font-weight: 600;
+                        font-size: 15px;
+                        margin-bottom: 2px;
+                        color: #333;
+                        margin-top: 4px;
                     }
 
                     .kol1 {
@@ -138,7 +148,16 @@
             <xsl:text>Svar på innfrielsessaldo</xsl:text>
         </xsl:if>
     </xsl:template>
-    <!-- Innfrielsessaldosvar template -->
+    <xsl:template match="/innfrielsessaldoforespoersel">
+        <xsl:call-template name="mottaker"/>
+        <xsl:call-template name="eiendom">
+            <xsl:with-param name="registerenhetsliste" select="registerenheterMedHjemmelshavere/registerenhetMedHjemmelshavere"/>
+        </xsl:call-template>
+        <xsl:call-template name="innfrielsesdatoer"/>
+        <xsl:call-template name="ressurser"/>
+        <xsl:call-template name="avsender"/>
+        <hr/>
+    </xsl:template>
     <xsl:template match="/innfrielsessaldosvar">
         <xsl:call-template name="mottaker"/>
         <xsl:call-template name="eiendom">
@@ -149,19 +168,17 @@
         <xsl:call-template name="avsender"/>
         <hr/>
     </xsl:template>
-    <!-- Helper template for formatting Norwegian account numbers -->
     <xsl:template name="formatAccountNumber">
         <xsl:param name="numericValue" select="."/>
         <xsl:value-of select="concat(substring($numericValue, 1, 4), '.', substring($numericValue, 5, 2), '.', substring($numericValue, 7, 5))"/>
     </xsl:template>
-    <!-- Helper template for formatting dates -->
-    <xsl:template name="format-date">
-        <xsl:param name="date"/>
-        <xsl:value-of select="substring($date, 9, 2)"/>
+    <xsl:template name="dato">
+        <xsl:param name="dato"/>
+        <xsl:value-of select="substring($dato, 9, 2)"/>
         <xsl:text>.</xsl:text>
-        <xsl:value-of select="substring($date, 6, 2)"/>
+        <xsl:value-of select="substring($dato, 6, 2)"/>
         <xsl:text>.</xsl:text>
-        <xsl:value-of select="substring($date, 1, 4)"/>
+        <xsl:value-of select="substring($dato, 1, 4)"/>
     </xsl:template>
     <xsl:template name="tiddato">
         <xsl:param name="dato"/>
@@ -175,7 +192,6 @@
         <xsl:text>:</xsl:text>
         <xsl:value-of select="substring($dato, 15, 2)"/>
     </xsl:template>
-    <!-- Helper template for formatting numbers -->
     <xsl:template name="formatNumber">
         <xsl:param name="prefix"/>
         <xsl:param name="numericValue"/>
@@ -184,7 +200,6 @@
         </xsl:if>
         <xsl:value-of select="format-number(number($numericValue), '### ### ### ###', 'nb-no-space')"/>
     </xsl:template>
-    <!-- Helper template for formatting norwegian phone numbers -->
     <xsl:template name="formatPhoneNumber">
         <xsl:param name="prefix"/>
         <xsl:param name="phoneValue" select="."/>
@@ -211,11 +226,11 @@
     <xsl:template name="orgnr">
         <xsl:param name="id"/>
         <xsl:if test="$id">
-            <xsl:value-of select="substring( format-number($id, '000000000'),1,3)"/>
+            <xsl:value-of select="substring(format-number($id, '000000000'), 1,3)"/>
             <xsl:text>&#x20;</xsl:text>
-            <xsl:value-of select="substring( format-number($id, '000000000'), 4,3)"/>
+            <xsl:value-of select="substring(format-number($id, '000000000'), 4,3)"/>
             <xsl:text>&#x20;</xsl:text>
-            <xsl:value-of select="substring( format-number($id, '000000000'), 7,3)"/>
+            <xsl:value-of select="substring(format-number($id, '000000000'), 7,3)"/>
             <xsl:text>&#xA0;</xsl:text>
             <a href="https://w2.brreg.no/enhet/sok/detalj.jsp?orgnr={$id}" target="_blank" style="text-decoration: none;">
                 <xsl:text>&#x29C9;</xsl:text>
@@ -225,9 +240,9 @@
     <xsl:template name="foedselsnr">
         <xsl:param name="id"/>
         <xsl:if test="$id">
-            <xsl:value-of select="substring( format-number($id, '00000000000'),1,6)"/>
+            <xsl:value-of select="substring(format-number($id, '00000000000'), 1,6)"/>
             <xsl:text>&#x20;</xsl:text>
-            <xsl:value-of select="substring( format-number($id, '00000000000'), 7,5)"/>
+            <xsl:value-of select="substring(format-number($id, '00000000000'), 7,5)"/>
         </xsl:if>
     </xsl:template>
     <xsl:template name="kontaktperson">
@@ -239,12 +254,12 @@
         <div>
             <div>
                 <a href="tel:{$kontakt/telefon}">
-                    <xsl:value-of select="format-number( number($kontakt/telefon), '## ## ## ##', 'nb-no-space')"/>
+                    <xsl:value-of select="format-number(number($kontakt/telefon), '## ## ## ##', 'nb-no-space')"/>
                 </a>&#x20;(telefon)
             </div>
             <div>
                 <a href="tel:{$kontakt/telefondirekte}">
-                    <xsl:value-of select="format-number( number($kontakt/telefondirekte), '## ## ## ##', 'nb-no-space')"/>
+                    <xsl:value-of select="format-number(number($kontakt/telefondirekte), '## ## ## ##', 'nb-no-space')"/>
                 </a>
                 <xsl:text>&#x20;(direkte)</xsl:text>
             </div>
@@ -348,9 +363,11 @@
         <xsl:param name="registerenhet"/>
         <div class="innhold">
             <xsl:if test="$registerenhet/matrikkel">
-                <xsl:call-template name="eiendomsnivaatype">
-                    <xsl:with-param name="matrikkel" select="$registerenhet/matrikkel"/>
-                </xsl:call-template>
+                <h3 class="h3">
+                    <xsl:call-template name="eiendomsnivaatype">
+                        <xsl:with-param name="matrikkel" select="$registerenhet/matrikkel"/>
+                    </xsl:call-template>
+                </h3>
                 <xsl:if test="$registerenhet/adresse">
                     <xsl:call-template name="adresse">
                         <xsl:with-param name="adresse" select="$registerenhet/adresse"/>
@@ -361,7 +378,7 @@
                 </xsl:call-template>
             </xsl:if>
             <xsl:if test="$registerenhet/borettsandel">
-                <xsl:text>Borettsandel</xsl:text>
+                <h3 class="h3">Borettsandel</h3>
                 <xsl:if test="$registerenhet/adresse">
                     <xsl:call-template name="adresse">
                         <xsl:with-param name="adresse" select="$registerenhet/adresse"/>
@@ -372,7 +389,7 @@
                 </xsl:call-template>
             </xsl:if>
             <xsl:if test="$registerenhet/aksjeleilighet">
-                <xsl:text>Aksjeleilighet</xsl:text>
+                <h3 class="h3">Aksjeleilighet</h3>
                 <xsl:if test="$registerenhet/adresse">
                     <xsl:call-template name="adresse">
                         <xsl:with-param name="adresse" select="$registerenhet/adresse"/>
@@ -388,6 +405,21 @@
                         <xsl:for-each select="$registerenhet/pantedokumentreferanser/pantedokumentreferanse">
                             <xsl:call-template name="pant">
                                 <xsl:with-param name="dokument" select="."/>
+                            </xsl:call-template>
+                        </xsl:for-each>
+                    </div>
+                </div>
+            </xsl:if>
+            <xsl:if test="$registerenhet/hjemmelshavere">
+                <div class="tabell innhold">
+                    <div class="kropp">
+                        <h4 class="h3">
+                            <xsl:text>Hjemmelshaver</xsl:text>
+                            <xsl:if test="count($registerenhet/hjemmelshavere/hjemmelshaver) &gt; 1">e</xsl:if>
+                        </h4>
+                        <xsl:for-each select="$registerenhet/hjemmelshavere/hjemmelshaver">
+                            <xsl:call-template name="person_oneliner">
+                                <xsl:with-param name="rettssubjekt" select="."/>
                             </xsl:call-template>
                         </xsl:for-each>
                     </div>
@@ -459,6 +491,60 @@
             <xsl:value-of select="$adresse/poststed"/>
         </div>
     </xsl:template>
+    <xsl:template name="hjemmelshaver">
+        <xsl:param name="hjemmelshaver"/>
+        <xsl:if test="$hjemmelshaver/organisasjon">
+            <div style="padding-bottom:8px;">
+                <xsl:call-template name="organisasjon">
+                    <xsl:with-param name="organisasjon" select="$hjemmelshaver/organisasjon"/>
+                </xsl:call-template>
+            </div>
+        </xsl:if>
+        <div>
+            <xsl:value-of select="$hjemmelshaver/navn"/>
+        </div>
+    </xsl:template>
+    <xsl:template name="person_oneliner">
+        <xsl:param name="rettssubjekt"/>
+        <div>
+            <xsl:if test="$rettssubjekt/person">
+                <xsl:value-of select="$rettssubjekt/person/fornavn"/>
+                <xsl:text>&#x20;</xsl:text>
+                <xsl:value-of select="$rettssubjekt/person/etternavn"/>,
+                <xsl:text>fnr. </xsl:text>
+                <xsl:call-template name="foedselsnr">
+                    <xsl:with-param name="id" select="$rettssubjekt/person/@id"/>
+                </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="$rettssubjekt/organisasjon">
+                <xsl:value-of select="$rettssubjekt/organisasjon/foretaksnavn"/>,
+                <xsl:text>org.nr. </xsl:text>
+                <xsl:call-template name="orgnr">
+                    <xsl:with-param name="id" select="$rettssubjekt/organisasjon/@id"/>
+                </xsl:call-template>
+            </xsl:if>
+        </div>
+    </xsl:template>
+    <xsl:template name="innfrielsesdatoer">
+        <div class="hovedseksjon">
+            <xsl:call-template name="seksjon">
+                <xsl:with-param name="tittel" select="'Innfrielsesdatoer'"/>
+            </xsl:call-template>
+            <div class="tabell innhold">
+                <div class="rad">
+                    <div class="celle kol1">
+                        <xsl:for-each select="innfrielsesdatoer/innfrielsesdato">
+                            <div>
+                                <xsl:call-template name="dato">
+                                    <xsl:with-param name="dato" select="."/>
+                                </xsl:call-template>
+                            </div>
+                        </xsl:for-each>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </xsl:template>
     <xsl:template name="pant">
         <xsl:param name="dokument"/>
         <div class="rad">
@@ -527,9 +613,9 @@
     </xsl:template>
     <xsl:template name="seksjon">
         <xsl:param name="tittel"/>
-        <div class="seksjonsoverskrift">
+        <h2 class="seksjonsoverskrift">
             <xsl:value-of select="$tittel"/>
-        </div>
+        </h2>
     </xsl:template>
     <!-- TODO: kontaktperson-template bruker dsveMeldingstypeBeskrivelse-variabelen i en mailto: href, men den er da ikke urlencodet korrekt der (PH) -->
     <xsl:variable name="dsveMeldingstypeBeskrivelse">
@@ -584,8 +670,8 @@
                             <xsl:for-each select="saldoerPerDato/saldoPerDato">
                                 <div>
                                     <xsl:text>Saldo per </xsl:text>
-                                    <xsl:call-template name="format-date">
-                                        <xsl:with-param name="date" select="dato"/>
+                                    <xsl:call-template name="dato">
+                                        <xsl:with-param name="dato" select="dato"/>
                                     </xsl:call-template>
                                     <xsl:text>: </xsl:text>
                                     <span class="tall">
