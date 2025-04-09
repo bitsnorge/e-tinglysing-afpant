@@ -118,6 +118,15 @@
                     .tall {
                         text-align: right;
                     }
+
+                    table {
+                        padding: 0;
+                        border-collapse: collapse;
+                    }
+
+                    table td {
+                        padding-right: 10px;
+                    }
                 </style>
             </head>
             <body>
@@ -171,7 +180,7 @@
         <xsl:call-template name="eiendom">
             <xsl:with-param name="registerenhetsliste" select="registerenheterMedDokumentreferanser/registerenhetMedDokumentreferanse"/>
         </xsl:call-template>
-        <xsl:call-template name="laanliste"/>
+        <xsl:call-template name="laan"/>
         <xsl:call-template name="ressurser"/>
         <xsl:call-template name="avsender"/>
         <hr/>
@@ -191,7 +200,7 @@
         <xsl:call-template name="eiendom">
             <xsl:with-param name="registerenhetsliste" select="registerenheterMedDokumentreferanser/registerenhetMedDokumentreferanse"/>
         </xsl:call-template>
-        <xsl:call-template name="laanliste"/>
+        <xsl:call-template name="laan"/>
         <xsl:call-template name="ressurser"/>
         <xsl:call-template name="avsender"/>
         <hr/>
@@ -202,8 +211,7 @@
                 <xsl:with-param name="tittel" select="'Prisantydning'"/>
             </xsl:call-template>
             <div class="innhold">
-                <xsl:call-template name="formatNumber">
-                    <xsl:with-param name="prefix" select="'NOK '"/>
+                <xsl:call-template name="formatCurrency">
                     <xsl:with-param name="numericValue" select="."/>
                 </xsl:call-template>
             </div>
@@ -615,8 +623,7 @@
                 </span>
                 <br/>
                 <xsl:text>Beløp: </xsl:text>
-                <xsl:call-template name="formatNumber">
-                    <xsl:with-param name="prefix" select="'NOK '"/>
+                <xsl:call-template name="formatCurrency">
                     <xsl:with-param name="numericValue" select="$dokument/@beloep"/>
                 </xsl:call-template>
                 <br/>
@@ -676,7 +683,7 @@
             <xsl:text>Svar på restgjeld</xsl:text>
         </xsl:if>
     </xsl:template>
-    <xsl:template name="laanliste">
+    <xsl:template name="laan">
         <div class="hovedseksjon">
             <xsl:call-template name="seksjon">
                 <xsl:with-param name="tittel" select="'Lån'"/>
@@ -685,23 +692,103 @@
                 <xsl:for-each select="laanliste/laan">
                     <div class="rad">
                         <div class="celle kol1">
-                            <div>Lånenummer:
-                                <xsl:value-of select="laanenummer"/>
-                            </div>
-                            <div>Kontonummer:
-                                <xsl:call-template name="formatAccountNumber">
-                                    <xsl:with-param name="numericValue" select="kontonummer"/>
+                            <table>
+                                <xsl:if test="rammelaan">
+                                    <tr>
+                                        <td>Rammelån</td>
+                                        <td>
+                                            <xsl:call-template name="yesNo">
+                                                <xsl:with-param name="booleanValue" select="rammelaan"/>
+                                            </xsl:call-template>
+                                        </td>
+                                        <td>
+                                            <xsl:if test="rammelaan = 'true'">
+                                                <xsl:if test="oevreGrenseRammelaan">Øvre grense:
+                                                    <xsl:call-template name="formatCurrency">
+                                                        <xsl:with-param name="numericValue" select="oevreGrenseRammelaan"/>
+                                                    </xsl:call-template>
+                                                </xsl:if>
+                                            </xsl:if>
+                                        </td>
+                                    </tr>
+                                </xsl:if>
+                                <xsl:if test="fastrente">
+                                    <tr>
+                                        <td>Fast rente</td>
+                                        <td>
+                                            <xsl:call-template name="yesNo">
+                                                <xsl:with-param name="booleanValue" select="fastrente"/>
+                                            </xsl:call-template>
+                                        </td>
+                                    </tr>
+                                </xsl:if>
+                                <xsl:if test="realkausjon">
+                                    <tr>
+                                        <td>Realkausjon</td>
+                                        <td>
+                                            <xsl:call-template name="yesNo">
+                                                <xsl:with-param name="booleanValue" select="realkausjon"/>
+                                            </xsl:call-template>
+                                        </td>
+                                    </tr>
+                                </xsl:if>
+                                <tr>
+                                    <td>Mellomfinansiering</td>
+                                    <td>
+                                        <xsl:call-template name="yesNo">
+                                            <xsl:with-param name="booleanValue" select="transporterklaering"/>
+                                        </xsl:call-template>
+                                    </td>
+                                    <xsl:if test="transporterklaering = 'true'">
+                                        <td>Transporterklæring</td>
+                                    </xsl:if>
+                                </tr>
+                                <tr>
+                                    <td>Lånenummer</td>
+                                    <td>
+                                        <xsl:value-of select="laanenummer"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kontonummer</td>
+                                    <td>
+                                        <xsl:call-template name="formatAccountNumber">
+                                            <xsl:with-param name="numericValue" select="kontonummer"/>
+                                        </xsl:call-template>
+                                    </td>
+                                </tr>
+                                <xsl:if test="kidnummer">
+                                    <tr>
+                                        <td>KID</td>
+                                        <td>
+                                            <xsl:value-of select="kidnummer"/>
+                                        </td>
+                                    </tr>
+                                </xsl:if>
+                                <xsl:if test="betalingsmelding">
+                                    <tr>
+                                        <td>Betalingsmelding</td>
+                                        <td>
+                                            <xsl:value-of select="betalingsmelding"/>
+                                        </td>
+                                    </tr>
+                                </xsl:if>
+                                <xsl:if test="saldo">
+                                    <tr>
+                                        <td>Restgjeld</td>
+                                        <td>
+                                            <xsl:call-template name="formatCurrency">
+                                                <xsl:with-param name="numericValue" select="saldo"/>
+                                            </xsl:call-template>
+                                        </td>
+                                        <td>På tidspunktet for besvarelse</td>
+                                    </tr>
+                                </xsl:if>
+                            </table>
+                            <xsl:if test="saldoerPerDato">
+                                <xsl:call-template name="saldoerPerDatoListe">
+                                    <xsl:with-param name="saldoerPerDato" select="saldoerPerDato"/>
                                 </xsl:call-template>
-                            </div>
-                            <xsl:if test="kidnummer">
-                                <div>KID:
-                                    <xsl:value-of select="kidnummer"/>
-                                </div>
-                            </xsl:if>
-                            <xsl:if test="betalingsmelding">
-                                <div>Betalingsmelding:
-                                    <xsl:value-of select="betalingsmelding"/>
-                                </div>
                             </xsl:if>
                             <xsl:if test="laantakereHjemmelshaver/navn">
                                 <div>Låntakere:
@@ -712,33 +799,13 @@
                                     </xsl:for-each>
                                 </div>
                             </xsl:if>
-                        </div>
-                        <div class="celle">
-                            <xsl:for-each select="saldoerPerDato/saldoPerDato">
-                                <div>
-                                    <xsl:text>Saldo per </xsl:text>
-                                    <xsl:call-template name="dato">
-                                        <xsl:with-param name="dato" select="dato"/>
-                                    </xsl:call-template>
-                                    <xsl:text>: </xsl:text>
-                                    <span class="tall">
-                                        <xsl:call-template name="formatNumber">
-                                            <xsl:with-param name="prefix" select="'NOK '"/>
-                                            <xsl:with-param name="numericValue" select="beloep"/>
-                                        </xsl:call-template>
-                                    </span>
-                                </div>
-                            </xsl:for-each>
-                            <xsl:if test="laantakerIkkeHjemmelshaver = 'true'">
-                                <div style="color: red; padding-top: 8px;">
+                            <div class="celle">
+                                <xsl:if test="laantakerIkkeHjemmelshaver = 'true'">
+                                    <div style="color: red; padding-top: 8px;">
                                     Merk: Låntaker er ikke hjemmelshaver
                                 </div>
-                            </xsl:if>
-                            <xsl:if test="transporterklaering = 'true'">
-                                <div style="padding-top: 8px;">
-                                    Transporterklæring er påkrevd
-                                </div>
-                            </xsl:if>
+                                </xsl:if>
+                            </div>
                         </div>
                     </div>
                     <xsl:if test="position() != last()">
@@ -747,6 +814,44 @@
                 </xsl:for-each>
             </div>
         </div>
+    </xsl:template>
+    <xsl:template name="saldoerPerDatoListe">
+        <xsl:param name="saldoerPerDato"/>
+        <xsl:for-each select="saldoerPerDato/saldoPerDato">
+            <div>
+                <xsl:text>Saldo per </xsl:text>
+                <xsl:call-template name="dato">
+                    <xsl:with-param name="dato" select="dato"/>
+                </xsl:call-template>
+                <xsl:text>: </xsl:text>
+                <span class="tall">
+                    <xsl:call-template name="formatCurrency">
+                        <xsl:with-param name="numericValue" select="beloep"/>
+                    </xsl:call-template>
+                </span>
+            </div>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="formatCurrency">
+        <xsl:param name="numericValue"/>
+        <xsl:call-template name="formatNumber">
+            <xsl:with-param name="prefix" select="'NOK '"/>
+            <xsl:with-param name="numericValue" select="$numericValue"/>
+        </xsl:call-template>
+    </xsl:template>
+    <xsl:template name="yesNo">
+        <xsl:param name="booleanValue"/>
+        <xsl:choose>
+            <xsl:when test="$booleanValue= 'true'">
+                <xsl:value-of select="'Ja'"/>
+            </xsl:when>
+            <xsl:when test="$booleanValue= 'false'">
+                <xsl:value-of select="'Nei'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>Ukjent</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template name="footerForH1">
         <xsl:param name="home"/>
