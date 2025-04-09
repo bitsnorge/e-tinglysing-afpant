@@ -136,6 +136,7 @@
                         <xsl:apply-templates select="innfrielsessaldoforespoersel"/>
                         <xsl:apply-templates select="innfrielsessaldosvar"/>
                         <xsl:apply-templates select="restgjeldsforespoersel"/>
+                        <xsl:apply-templates select="restgjeldssvar"/>
                     </div>
                 </div>
             </body>
@@ -150,6 +151,9 @@
         </xsl:if>
         <xsl:if test="restgjeldsforespoersel">
             <xsl:text>Forespørsel om restgjeld</xsl:text>
+        </xsl:if>
+        <xsl:if test="restgjeldssvar">
+            <xsl:text>Svar på restgjeld</xsl:text>
         </xsl:if>
     </xsl:template>
     <xsl:template match="/innfrielsessaldoforespoersel">
@@ -178,6 +182,16 @@
             <xsl:with-param name="registerenhetsliste" select="registerenheterMedHjemmelshavere/registerenhetMedHjemmelshavere"/>
         </xsl:call-template>
         <xsl:apply-templates select="prisantydning"/>
+        <xsl:call-template name="ressurser"/>
+        <xsl:call-template name="avsender"/>
+        <hr/>
+    </xsl:template>
+    <xsl:template match="/restgjeldssvar">
+        <xsl:call-template name="mottaker"/>
+        <xsl:call-template name="eiendom">
+            <xsl:with-param name="registerenhetsliste" select="registerenheterMedDokumentreferanser/registerenhetMedDokumentreferanse"/>
+        </xsl:call-template>
+        <xsl:call-template name="laanliste"/>
         <xsl:call-template name="ressurser"/>
         <xsl:call-template name="avsender"/>
         <hr/>
@@ -654,6 +668,12 @@
         </xsl:if>
         <xsl:if test="innfrielsessaldosvar">
             <xsl:text>Svar på innfrielsessaldo</xsl:text>
+        </xsl:if>
+        <xsl:if test="restgjeldsforespoersel">
+            <xsl:text>Forespørsel om restgjeld</xsl:text>
+        </xsl:if>
+        <xsl:if test="restgjeldssvar">
+            <xsl:text>Svar på restgjeld</xsl:text>
         </xsl:if>
     </xsl:template>
     <xsl:template name="laanliste">
