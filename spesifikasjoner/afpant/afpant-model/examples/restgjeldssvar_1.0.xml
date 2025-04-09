@@ -64,6 +64,7 @@
         <!--Zero or more repetitions:-->
         <navn>string</navn>
       </laantakereHjemmelshaver>
+      <transporterklaering>true</transporterklaering>
     </laan>
   </laanliste>
   <registerenheterMedDokumentreferanser>
