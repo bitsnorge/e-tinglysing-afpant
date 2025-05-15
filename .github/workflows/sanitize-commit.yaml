@@ -1,0 +1,37 @@
+name: sanatize-commnit
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+jobs:
+  check-commit:
+    name: Check commit message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
+        # Uses the same script as the same step in the release-and-publish workflow. This script errors out if the naming convention is not followed.
+      - name: Check release type
+        id: releaseType
+        run: .github/workflows/scripts/shared/determineReleaseType.ps1
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repoPath: ${{ github.repository }}
+          gitHubHost: ${{ github.server_url }}
+          prPath: ${{ github.ref }}
+
+
+      - name: Approve the Pull Request
+        id: approvePullRequest
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repoPath: ${{ github.repository }}
+          gitHubHost: ${{ github.server_url }}
+          prPath: ${{ github.ref }}
+          releaseType: ${{ steps.releaseType.outputs.releaseType }}
+          commitMessage: ${{ steps.releaseType.outputs.commitMessage }}
+
+        run: .github/workflows/scripts/sanitize-commit/approve-pull-request.ps1
