@@ -202,7 +202,6 @@
         </xsl:call-template>
         <xsl:call-template name="laan"/>
         <xsl:apply-templates select="sperretForVidereOpplaan"/>
-        <xsl:apply-templates select="bekreftelsePantrettSlettes"/>
         <xsl:call-template name="ressurser"/>
         <xsl:call-template name="avsender"/>
         <hr/>
@@ -346,18 +345,6 @@
         <div class="hovedseksjon">
             <xsl:call-template name="seksjon">
                 <xsl:with-param name="tittel" select="'Sperret for videre opplån'"/>
-            </xsl:call-template>
-            <div class="innhold">
-                <xsl:call-template name="yesNo">
-                    <xsl:with-param name="booleanValue" select="."/>
-                </xsl:call-template>
-            </div>
-        </div>
-    </xsl:template>
-    <xsl:template match="bekreftelsePantrettSlettes">
-        <div class="hovedseksjon">
-            <xsl:call-template name="seksjon">
-                <xsl:with-param name="tittel" select="'Bekreftelse pantrett slettes'"/>
             </xsl:call-template>
             <div class="innhold">
                 <xsl:call-template name="yesNo">
