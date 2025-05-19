@@ -802,7 +802,7 @@
                             <div class="celle">
                                 <xsl:if test="laantakerIkkeHjemmelshaver = 'true'">
                                     <div style="color: red; padding-top: 8px;">
-                                    Merk: Låntaker er ikke hjemmelshaver
+                                    Det finnes låntaker(e) som ikke er hjemmelshaver
                                 </div>
                                 </xsl:if>
                             </div>
