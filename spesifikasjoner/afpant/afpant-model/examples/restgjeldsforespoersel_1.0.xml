@@ -1,91 +1,128 @@
 <?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
 <restgjeldsforespoersel>
-  <avsender id="string">
-    <foretaksnavn>string</foretaksnavn>
+  <avsender id="910968955">
+    <foretaksnavn>DNB EIENDOM AS</foretaksnavn>
     <!--Optional:-->
     <adresse>
       <!--Optional:-->
-      <gatenavn>string</gatenavn>
-      <postnummer>string</postnummer>
-      <poststed>string</poststed>
+      <gatenavn>Dronning Eufemias gate 30</gatenavn>
+      <postnummer>0191</postnummer>
+      <poststed>Oslo</poststed>
     </adresse>
     <!--Optional:-->
     <kontaktperson>
-      <navn>string</navn>
+      <navn>Ole Meglersen</navn>
       <!--Optional:-->
-      <epost>string</epost>
+      <epost>ole.meglersen@dnbeiendom.no</epost>
       <!--Optional:-->
-      <telefondirekte>string</telefondirekte>
+      <telefondirekte>98765432</telefondirekte>
       <!--Optional:-->
-      <telefon>string</telefon>
+      <telefon>22223344</telefon>
     </kontaktperson>
-    <referanse>string</referanse>
+    <referanse>OPGNR-123</referanse>
     <!--Optional:-->
-    <returnertil id="string">
-      <foretaksnavn>string</foretaksnavn>
+    <returnertil id="910968955">
+      <foretaksnavn>DNB EIENDOM (retur) AS</foretaksnavn>
       <!--Optional:-->
       <adresse>
         <!--Optional:-->
-        <gatenavn>string</gatenavn>
-        <postnummer>string</postnummer>
-        <poststed>string</poststed>
+        <gatenavn>Dronning Eufemias gate 32</gatenavn>
+        <postnummer>0191</postnummer>
+        <poststed>Oslo</poststed>
       </adresse>
     </returnertil>
   </avsender>
-  <mottaker id="string">
-    <foretaksnavn>string</foretaksnavn>
-    <!--Optional:-->
-    <adresse>
-      <!--Optional:-->
-      <gatenavn>string</gatenavn>
-      <postnummer>string</postnummer>
-      <poststed>string</poststed>
-    </adresse>
-    <!--Optional:-->
-    <referanse>string</referanse>
+  <mottaker id="984851006">
+    <foretaksnavn>DNB BANK ASA</foretaksnavn>
   </mottaker>
   <registerenheterMedHjemmelshavere>
     <!--1 or more repetitions:-->
     <registerenhetMedHjemmelshavere>
       <!--You have a CHOICE of the next 3 items at this level-->
-      <matrikkel kommunenavn="string" kommunenummer="string" gaardsnummer="string" bruksnummer="string" festenummer="string" seksjonsnummer="string" eiendomsnivaa="F"/>
-      <borettsandel organisasjonsnummer="string" borettslagnavn="string" andelsnummer="string"/>
-      <aksjeleilighet organisasjonsnummer="string" organisasjonsnavn="string" leilighetsnummer="string"/>
+      <matrikkel kommunenavn="Lillestrøm" kommunenummer="3205" gaardsnummer="273" bruksnummer="220" festenummer="0" seksjonsnummer="12" eiendomsnivaa="E"/>
       <hjemmelshavere>
         <!--1 or more repetitions:-->
         <hjemmelshaver>
           <!--You have a CHOICE of the next 2 items at this level-->
-          <organisasjon id="string">
-            <foretaksnavn>string</foretaksnavn>
-            <!--Optional:-->
-            <adresse>
-              <!--Optional:-->
-              <gatenavn>string</gatenavn>
-              <postnummer>string</postnummer>
-              <poststed>string</poststed>
-            </adresse>
+          <person id="17050033455">
+            <fornavn>Ola</fornavn>
+            <etternavn>Normann</etternavn>
+          </person>
+        </hjemmelshaver>
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <organisasjon id="889693622">
+            <foretaksnavn>SANDSLI EIENDOMSUTVIKLING AS</foretaksnavn>
           </organisasjon>
-          <person id="string">
-            <fornavn>string</fornavn>
-            <etternavn>string</etternavn>
+        </hjemmelshaver>
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <person id="02027812345">
+            <fornavn>Kari</fornavn>
+            <etternavn>Normann</etternavn>
+          </person>
+        </hjemmelshaver>
+      </hjemmelshavere>
+    </registerenhetMedHjemmelshavere>
+    <registerenhetMedHjemmelshavere>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <borettsandel organisasjonsnummer="954442403" borettslagnavn="Feråsen borettslag" andelsnummer="71"/>
+      <hjemmelshavere>
+        <!--1 or more repetitions:-->
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <person id="17050033455">
+            <fornavn>Ola</fornavn>
+            <etternavn>Normann</etternavn>
+          </person>
+        </hjemmelshaver>
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <organisasjon id="889693622">
+            <foretaksnavn>SANDSLI EIENDOMSUTVIKLING AS</foretaksnavn>
+          </organisasjon>
+        </hjemmelshaver>
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <person id="02027812345">
+            <fornavn>Kari</fornavn>
+            <etternavn>Normann</etternavn>
+          </person>
+        </hjemmelshaver>
+      </hjemmelshavere>
+    </registerenhetMedHjemmelshavere>
+    <registerenhetMedHjemmelshavere>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <aksjeleilighet organisasjonsnummer="954442403" organisasjonsnavn="Feråsen Akjselag" leilighetsnummer="71"/>
+      <hjemmelshavere>
+        <!--1 or more repetitions:-->
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <person id="17050033455">
+            <fornavn>Ola</fornavn>
+            <etternavn>Normann</etternavn>
+          </person>
+        </hjemmelshaver>
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <organisasjon id="889693622">
+            <foretaksnavn>SANDSLI EIENDOMSUTVIKLING AS</foretaksnavn>
+          </organisasjon>
+        </hjemmelshaver>
+        <hjemmelshaver>
+          <!--You have a CHOICE of the next 2 items at this level-->
+          <person id="02027812345">
+            <fornavn>Kari</fornavn>
+            <etternavn>Normann</etternavn>
           </person>
         </hjemmelshaver>
       </hjemmelshavere>
     </registerenhetMedHjemmelshavere>
   </registerenheterMedHjemmelshavere>
   <!--Optional:-->
-  <prisantydning>201</prisantydning>
+  <prisantydning>20109882</prisantydning>
   <metadata>
     <!--Optional:-->
-    <ressurser>
-      <!--Zero or more repetitions:-->
-      <vedlegg>
-        <navn>string</navn>
-        <mimetype>string</mimetype>
-        <!--Optional:-->
-        <beskrivelse>string</beskrivelse>
-      </vedlegg>
-    </ressurser>
     <opprettet>2009-02-28T21:23:40</opprettet>
   </metadata>
 </restgjeldsforespoersel>
