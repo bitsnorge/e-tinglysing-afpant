@@ -1,56 +1,26 @@
 <?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
 <innfrielsessaldosvar>
-  <avsender id="928000000">
-    <foretaksnavn>AVSENDER AS</foretaksnavn>
-    <!--Optional:-->
-    <adresse>
-      <!--Optional:-->
-      <gatenavn>Gatenavn 1</gatenavn>
-      <postnummer>1234</postnummer>
-      <poststed>Oslo</poststed>
-    </adresse>
-    <!--Optional:-->
+  <avsender id="984851006">
+    <foretaksnavn>DNB BANK ASA</foretaksnavn>
     <kontaktperson>
-      <navn>Ola Nordmann</navn>
-      <!--Optional:-->
-      <epost>ola.nordmann@foretaksnavn.no</epost>
-      <!--Optional:-->
-      <telefondirekte>12345678</telefondirekte>
-      <!--Optional:-->
-      <telefon>12345678</telefon>
+      <navn>Ole Bankesen</navn>
+      <epost>ole@dnb.no</epost>
+      <telefondirekte>41414141</telefondirekte>
+      <telefon>22224455</telefon>
     </kontaktperson>
-    <referanse>REF-123</referanse>
-    <!--Optional:-->
-    <returnertil id="928000001">
-      <foretaksnavn>RETURNERTIL AS</foretaksnavn>
-      <!--Optional:-->
-      <adresse>
-        <!--Optional:-->
-        <gatenavn>Gatenavn 2</gatenavn>
-        <postnummer>1234</postnummer>
-        <poststed>Oslo</poststed>
-      </adresse>
-    </returnertil>
+    <referanse>FX12398731273123</referanse>
   </avsender>
-  <mottaker id="928000002">
-    <foretaksnavn>MOTTAKER AS</foretaksnavn>
-    <!--Optional:-->
-    <adresse>
-      <!--Optional:-->
-      <gatenavn>Gatenavn 3</gatenavn>
-      <postnummer>1234</postnummer>
-      <poststed>Oslo</poststed>
-    </adresse>
-    <!--Optional:-->
-    <referanse>REF-456</referanse>
+  <mottaker id="910968955">
+    <foretaksnavn>DNB EIENDOM AS</foretaksnavn>
+    <referanse>OPGNR-123</referanse>
   </mottaker>
   <laanliste>
     <!--1 or more repetitions:-->
     <laan>
       <laantakerIkkeHjemmelshaver>false</laantakerIkkeHjemmelshaver>
       <transporterklaering>true</transporterklaering>
-      <laanenummer>1234567890</laanenummer>
-      <kontonummer>1234567890</kontonummer>
+      <laanenummer>12345678902</laanenummer>
+      <kontonummer>12345678902</kontonummer>
       <!--Optional:-->
       <kidnummer>1234567890</kidnummer>
       <!--Optional:-->
@@ -58,12 +28,37 @@
       <saldoerPerDato>
         <!--1 or more repetitions:-->
         <saldoPerDato>
-          <beloep>1.051732E7</beloep>
-          <dato>2007-08-16+02:00</dato>
+          <beloep>12345000</beloep>
+          <dato>2025-05-17</dato>
         </saldoPerDato>
         <saldoPerDato>
           <beloep>123456</beloep>
-          <dato>2007-08-16+02:00</dato>
+          <dato>2025-05-16</dato>
+        </saldoPerDato>
+      </saldoerPerDato>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Kari Nordmann</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12345678901</laanenummer>
+      <kontonummer>12345678901</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0001234567891</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betaling til innfrielsessaldo</betalingsmelding>
+      <saldoerPerDato>
+        <!--1 or more repetitions:-->
+        <saldoPerDato>
+          <beloep>23123</beloep>
+          <dato>2025-05-17</dato>
+        </saldoPerDato>
+        <saldoPerDato>
+          <beloep>43213</beloep>
+          <dato>2025-05-16</dato>
         </saldoPerDato>
       </saldoerPerDato>
       <laantakereHjemmelshaver>
@@ -76,26 +71,27 @@
     <!--1 or more repetitions:-->
     <registerenhetMedDokumentreferanse>
       <!--You have a CHOICE of the next 3 items at this level-->
-      <matrikkel kommunenavn="Oslo" kommunenummer="0301" gaardsnummer="1" bruksnummer="2" festenummer="3" seksjonsnummer="4" eiendomsnivaa="F"/>
+      <matrikkel kommunenavn="Lillestrøm" kommunenummer="3205" gaardsnummer="273" bruksnummer="220" festenummer="0" seksjonsnummer="12" eiendomsnivaa="E"/>
       <pantedokumentreferanser>
         <!--Zero or more repetitions:-->
-        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="101010"/>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000"/>
       </pantedokumentreferanser>
     </registerenhetMedDokumentreferanse>
     <registerenhetMedDokumentreferanse>
       <!--You have a CHOICE of the next 3 items at this level-->
-      <borettsandel organisasjonsnummer="123456789" borettslagnavn="Borettslaget" andelsnummer="1"/>
+      <borettsandel organisasjonsnummer="954442403" borettslagnavn="Feråsen borettslag" andelsnummer="71"/>
       <pantedokumentreferanser>
         <!--Zero or more repetitions:-->
-        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="2010111"/>
+        <pantedokumentreferanse dokumentnummer="3975" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2006-11-10T19:00:47+01:00" beloep="201"/>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000"/>
       </pantedokumentreferanser>
     </registerenhetMedDokumentreferanse>
     <registerenhetMedDokumentreferanse>
       <!--You have a CHOICE of the next 3 items at this level-->
-      <aksjeleilighet organisasjonsnummer="123456789" organisasjonsnavn="Aksjeselskapet" leilighetsnummer="1"/>
+      <aksjeleilighet organisasjonsnummer="954442403" organisasjonsnavn="Feråsen Akjselag" leilighetsnummer="71"/>
       <pantedokumentreferanser>
         <!--Zero or more repetitions:-->
-        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2017-11-03T04:12:42" beloep="13"/>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2006-11-10T19:00:47+01:00" beloep="201"/>
       </pantedokumentreferanser>
     </registerenhetMedDokumentreferanse>
   </registerenheterMedDokumentreferanser>
