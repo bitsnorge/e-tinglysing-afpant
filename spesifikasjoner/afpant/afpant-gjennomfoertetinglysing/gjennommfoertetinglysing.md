@@ -17,7 +17,7 @@ Når meglers systemleverandør mottar forsendelsesstatus fra Kartverket som tils
 
 For hver av disse pantedokumentene må meglers systemleverandør utføre følgende:
 1. Finn organisasjonsnummer for Altinn reportee som sendte SignedMortgageDeed melding til megler med det aktuelle pantedokumentet. Dette organisasjonsnummeret regnes for å være avsender bank som skal motta GjennomfoertEtinglysing melding.
-2. Sjekk om avsender bankens organisasjonsnummer er registrert i Akeldo med støtte for meldingstypen "GjennomfoertEtinglysing". Dersom ja, send GjennomfoertEtinglysing melding til dette organisasjonsnummeret.
+2. Sjekk om avsender bankens organisasjonsnummer er registrert i Akeldo med støtte i mottaksliste for meldingstypen "GjennomfoertEtinglysing". Dersom ja, send GjennomfoertEtinglysing melding til dette organisasjonsnummeret.
 
 Merknad: flere pantedokumenter i samme e-tinglysing forsendelse fra samme bank, gitt at banken støtter meldingstypen i Akeldo, medfører GjennomfoertEtinglysing meldinger til banken for hvert enkelt av disse pantedokumentene.
 
