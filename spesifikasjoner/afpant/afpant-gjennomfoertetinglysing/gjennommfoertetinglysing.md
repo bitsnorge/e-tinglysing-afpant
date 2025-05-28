@@ -9,8 +9,8 @@ Når bank sender kjøpers pantedokument elektronisk til megler i form av en Sign
 ## Validering og ruting
 
 ### Krav til filnavn i ZIP-arkiv
-- Payload filen med GjennomfoertEtinglysing melding må følge konvensjonen "gjennomfoertetinglysing_*.zip".
-- Vedlegget med forsendelsesstatus fra Kartverket må følge konvensjonen "forsendelsesstatus_*.xml".
+- Payload filen med GjennomfoertEtinglysing melding må følge konvensjonen `gjennomfoertetinglysing_*.xml`.
+- Vedlegget med forsendelsesstatus fra Kartverket må følge konvensjonen `forsendelsesstatus_*.xml`.
 
 ### Ruting (meglersystem)
 Når meglers systemleverandør mottar forsendelsesstatus fra Kartverket som tilsier at en forsendelse er vellykket e-tingyst, må systemleverandøren sjekke om forsendelsen inneholder ett eller flere kjøpers pantedokument fra bank.
@@ -38,7 +38,7 @@ Meldingstypen GjennomfoertEtinglysing sendes fra megler til bank for å informer
 
 ### Payload
 Et ZIP-arkiv med 2 filer:
-- En GjennomfoertEtinglysing XML med data ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
+- En GjennomfoertEtinglysing XML med data ihht. [definert skjema](../afpant-model/xsd/dsve.xsd).
 - Et vedlegg med forsendelsesstatus xml data fra Kartverket til megler for forsendelsen 
 som inkluderte det aktuelle kjøpers pantedokumentet.
 
