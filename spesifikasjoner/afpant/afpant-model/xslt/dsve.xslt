@@ -844,7 +844,7 @@
       <xsl:value-of select="$matrikkel/@bruksnummer"/>
       <!-- Siden XSD sier at seksjonsnummer / festenummer er optional tester vi også mot tom streng (PH) -->
       <xsl:if test="not($matrikkel/@seksjonsnummer = '0') and not($matrikkel/@seksjonsnummer = '')">
-        <xsl:text>,&#x20;sekjsonsnr.:&#x20;</xsl:text>
+        <xsl:text>,&#x20;seksjonsnr.:&#x20;</xsl:text>
         <xsl:value-of select="$matrikkel/@seksjonsnummer"/>
       </xsl:if>
       <xsl:if test="not($matrikkel/@festenummer = '0') and not($matrikkel/@festenummer = '')">

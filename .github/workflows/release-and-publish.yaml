@@ -1,0 +1,106 @@
+name: release-and-publish
+
+on:
+  # Triggers the workflow on push to master i.e when somone merges a pull request on master
+  push:
+    branches: [ "master" ]
+jobs:
+  # This workflow has two jobs, 1 creates a new release, the second pushes the release to the CDN
+  release:
+    name: Release new version
+    # Outputs the value of the check if doc release, the next job will not run if this fails
+    outputs:
+      releaseType: ${{ steps.release.outputs.releaseType}}
+      newVersionNumber: ${{ steps.newVersionNumber.outputs.newVersionNumber}}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Checks what kind of release this is based on the commit message, doc changes does not trigger a new release
+      # We can assume that the commit message follows the naming conventions here because they have been sanitized during the PR
+      - name: Check release type
+        id: release
+        run: .github/workflows/scripts/shared/determineReleaseType.ps1
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repoPath: ${{ github.repository }}
+          gitHubHost: ${{ github.server_url }}
+          mergeCommitMessage: ${{ github.event.head_commit.message }}
+
+      #Does not run if the merge was a doc change
+      - name: Determine new version number
+        id: newVersionNumber
+        if: steps.release.outputs.releaseType != 'doc'
+        run: .github/workflows/scripts/release-and-publish/findNewVersion.ps1
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RepositoryURI: ${{ github.repository }}
+          RepositoryHost: ${{ github.server_url }}
+          ReleaseType: ${{ steps.release.outputs.releaseType }}
+
+      #Does not run if the merge was a doc change
+      #Must have a tag before creating a release
+      - name: Create new tag
+        if: steps.release.outputs.releaseType != 'doc'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "${{ steps.newVersionNumber.outputs.newVersionNumber}}" -m "Release v${{ steps.newVersionNumber.outputs.newVersionNumber}}"
+          git push origin
+
+      #Does not run if the merge was a doc change
+      - name: Create release
+        if: steps.release.outputs.releaseType != 'doc'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ steps.newVersionNumber.outputs.newVersionNumber}} \
+          --repo ${{ github.repositoryUrl }} \
+          --title 'v${{ steps.newVersionNumber.outputs.newVersionNumber}}' \
+          --generate-notes \
+          --notes "# New release version: ${{ steps.newVersionNumber.outputs.newVersionNumber}} *This is an automated release triggered by the merge of a pull request in the repository: ${{ github.repositoryUrl }}. Please see the Pull request that caused this release for further details.*"
+
+  cdn-push:
+    name: Push new release to Azure CDN
+    # Does not run if the release is a doc release
+    needs: [release]
+    if: needs.release.outputs.releaseType != 'doc'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: '{ "clientSecret": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_SECRET }}", "subscriptionId": "${{ secrets.AZURE_CDN_SUBSCRIPTION_ID }}", "tenantId": "${{ secrets.AZURE_CDN_TENANT_ID }}", "clientId": "${{ secrets.AZURE_CDN_SERVICE_PRINCIPAL_CLIENTID }}"}'
+
+      - name: Set up Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Prepare files for upload
+        run: .github/workflows/scripts/release-and-publish/uploadAfpantFilesToAzure.ps1
+        shell: pwsh
+
+      - name: Upload release to CDN
+        shell: pwsh
+        env:
+          azureStorageBlobContainerName: ${{ secrets.AZURE_STORAGE_BLOB_CONTAINER_NAME }}
+          azureStorageAccountName: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+          newVersionNumber: ${{ needs.release.outputs.newVersionNumber }}
+        run: |
+          az storage blob upload-batch --auth-mode login -d $Env:azureStorageBlobContainerName --account-name $Env:azureStorageAccountName --destination-path "dsve/v/$Env:newVersionNumber/" --source "./actions-tmp/"
+
+      - name: Purge CDN cache
+        shell: pwsh
+        env:
+          azureCDNProfileName: ${{secrets.AZURE_CDN_PROFILE_NAME}}
+          azureCDNEndpointName: ${{secrets.AZURE_CDN_ENDPOINT_NAME}}
+          azureCDNResourceGroup: ${{secrets.AZURE_CDN_PROFILE_RESOURCE_GROUP}}
+        run: |
+          az cdn endpoint purge --content-paths "/dsve/*" --profile-name $Env:azureCDNProfileName --name $Env:azureCDNEndpointName --resource-group $Env:azureCDNResourceGroup

@@ -9,15 +9,15 @@ Når bank sender kjøpers pantedokument elektronisk til megler i form av en Sign
 ## Validering og ruting
 
 ### Krav til filnavn i ZIP-arkiv
-- Payload filen med GjennomfoertEtinglysing melding må følge konvensjonen "gjennomfoertetinglysing_*.zip".
-- Vedlegget med forsendelsesstatus fra Kartverket må følge konvensjonen "forsendelsesstatus_*.xml".
+- Payload filen med GjennomfoertEtinglysing melding må følge konvensjonen `gjennomfoertetinglysing_*.xml`.
+- Vedlegget med forsendelsesstatus fra Kartverket må følge konvensjonen `forsendelsesstatus_*.xml`.
 
 ### Ruting (meglersystem)
 Når meglers systemleverandør mottar forsendelsesstatus fra Kartverket som tilsier at en forsendelse er vellykket e-tingyst, må systemleverandøren sjekke om forsendelsen inneholder ett eller flere kjøpers pantedokument fra bank.
 
 For hver av disse pantedokumentene må meglers systemleverandør utføre følgende:
 1. Finn organisasjonsnummer for Altinn reportee som sendte SignedMortgageDeed melding til megler med det aktuelle pantedokumentet. Dette organisasjonsnummeret regnes for å være avsender bank som skal motta GjennomfoertEtinglysing melding.
-2. Sjekk om avsender bankens organisasjonsnummer er registrert i Akeldo med støtte for meldingstypen "GjennomfoertEtinglysing". Dersom ja, send GjennomfoertEtinglysing melding til dette organisasjonsnummeret.
+2. Sjekk om avsender bankens organisasjonsnummer er registrert i Akeldo med støtte i mottaksliste for meldingstypen "GjennomfoertEtinglysing". Dersom ja, send GjennomfoertEtinglysing melding til dette organisasjonsnummeret.
 
 Merknad: flere pantedokumenter i samme e-tinglysing forsendelse fra samme bank, gitt at banken støtter meldingstypen i Akeldo, medfører GjennomfoertEtinglysing meldinger til banken for hvert enkelt av disse pantedokumentene.
 
@@ -38,7 +38,7 @@ Meldingstypen GjennomfoertEtinglysing sendes fra megler til bank for å informer
 
 ### Payload
 Et ZIP-arkiv med 2 filer:
-- En GjennomfoertEtinglysing XML med data ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
+- En GjennomfoertEtinglysing XML med data ihht. [definert skjema](../afpant-model/xsd/dsve.xsd).
 - Et vedlegg med forsendelsesstatus xml data fra Kartverket til megler for forsendelsen 
 som inkluderte det aktuelle kjøpers pantedokumentet.
 
