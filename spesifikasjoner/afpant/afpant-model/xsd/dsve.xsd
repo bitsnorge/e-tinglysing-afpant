@@ -5,6 +5,10 @@
   <xs:element name="kjoepekontraktsvarFraMegler" type="KjoepekontraktSvarFraMegler"/>
   <xs:element name="kjoepekontraktEndringFraMegler" type="KjoepekontraktFraMegler"/>
   <xs:element name="kjoepekontraktUoppfordretFraMegler" type="KjoepekontraktFraMegler"/>
+  <xs:element name="finansieringsbekreftelseRequest" type="FinansieringsbekreftelseRequest"/>
+  <xs:element name="finansieringsbekreftelseResponse" type="FinansieringsbekreftelseResponse"/>
+  <xs:element name="finansieringsbekreftelseAvslutet" type="FinansieringsbekreftelseAvslutet"/>
+  <xs:element name="finansieringsbekreftelseAvslutetForKjoepere" type="FinansieringsbekreftelseAvslutetForKjoepere"/>
   <xs:element name="saldoforespoersel" type="Saldoforespoersel"/>
   <xs:element name="saldosvar" type="Saldosvar"/>
   <xs:element name="restgjeldsforespoersel" type="Restgjeldsforespoersel"/>
@@ -66,6 +70,89 @@
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="FinansieringsbekreftelseRequest">
+    <xs:annotation>
+      <xs:documentation>Finansieringsbekreftelseforespørsel er en forespørsel fra megler til bank om å få utlevert bekreftelse för finansiering av ett bud.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="referanse" type="xs:string"/> 
+      <xs:element minOccurs="1" maxOccurs="1" name="ssn" type="xs:string"/> 
+      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bank" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Budinformasjon" type="Budinformasjon"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="salgsobjekt" type="Salgsobjekt"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="objektstype" type="Objektstype"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="lenkeTilSalgsoppgave" type="xs:anyURI"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FinansieringsbekreftelseResponse">
+    <xs:sequence>
+      <xs:element name="finansieringsbekreftelse" type="Finansieringsbekreftelse" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FinansieringsbekreftelseAvslutet">
+    <xs:annotation>
+      <xs:documentation>
+        FinansieringsbekreftelseAvslutet er et signal til alle banker som har mottatt minst ett signal av FinansieringsbekreftelseRequest som beretter at budgivningen er avsluttet.
+        Hvis personen er utpekt som kjøper, får de i stedet et signal av typen FinansieringsbekreftelseAvslutetForKjoepere.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="referanse" type="xs:string"/> 
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FinansieringsbekreftelseAvslutetForKjoepere">
+    <xs:annotation>
+      <xs:documentation>
+        FinansieringsbekreftelseAvslutetForKjoepere er kun et signal til banken der kunden deres er utpekt som kjøper og att budgivningen er avsluttet.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="referanse" type="xs:string"/> 
+      <xs:element minOccurs="1" maxOccurs="1" name="kjoepesum" type="xs:double"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="akseptdato" type="xs:date"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="bank" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="salgsobjekt" type="Salgsobjekt"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="objektstype" type="Objektstype"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="lenkeTilSalgsoppgave" type="xs:anyURI"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Finansieringsbekreftelse">
+    <xs:annotation>
+      <xs:documentation>Finansieringsbekreftelse</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="status" type="FinansieringsbekreftelseStatus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="FinansieringsbekreftelseStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="APPROVED"/>
+      <xs:enumeration value="DISAPPROVED"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Budinformasjon">
+    <xs:annotation>
+      <xs:documentation>Budinformasjon</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="budbelop" type="xs:double"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="akseptfrist" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
 
   <xs:simpleType name="Objektstype">
     <xs:restriction base="xs:string">
@@ -810,7 +897,4 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
-
-
 </xs:schema>
