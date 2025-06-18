@@ -65,7 +65,7 @@ En ZIP-fil som inneholder en XML med requestdata ihht. [definert skjema.](../afp
 |Manifest key|Type|Obligatorisk|Beskrivelse|
 |--- |--- |--- |--- |
 |messageType|String|Yes|FinansieringsbekreftelseResponse|
-|status|String (enum)|Yes|Denne kan være en av følgende statuser: <ol><li>**APPROVED**<br/>Banken bekrefter at budet kan finansieres av banken.</li><li>**DISAPPROVED**<br/>Banken kan ikke bekrefte finansiering av budet.</li><li>**OTHER**<br/>Banken trenger mer informasjon for å håndtere forespørselen. Budgiveren skal bli varslet om å ta kontakt med sin bank.</li></ol> Andre statuser skal anses som NACK (negative acknowledgement).|
+|status|String (enum)|Yes|Denne kan være en av følgende statuser: <ol><li>**APPROVED**<br/>Banken bekrefter at budet kan finansieres av banken.</li><li>**DISAPPROVED**<br/>Banken kan ikke bekrefte finansiering av budet.</li><li>**CUTOMER_CONTACT**<br/>Banken trenger mer informasjon for å håndtere forespørselen. Budgiveren skal bli varslet om å ta kontakt med sin bank.</li><li>**MANUAL**<br/>Banken kan ikke håndtere forespørselen automatisk.
 
 # Meldingstype: finansieringsbekreftelseAvslutet
 

@@ -33,7 +33,8 @@ Banken vil svare på forespørselen med strukturert data hvor svarene kan inneho
 |---------|-------------|
 | APPROVED | Banken bekrefter at personen har et finansieringsbekreftelse som dekker budet for boligen. |
 | DISAPPROVED | Banken kan ikke bekrefte at personen har et finansieringsbekreftelse som dekker budet for boligen. |
-| OTHER | Banken trenger mer informasjon for å kunne håndtere saken. Budgiveren skal bli henvist til å ta kontakt med banken. |
+| CUTOMER_CONTACT | Banken trenger mer informasjon for å kunne håndtere saken. Budgiveren skal bli henvist til å ta kontakt med banken. |
+| MANUAL | Banken kan ikke håndtere saken automatiskt. Megler skal bli henvist til å ta kontakt med banken for at bekrefte budets finansiering.
 
 Ved avsluttet budgivning sendes et signal til alle banker som tidligere har mottatt finansieringsbekreftelseforespørsel for den avsluttede budgivningen.
 Hvis det godkjente budet ikke er bekreftet via banken, får banken kun en referanse til budgivningen slik at de har mulighet til å rydde eventuelle data de har lagret for denne budgivningen.

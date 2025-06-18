@@ -140,7 +140,8 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="APPROVED"/>
       <xs:enumeration value="DISAPPROVED"/>
-      <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="CUTOMER_CONTACT"/>
+      <xs:enumeration value="MANUAL"/>
     </xs:restriction>
   </xs:simpleType>
 
