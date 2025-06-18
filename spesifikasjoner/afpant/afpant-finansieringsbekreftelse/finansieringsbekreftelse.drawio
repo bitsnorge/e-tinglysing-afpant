@@ -1,0 +1,268 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.1.4" pages="2">
+  <diagram name="Page-1" id="GUFK6vzpJ3QhZTw7wU8G">
+    <mxGraphModel dx="1036" dy="747" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-1" value="finansieringsbevisRequest" style="shape=umlFrame;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=10;align=center;width=160;height=30;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="820" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;labelBackgroundColor=none;startFill=0;endArrow=open;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="730" y="838" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;labelBackgroundColor=none;startFill=0;endArrow=open;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="948" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;labelBackgroundColor=none;startFill=0;endArrow=open;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="1029" />
+              <mxPoint x="410" y="1029" />
+            </Array>
+            <mxPoint x="380" y="1029" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-5" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endArrow=block;endFill=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-6" target="iZN-UZmmrvisTjfa3ZrF-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-6" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;b style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;Mottaker&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;referanse: String&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="359" y="30" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-7" style="rounded=0;html=1;labelBackgroundColor=none;startFill=0;endArrow=openThin;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-10" target="iZN-UZmmrvisTjfa3ZrF-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-8" value="&lt;b&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;bank&lt;/font&gt;&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iZN-UZmmrvisTjfa3ZrF-7" vertex="1" connectable="0">
+          <mxGeometry x="-0.35" y="1" relative="1" as="geometry">
+            <mxPoint x="12" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-9" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;salgsobjekt&lt;/b&gt;&lt;/font&gt;" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-10" target="iZN-UZmmrvisTjfa3ZrF-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-10" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;FinansieringsbevisRequest&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;referanse: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;ssn: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;objektstype: Objektstype&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;lenkeTilSalgsoppgave: URI&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;metadata: MetaData&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="74" y="87" width="190" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-12" target="iZN-UZmmrvisTjfa3ZrF-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-12" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;b style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;Organisasjon&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;foretaksnavn: String&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;adresse: Adresse&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="549" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-13" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;b style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;Megler&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;ansvarligMegler:KontaktPerson&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;referanse: String&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;oppgjoersavdeling: Organisasjon&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="334" y="120" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-14" style="rounded=0;html=1;labelBackgroundColor=none;startFill=0;endArrow=openThin;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-10" target="iZN-UZmmrvisTjfa3ZrF-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="119.04032258064512" as="sourcePoint" />
+            <mxPoint x="380" y="94.45967741935488" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-15" value="&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;megler&lt;/b&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iZN-UZmmrvisTjfa3ZrF-14" vertex="1" connectable="0">
+          <mxGeometry x="-0.35" y="1" relative="1" as="geometry">
+            <mxPoint x="12" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-16" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;endArrow=block;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-13" target="iZN-UZmmrvisTjfa3ZrF-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="94.25925925925924" as="sourcePoint" />
+            <mxPoint x="580" y="115" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-17" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;Rettssubjekt&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;id: String&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="694" y="85" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-18" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;quot;helvetica&amp;quot;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;quot;helvetica&amp;quot;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;Budinformation&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;budbelop: Double&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;akseptfrist: Date&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="344" y="240" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-19" style="rounded=0;html=1;labelBackgroundColor=none;startFill=0;endArrow=openThin;endFill=0;endSize=10;fontFamily=Verdana;fontSize=10;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-10" target="iZN-UZmmrvisTjfa3ZrF-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="138.5" as="sourcePoint" />
+            <mxPoint x="380" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-20" value="&lt;b&gt;budinformation&lt;/b&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iZN-UZmmrvisTjfa3ZrF-19" vertex="1" connectable="0">
+          <mxGeometry x="-0.35" y="1" relative="1" as="geometry">
+            <mxPoint x="12" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-23" target="iZN-UZmmrvisTjfa3ZrF-32" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-22" value="&lt;span style=&quot;font-size: 12px ; text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;borettsandelSalgsobjekter&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1" parent="iZN-UZmmrvisTjfa3ZrF-21" vertex="1" connectable="0">
+          <mxGeometry x="-0.017" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-23" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;Salgsobjekt&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;parter: Rettssubjekter&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;matrikkelSalgsobjekt:&amp;nbsp;MatrikkelSalgsobjekt&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;borettsandelSalgsobjekt:&amp;nbsp;BorettsandelSalgsobjekt&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;aksjeleilighetSalgsobjekt:&amp;nbsp;AksjeleilighetSalgsobjekt&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="30" y="410" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-26" target="iZN-UZmmrvisTjfa3ZrF-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-25" value="&lt;font style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;realsameier&lt;/b&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iZN-UZmmrvisTjfa3ZrF-24" vertex="1" connectable="0">
+          <mxGeometry x="0.0571" y="1" relative="1" as="geometry">
+            <mxPoint x="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-26" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;MatrikkelSalgsobjekt&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;matrikkel: Matrikkel&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="509" y="405" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-27" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;Realsameie&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;matrikkel: Matrikkel&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;eierBroek :Broek&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="649" y="280" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-28" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-23" target="iZN-UZmmrvisTjfa3ZrF-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="445" as="sourcePoint" />
+            <mxPoint x="680" y="445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-29" value="&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;matrikkelSalgsobjekt&lt;/b&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="iZN-UZmmrvisTjfa3ZrF-28" vertex="1" connectable="0">
+          <mxGeometry x="0.0571" y="1" relative="1" as="geometry">
+            <mxPoint x="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-31" value="0..1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="464" y="410" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-32" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;BorettsandelSalgsobjekt&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;borettsandel: Borettsandel&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;forretningsfoerer: Organisasjon&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;etasje: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;areal: Areal&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="509" y="495" width="181" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-33" value="0..1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="470" y="557" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-34" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&amp;lt;&amp;lt;complexType&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-family: &amp;#34;helvetica&amp;#34;&quot;&gt;&lt;font face=&quot;helvetica&quot;&gt;&lt;b&gt;AksjeleilighetSalgsobjekt&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;aksjeleilighet: Aksjeleilighet&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;forretningsfoerer: Organisasjon&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;etasje: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;areal: Areal&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;akjser: Aksjeinformasjon&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+          <mxGeometry x="510" y="620" width="181" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-35" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="1" source="iZN-UZmmrvisTjfa3ZrF-23" target="iZN-UZmmrvisTjfa3ZrF-34" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="304" y="619.9983480825958" as="sourcePoint" />
+            <mxPoint x="503" y="666.96" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-36" value="&lt;span style=&quot;font-size: 12px ; text-align: left ; background-color: rgb(248 , 249 , 250)&quot;&gt;borettsandelSalgsobjekter&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1" parent="iZN-UZmmrvisTjfa3ZrF-35" vertex="1" connectable="0">
+          <mxGeometry x="-0.017" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iZN-UZmmrvisTjfa3ZrF-37" value="0..1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="464" y="673.96" width="40" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="iQuqZAgpdVx_0X_qxKc8" name="Page-2">
+    <mxGraphModel dx="1036" dy="747" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-39" value="Bidder" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="10" y="70" width="200" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="q6jzzfSJ_7HDVcREBxIC-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="70" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-44" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="q6jzzfSJ_7HDVcREBxIC-39" vertex="1">
+          <mxGeometry x="80" y="25" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-37" value="Kontakter&lt;br&gt;Banken" style="rhombus;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-39" vertex="1">
+          <mxGeometry x="40" y="150" width="85" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-56" value="Ferdig" style="rhombus;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-39" vertex="1">
+          <mxGeometry x="42.5" y="270" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-21" value="Megler" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="210" y="70" width="200" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="q6jzzfSJ_7HDVcREBxIC-21" source="q6jzzfSJ_7HDVcREBxIC-23" target="q6jzzfSJ_7HDVcREBxIC-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-23" value="Legg bud" style="rounded=1;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-21" vertex="1">
+          <mxGeometry x="60" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-24" value="Verifiser finansiering" style="rounded=1;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-21" vertex="1">
+          <mxGeometry x="35" y="110" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-50" value="Bud ikke verifisert" style="rhombus;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-21" vertex="1">
+          <mxGeometry x="60" y="220" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-53" value="Bud&lt;br&gt;verifisert" style="rhombus;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-21" vertex="1">
+          <mxGeometry x="60" y="320" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6Kwn2zqrKm_k3jidQcAQ-2" value="Selgeren&#xa;aksepterer&#xa;budet" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="q6jzzfSJ_7HDVcREBxIC-21">
+          <mxGeometry x="50" y="450" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-28" value="Bank" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="70" width="200" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-29" value="Finansiering OK?" style="rounded=1;whiteSpace=wrap;html=1;" parent="q6jzzfSJ_7HDVcREBxIC-28" vertex="1">
+          <mxGeometry x="40" y="110" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6Kwn2zqrKm_k3jidQcAQ-4" value="&lt;div&gt;Budgivning&lt;/div&gt;&lt;div&gt;Avsluttet&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="q6jzzfSJ_7HDVcREBxIC-28">
+          <mxGeometry x="50" y="450" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-44" target="q6jzzfSJ_7HDVcREBxIC-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="125" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-24" target="q6jzzfSJ_7HDVcREBxIC-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-31" value="Kontakt banken" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;align=left;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-29" target="q6jzzfSJ_7HDVcREBxIC-37" edge="1">
+          <mxGeometry x="0.2941" relative="1" as="geometry">
+            <mxPoint x="335" y="285" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-37" target="q6jzzfSJ_7HDVcREBxIC-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-29" target="q6jzzfSJ_7HDVcREBxIC-50" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-52" value="Nektet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="q6jzzfSJ_7HDVcREBxIC-51" vertex="1" connectable="0">
+          <mxGeometry x="-0.0182" y="2" relative="1" as="geometry">
+            <mxPoint x="10" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-29" target="q6jzzfSJ_7HDVcREBxIC-53" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-55" value="Godkjenn" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="q6jzzfSJ_7HDVcREBxIC-54" vertex="1" connectable="0">
+          <mxGeometry x="0.2098" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-53" target="q6jzzfSJ_7HDVcREBxIC-56" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="430" />
+              <mxPoint x="190" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q6jzzfSJ_7HDVcREBxIC-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="q6jzzfSJ_7HDVcREBxIC-50" target="q6jzzfSJ_7HDVcREBxIC-56" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="330" />
+              <mxPoint x="190" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6Kwn2zqrKm_k3jidQcAQ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;" edge="1" parent="1" source="q6jzzfSJ_7HDVcREBxIC-56" target="6Kwn2zqrKm_k3jidQcAQ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6Kwn2zqrKm_k3jidQcAQ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6Kwn2zqrKm_k3jidQcAQ-2" target="6Kwn2zqrKm_k3jidQcAQ-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
