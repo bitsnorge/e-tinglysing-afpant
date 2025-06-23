@@ -1,0 +1,230 @@
+<?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
+<restgjeldssvar>
+  <avsender id="984851006">
+    <foretaksnavn>DNB BANK ASA</foretaksnavn>
+    <kontaktperson>
+      <navn>Ole Bankesen</navn>
+      <epost>ole@dnb.no</epost>
+      <telefondirekte>41414141</telefondirekte>
+      <telefon>22224455</telefon>
+    </kontaktperson>
+    <referanse>FX12398731273123</referanse>
+  </avsender>
+  <mottaker id="910968955">
+    <foretaksnavn>DNB EIENDOM AS</foretaksnavn>
+    <referanse>OPGNR-123</referanse>
+  </mottaker>
+  <laanliste>
+    <!-- lån 1 -->
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133341</laanenummer>
+      <kontonummer>46012133341</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <!-- lån 2 -->
+    <laan>
+      <rammelaan>false</rammelaan>
+      <fastrente>true</fastrente>
+      <realkausjon>true</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133342</laanenummer>
+      <kontonummer>46012133342</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <!-- lån 3 -->
+    <laan>
+      <rammelaan>false</rammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>true</realkausjon>
+      <laantakerIkkeHjemmelshaver>false</laantakerIkkeHjemmelshaver>
+      <transporterklaering>true</transporterklaering>
+      <laanenummer>12342133343</laanenummer>
+      <kontonummer>46012133343</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133345</laanenummer>
+      <kontonummer>46012133345</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133345</laanenummer>
+      <kontonummer>46012133345</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133345</laanenummer>
+      <kontonummer>46012133345</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133345</laanenummer>
+      <kontonummer>46012133345</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>12342133345</laanenummer>
+      <kontonummer>46012133345</kontonummer>
+      <!--Optional:-->
+      <kidnummer>0000001231231</kidnummer>
+      <!--Optional:-->
+      <betalingsmelding>Betalingsmelding</betalingsmelding>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <!--Zero or more repetitions:-->
+        <navn>Ola</navn>
+        <navn>Kari</navn>
+        <navn>SANDSLI EIENDOMSUTVIKLING AS</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+  </laanliste>
+  <registerenheterMedDokumentreferanser>
+    <!--1 or more repetitions:-->
+    <registerenhetMedDokumentreferanse>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <matrikkel kommunenavn="Lillestrøm" kommunenummer="3205" gaardsnummer="273" bruksnummer="220" festenummer="0" seksjonsnummer="12" eiendomsnivaa="E"/>
+      <pantedokumentreferanser>
+        <!--Zero or more repetitions:-->
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000"/>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+    <registerenhetMedDokumentreferanse>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <borettsandel organisasjonsnummer="954442403" borettslagnavn="Feråsen borettslag" andelsnummer="71"/>
+      <pantedokumentreferanser>
+        <!--Zero or more repetitions:-->
+        <pantedokumentreferanse dokumentnummer="3975" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2006-11-10T19:00:47+01:00" beloep="201"/>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000"/>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+    <registerenhetMedDokumentreferanse>
+      <!--You have a CHOICE of the next 3 items at this level-->
+      <aksjeleilighet organisasjonsnummer="954442403" organisasjonsnavn="Feråsen Akjselag" leilighetsnummer="71"/>
+      <pantedokumentreferanser>
+        <!--Zero or more repetitions:-->
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1" embetenummer="201" rettsstiftelsesnummer="201" registreringstidspunkt="2006-11-10T19:00:47+01:00" beloep="201"/>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+  </registerenheterMedDokumentreferanser>
+  <sperretForVidereOpplaan>true</sperretForVidereOpplaan>
+  <metadata>
+    <!--Optional:-->
+    <ressurser>
+      <!--Zero or more repetitions:-->
+      <vedlegg>
+        <navn>string</navn>
+        <mimetype>string</mimetype>
+        <!--Optional:-->
+        <beskrivelse>string</beskrivelse>
+      </vedlegg>
+    </ressurser>
+    <opprettet>2014-04-14T05:47:22+02:00</opprettet>
+  </metadata>
+</restgjeldssvar>

@@ -5,10 +5,12 @@
   <xs:element name="kjoepekontraktsvarFraMegler" type="KjoepekontraktSvarFraMegler"/>
   <xs:element name="kjoepekontraktEndringFraMegler" type="KjoepekontraktFraMegler"/>
   <xs:element name="kjoepekontraktUoppfordretFraMegler" type="KjoepekontraktFraMegler"/>
-  <xs:element name="saldoforespoersel" type="Saldoforespoersel"/>
-  <xs:element name="saldosvar" type="Saldosvar"/>
+
   <xs:element name="restgjeldsforespoersel" type="Restgjeldsforespoersel"/>
   <xs:element name="restgjeldssvar" type="Restgjeldssvar"/>
+  <xs:element name="innfrielsessaldoforespoersel" type="Innfrielsessaldoforespoersel"/>
+  <xs:element name="innfrielsessaldosvar" type="Innfrielsessaldosvar"/>
+
   <xs:element name="intensjonfrabank" type="IntensjonFraBank"/>
   <xs:element name="intensjonssvarframegler" type="IntensjonssvarFraMegler"/>
   <xs:element name="intensjonsendring" type="Intensjonsendring"/>
@@ -51,7 +53,7 @@
       <xs:documentation>Kjøpekontrakt er strukturerte data fra en signert kjøpekontrakt.
         Benyttes for å digitalisere prosessene mellom banker og meglere og kan sendes fra megler til bank på
         forespørsel. Dersom kjøpekontrakten er signert skal den sendes med i elementet signertKjoepekontrakt
-        Mulige verdier til objektstype er definert i enum Objektstype. Dersom denne er spesifisert som UKJENT kan 
+        Mulige verdier til objektstype er definert i enum Objektstype. Dersom denne er spesifisert som UKJENT kan
         det valgfrie feltet objektstypeFritekst benyttes til å angi beskrivelse.
       </xs:documentation>
     </xs:annotation>
@@ -82,60 +84,217 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="Saldoforespoersel">
-    <xs:annotation>
-      <xs:documentation>Forespørsel om saldo på et objekt</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="parter" type="Parter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="saldoforespoerseldetaljer" type="Saldoforespoerseldetaljer"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="Saldosvar">
-    <xs:annotation>
-      <xs:documentation>Svar på forespørsel om saldo</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="parter" type="Parter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="saldosvardetaljer" type="Saldosvardetaljer"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name="Prisantydning">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="Restgjeldsforespoersel">
     <xs:annotation>
-      <xs:documentation>Forespørsel om restgjeld på et objekt</xs:documentation>
+      <xs:documentation>Forespørsel om restgjeld på ett eller flere panteobjekt.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
       <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="megler" type="Megler"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="parter" type="Parter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="restgjeldsforespoerseldetaljer" type="Restgjeldsforespoerseldetaljer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedHjemmelshavere" type="RegisterenheterMedHjemmelshavere"/>
+      <xs:element minOccurs="0" name="prisantydning" type="Prisantydning"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterenheterMedHjemmelshavere">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="registerenhetMedHjemmelshavere" type="RegisterenhetMedHjemmelshavere"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Restgjeldssvar">
     <xs:annotation>
-      <xs:documentation>Svar på restgjeldsforespørsel</xs:documentation>
+      <xs:documentation>Svar på forespørsel om restgjeld. Inneholder:
+        Liste med lån som må innfris for at heftelser i de eiendommene som skal selges blir slettet.
+        Liste med de pantedokumentene, per eiendom, som banken sletter om listen med lån innfris.
+        Angivelse av om lånene er sperret for videre opplån eller ikke, og om panterettigheter blir slettet om lånene
+        innfris.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
       <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="registerenheter" type="Registerenheter"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="restgjelddetaljer" type="Restgjelddetaljer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laanliste" type="LaanRestgjeldListe"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedDokumentreferanser" type="RegisterenheterMedDokumentreferanse"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="sperretForVidereOpplaan" type="xs:boolean"/>
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Innfrielsessaldosvar">
+    <xs:annotation>
+      <xs:documentation>Svar på forespørsel om innfrielsessaldo.
+        Liste med lån som må innfris for at heftelser i de eiendommene som skal selges blir slettet.
+        Liste med de pantedokumentene, per eiendom, som banken sletter om listen med lån innfris.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laanliste" type="LaanInnfrielsessaldoListe"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedDokumentreferanser" type="RegisterenheterMedDokumentreferanse"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterenheterMedDokumentreferanse">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="registerenhetMedDokumentreferanse" type="RegisterenhetMedDokumentreferanse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LaanRestgjeld">
+    <xs:annotation>
+      <xs:documentation>
+        Informasjon om ett lån som skal utleveres i et restgjeldssvar. Angir om det er rammelån,
+        Hvis ikke kid-nummer eller betalingsmelding er nødvendig kan begge utelates.
+        Dersom lånenummer er likt kontonummer legges samme data i begge felter.
+        Øvre grense for rammelån er kun brukt dersom det er rammelån.
+        Realkausjon er true hvis det er realkausjon i bildet
+        laantakerIkkeHjemmelshaver er true dersom det finnes en eller flere låntakere som ikke er hjemmelshavere.
+        laantakereHjemmelshaver er en liste med navn på de låntakerne som ogsp er hjemmelshavere.
+        transporterklaering er true dersom det er et lån brukt til mellomfinansiering (transporterklæring)
+        Saldo er restgjeld på tidspunktet for besvarelse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="rammelaan" type="xs:boolean"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="oevreGrenseRammelaan" type="xs:double"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="fastrente" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="realkausjon" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laantakerIkkeHjemmelshaver" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="transporterklaering" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laanenummer" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="kontonummer" type="Kontonummer"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="kidnummer" type="KID"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="betalingsmelding" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="saldo" type="xs:decimal"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laantakereHjemmelshaver" type="LaantakereHjemmelshaver"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterenhetMedDokumentreferanse">
+    <xs:annotation>
+      <xs:documentation>Eiendomsinformasjon med tilhørende tinglyste pantedokumenter.
+        Skal oppgi én av matrikkel, borettsandel eller aksjeleilighet.
+        Liste over tinglyste dagbok-/dokumentnummer og opprinnelig beløp ved tinglyste pant. Ikke obligatorisk
+        ved aksjeleilighet.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="matrikkel" type="Matrikkel"/>
+        <xs:element name="borettsandel" type="Borettsandel"/>
+        <xs:element name="aksjeleilighet" type="Aksjeleilighet"/>
+      </xs:choice>
+      <xs:element minOccurs="1" maxOccurs="1" name="pantedokumentreferanser" type="Pantedokumentreferanser"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Pantedokumentreferanser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="pantedokumentreferanse" type="Pantedokumentreferanse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Innfrielsessaldoforespoersel">
+    <xs:annotation>
+      <xs:documentation>Forespørsel om innfrielsesaldo på ett eller flere panteobjekt.
+        En liste med oppgjørsdatoer for innfrielse. Bank kan svare på andre datoer eller kun på noen av
+        datoene. Hvis det er fastrentelån kan ikke banken svare mange dager fram i tid.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="avsender" type="Avsender"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedHjemmelshavere" type="RegisterenheterMedHjemmelshavere"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="innfrielsesdatoer" type="Innfrielsesdatoer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Innfrielsesdatoer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="4" name="innfrielsesdato" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LaanInnfrielsessaldoListe">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="laan" type="LaanInnfrielsessaldo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LaanRestgjeldListe">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="laan" type="LaanRestgjeld"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LaanInnfrielsessaldo">
+    <xs:annotation>
+      <xs:documentation>
+        laantakerIkkeHjemmelshaver er true dersom det finnes en eller flere låntakere som ikke er hjemmelshavere.
+        laantakereHjemmelshaver er en liste med navn på de låntakerne som ogsp er hjemmelshavere.
+        transporterklaering er true dersom det er et lån brukt til mellomfinansiering (transporterklæring)
+        Hvis ikke kid-nummer eller betalingsmelding er nødvendig kan begge utelates.
+        Dersom lånenummer er likt kontonummer legges det samme i begge felter.
+        InnfrielsesBeloepOgDato er en liste med minst én dato og beløp for inndrielse på angitte dato.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="laantakerIkkeHjemmelshaver" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="transporterklaering" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laanenummer" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="kontonummer" type="Kontonummer"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="kidnummer" type="KID"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="betalingsmelding" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="saldoerPerDato" type="BeloepOgDatoer"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="laantakereHjemmelshaver" type="LaantakereHjemmelshaver"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="Kontonummer">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{11}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="KID">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{2,25}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="BeloepOgDatoer">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="4" name="saldoPerDato" type="BeloepOgDato"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LaantakereHjemmelshaver">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="navn">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="256"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BeloepOgDato">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="beloep" type="xs:double"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="dato" type="xs:date"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -187,7 +346,8 @@
   <xs:complexType name="GjennomfoertEtinglysing">
     <xs:annotation>
       <xs:documentation>Melding fra megler til bank om at e-tinglysing av elektronisk pantedokument er fullført.
-        Xml fra Kartverket som ble tilsendt megler etter vellykket tinglysing er inkludert som et base64 encodet vedlegg i metadata.
+        Xml fra Kartverket som ble tilsendt megler etter vellykket tinglysing er inkludert som et base64 encodet vedlegg
+        i metadata.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -224,12 +384,13 @@
       <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="OppnaaddPrioritetDetaljer">
     <xs:annotation>
       <xs:documentation>
-        Referanser benyttet for å idenfifisere saken på mottaker(bank) sin side. 
-        Inneholder pantedokumentets dokumentreferanse og Altinn sendersreference fra SignedMortgageDeed meldingen som ble sendt fra bank til megler.
+        Referanser benyttet for å idenfifisere saken på mottaker(bank) sin side.
+        Inneholder pantedokumentets dokumentreferanse og Altinn sendersreference fra SignedMortgageDeed meldingen som
+        ble sendt fra bank til megler.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -237,7 +398,7 @@
       <xs:element minOccurs="1" maxOccurs="1" name="altinnsendersreference" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Avsender">
     <xs:annotation>
       <xs:documentation>Avsender angir hvem som har sendt meldingen.
@@ -350,7 +511,8 @@
     <xs:annotation>
       <xs:documentation>
         Realsameie er definert som et salgsobjekt, men skal ikke inngå i hverken pantedokument eller skjøte.
-        Et realsameie eies en eiendom og ikke person og når hovedeiendommen overskjøte følger realsameiet med og skal således
+        Et realsameie eies en eiendom og ikke person og når hovedeiendommen overskjøte følger realsameiet med og skal
+        således
         ikke inngå i skjøte.
       </xs:documentation>
     </xs:annotation>
@@ -379,7 +541,6 @@
   </xs:complexType>
 
   <xs:complexType name="MatrikkelSalgsobjekt">
-    <xs:annotation></xs:annotation>
     <xs:sequence>
       <xs:element name="matrikkel" type="Matrikkel" minOccurs="1" maxOccurs="1"/>
       <xs:element name="realsameier" minOccurs="0" maxOccurs="1" type="Realsameier"/>
@@ -388,7 +549,6 @@
   </xs:complexType>
 
   <xs:complexType name="BorettsandelSalgsobjekt">
-    <xs:annotation></xs:annotation>
     <xs:sequence>
       <xs:element name="borettsandel" type="Borettsandel" minOccurs="1" maxOccurs="1"/>
       <xs:element name="forretningsfoerer" type="Organisasjon" minOccurs="0" maxOccurs="1"/>
@@ -398,9 +558,6 @@
   </xs:complexType>
 
   <xs:complexType name="AksjeleilighetSalgsobjekt">
-    <xs:annotation>
-      <xs:documentation></xs:documentation>
-    </xs:annotation>
     <xs:sequence>
       <xs:element name="aksjeleilighet" type="Aksjeleilighet" minOccurs="1" maxOccurs="1"/>
       <xs:element name="forretningsfoerer" type="Organisasjon" minOccurs="0" maxOccurs="1"/>
@@ -451,7 +608,7 @@
       <xs:enumeration value="PROM"/>
       <xs:enumeration value="BRA"/>
       <xs:enumeration value="TOMT"/>
-      <xs:enumeration value="BTA"/> 
+      <xs:enumeration value="BTA"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -490,11 +647,7 @@
 
   <xs:complexType name="Aktoer">
     <xs:annotation>
-      <xs:documentation>Aktør er enten en organisasjon eller person med rolle.
-        Rolle angir hvilken rolle aktøren har. Definerte roller er selger, kjøper og hjemmelshaver (dersom selger ikke
-        er hjemmelshaver)
-        Spørsmål: Vil det være en andel for selger som ikke er hjemmelshaver, eller må andel være frivillig?
-      </xs:documentation>
+      <xs:documentation>Aktør er enten en organisasjon eller person.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:choice>
@@ -566,6 +719,29 @@
         <xs:element name="aksjeleilighet" type="Aksjeleilighet"/>
       </xs:choice>
       <xs:element minOccurs="0" maxOccurs="1" name="adresse" type="Adresse"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterenhetMedHjemmelshavere">
+    <xs:annotation>
+      <xs:documentation>Må inneholde én av matrikkel, borettsandel eller akjseleilighet. Listen med hjemmelshavere er
+        de hjemmelshaverne som er selgere. Ved f.eks. samlivsbrudd, den hjemmelshaveren som selger seg ut.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="matrikkel" type="Matrikkel"/>
+        <xs:element name="borettsandel" type="Borettsandel"/>
+        <xs:element name="aksjeleilighet" type="Aksjeleilighet"/>
+      </xs:choice>
+      <xs:element minOccurs="1" maxOccurs="1" name="hjemmelshavere" type="Hjemmelshavere"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Hjemmelshavere">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="hjemmelshaver" type="Aktoer"/>
+      <!-- TODO Aktoer har ikke brøk. Trenger vi det? -->
     </xs:sequence>
   </xs:complexType>
 
@@ -658,30 +834,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Saldoforespoerseldetaljer">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="prisantydning" type="xs:double"/>
-      <xs:element minOccurs="0" name="salgssum" type="xs:double"/>
-      <xs:element name="tinglyst" type="TinglystePant"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="Saldosvardetaljer">
-    <xs:sequence>
-      <xs:element name="saldoer" type="LaanListe"/>
-      <xs:element name="sperret" type="xs:boolean" minOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="Restgjelddetaljer">
-    <xs:sequence>
-      <xs:sequence>
-        <xs:element name="restgjeldsdatoer" type="Restgjeldsdatoer"/>
-      </xs:sequence>
-      <xs:element name="sperret" type="xs:boolean" minOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="Intensjonsdetaljer">
     <xs:sequence>
       <xs:element name="metode" type="Tinglysingsmetode" minOccurs="1"/>
@@ -698,69 +850,50 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="Restgjeldsdatoer">
-    <xs:sequence>
-      <xs:element name="saldoerperdato" minOccurs="1" maxOccurs="unbounded" type="Restgjeldperdato"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name="Dokumentnummer">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-  <xs:complexType name="Restgjeldperdato">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="laan" type="Laan"/>
-    </xs:sequence>
-    <xs:attribute name="dato" type="xs:date" use="required"/>
-  </xs:complexType>
+  <xs:simpleType name="Aar">
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-  <xs:complexType name="Restgjeldsforespoerseldetaljer">
-    <xs:sequence>
-      <xs:element name="saldoperdato" type="RestgjeldForespurteDatoer"/>
-      <xs:element name="sperret" type="xs:boolean" minOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name="Embetenummer">
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="999"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-  <xs:complexType name="RestgjeldForespurteDatoer">
-    <xs:sequence>
-      <xs:element minOccurs="1" maxOccurs="unbounded" name="saldo" type="RestgjeldForespurtDato"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name="Rettsstiftelsesnummer">
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
 
-  <xs:complexType name="RestgjeldForespurtDato">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="laanenummer" type="xs:string"/>
-    </xs:sequence>
-    <xs:attribute name="dato" type="xs:date" use="required"/>
-  </xs:complexType>
-
-  <xs:complexType name="LaanListe">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="laan" type="Laan"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="Laan">
-    <xs:attribute name="laanenummer" type="xs:string" use="required"/>
-    <xs:attribute name="saldo" type="xs:double" use="required"/>
-    <xs:attribute name="type" type="xs:string" use="required"/>
-    <xs:attribute name="laastramme" type="xs:double" use="required"/>
-  </xs:complexType>
-
-  <xs:complexType name="TinglystePant">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="pant" type="Pantedokumentreferanse"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name="Pantedokumentbeloep">
+    <!-- Maks i Grunnnboken er 280.000.000.000 -->
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="Pantedokumentreferanse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="1" name="panthaver" type="Aktoer"/>
-    </xs:sequence>
-    <xs:attribute name="dokumentnummer" type="xs:string" use="required"/>
-    <xs:attribute name="dokumentaar" type="xs:string" use="required"/>
-    <xs:attribute name="embetenummer" type="xs:string" use="required"/>
-    <xs:attribute name="rettsstiftelsesnummer" type="xs:integer" use="required"/>
-    <xs:attribute name="kommunenummer" type="xs:string" use="optional"/>
-    <xs:attribute name="tid" type="xs:dateTime" use="required"/>
-    <xs:attribute name="beloep" type="xs:double" use="required"/>
+    <xs:annotation>
+      <xs:documentation>Beløp er opprinnelig tinglyst beløp i hele kroner.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="dokumentnummer" type="Dokumentnummer" use="required"/>
+    <xs:attribute name="dokumentaar" type="Aar" use="required"/>
+    <xs:attribute name="embetenummer" type="Embetenummer" use="required"/>
+    <xs:attribute name="rettsstiftelsesnummer" type="Rettsstiftelsesnummer" use="required"/>
+    <xs:attribute name="registreringstidspunkt" type="xs:dateTime" use="optional"/>
+    <xs:attribute name="beloep" type="Pantedokumentbeloep" use="optional">
+    </xs:attribute>
   </xs:complexType>
 
   <xs:complexType name="Metadata">
