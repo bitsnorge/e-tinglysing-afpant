@@ -38,6 +38,7 @@ Prosjektet er åpent for nye aktører som ønsker å delta. For å kunne ta i br
 
 - [Bestill tilganger](./tilgang.md)
 - [AKELDO](./akeldo.md)
+- For å få release til å fungere må det lages en merge commit
 
 
 ## Funksjonalitet
