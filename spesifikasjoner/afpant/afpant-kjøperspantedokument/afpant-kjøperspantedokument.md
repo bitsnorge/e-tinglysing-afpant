@@ -30,11 +30,12 @@ Referansen settes ved opprettelse av dokumentet i "no.kartverket.grunnbok.wsapi.
 - Eksempler på gyldige referanser: [caseId]-[dokumentId]-[bankregisternummer] "12345-123456789-9057", [UUID] "a39e6076-b775-11ea-b3de-0242ac130004"
 	
 
-### teknisk-beskrivelse: ruting
-- mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er)
-- utvalget avgrenses til matrikkelenheter som tilhører meglersaker hvor organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret pantedokumentet er sendt til ("reportee")
-- utvalget avgrenses til meglersaker hvor **alle debitorene i pantedokumentet også er registrert som kjøpere på meglersaken** (hvis det mangler fødselsnummer/orgnummer på kjøper(e) kan leverandør selv velge graden av fuzzy matching som skal tillates) 
-- dersom det er registrert flere kjøpere på meglersaken enn det finnes debitorer/signaturer i pantedokumentet skal mottakende system avvise forsendelsen med en SignedMortgageDeedProcessedMessage (NACK) hvor status = DebitorMismatch.
+### Teknisk-beskrivelse: Matching og routing
+- Mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er). 
+- Utvalget avgrenses til matrikkelenheter som tilhører meglersaker der organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret pantedokumentet er sendt til ("reportee"). 
+- Utvalget begrenses til meglersaker hvor **minst en av debitorene i pantedokumentet må finnes som kjøpere i meglersaken**. (Dersom det mangler fødselsnummer eller organisasjonsnummer på kjøper(e), kan leverandøren selv bestemme graden av fuzzy matching som skal tillates)
+  - For eksempel, i eiendomshandler der en person kjøper seg inn i en bolig (andel), vil de eksisterende eier(e) av boligen være debitor(er) i pantedokumentet, og ikke kjøper(e) i meglersaken. Banken vil som regel hefte i hele eiendommen, noe som medfører at de eksisterende eier(e) vil være debitor(er) i pantedokumentet, og ikke kjøper(e) i meglersaken.
+- Dersom **ingen av debitorene i pantedokumentet er til stede som kjøper i meglersaken**, skal det mottakende systemet avvise forsendelsen med en SignedMortgageDeedProcessedMessage (NACK) der status = DebitorMismatch.
 
 ### Håndtering av feil
 - Den første feilen som oppstår stopper videre behandling av forsendelsen.
