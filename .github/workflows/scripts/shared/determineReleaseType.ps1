@@ -14,7 +14,7 @@ if ( ($null -ne $Env:prPath) -and ($null -ne $Env:mergeCommitMessage) ) { #If bo
     $CommitMessage = gh pr view $PullRequestUrl --json commits | ConvertFrom-Json | Select-Object -Expand commits | ForEach-Object { $_.messageHeadline } | Select-Object -Last 2 | Select-Object -First 1
   }
 } elseif ($null -ne $Env:mergeCommitMessage) { #If this is not null, then the commit message was a merge commit message, we need to find the final commit message of the merge branch
-  if ( $Env:mergeCommitMessage -notmatch '^(Merge pull request #)[0-9]( from ).*') {
+  if ( $Env:mergeCommitMessage -notmatch '^(Merge pull request #)[0-9]+( from ).*') {
     Write-Output "::error title=Script-Error::The script has encountered an error while attempting to find the release type. The script got the commit message as input, which means that this was called as part of a push to the master branch, but the commit message did not follow the regex pattern for a merge commit, this means that somone pushed straight to master. Naughty Naughty! The commit message was: $Env:mergeCommitMessage"
     exit 1
   } else { #Find the last Pull-Request commit message using the PR number from the commit message of the merge commit message
