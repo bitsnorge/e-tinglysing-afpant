@@ -80,14 +80,47 @@ Det er ikke avtalt noen normert svartid på disse meldingene, men brukerne av l�
 
 Felter merket med `*` er påkrevde felter.
 
-# Deling av status og feilhåndtering
+# Forretningsregler/tolkning av ulike scenarioer
+Det finnes tilfeller der det kan bli uklart for både avsender og mottaker hvordan man skal tolke forespørsel og svar for meldingene. Det er også tilfeller der man tidligere har lagt inn standardformuleringer eller tilleggsinformasjon. Det er det per design ikke støtte for i digitale saldoforespørsler. Det følgende avsnittet presenterer derfor ulike forretningsregler der det kan være tvil om tolkning.
 
+
+Når man mottar en besvarelse om innfrielse fra bank skal man ikke lenger trenge å vurdere informasjonen fra restgjeldsoppgaven. Dersom noe avviker er det den siste melding som gjelder.
+
+## Rammelån
+Ved å angi "SperretForOpplaan" på et rammelån betyr det at lånerammen ikke vil økes.
+
+Dersom man skal angi at tilgjengelig kreditt er sperret innenfor eksisterende ramme angir man øvre ramme til å være samme som benyttet kreditt (som i mange tilfeller vil være lavere enn faktisk ramme), og at lånet er sperret for opplån ("SperretForOpplaan"=true).
+
+Eksempel: 
+
+Hvis øvre ramme er 1.000.000 og benyttet kreditt er 700.000, så vil banken angi følgende:
+- IKKE sperre kreditt: Da blir restgjeld 700.000 og øvre ramme 1 mill.
+- SPERRE for kreditt: Da blir restgjeld 700.000 og øvre ramme 700.000
+
+For begge tilfeller settes "SperretForOpplaan"=true.
+
+## Fastrentelån
+For restgjeldssaldo på fastrentelån er over-/underkurs ikke beregnet. Dette gjøres på oppgjørstidspunktet.
+
+## Transporterklæring
+Meglers ansvar opphører ved innfrielse av en transporterklæring.
+
+## Pant er opplånt uten at vi har oppgitt ny restgjeldsoppgave
+Banken svarer som vanlig med beløp uten å spesifisere hvem som har godtatt opplåning hos megleren. Eventuelle avklaringer må gjøres på e-post, men vi kan håpe at det vil etterspørres ny restgjeldsoppgave fra meglerne i disse tilfellene, når det blir langt enklere å etterspørre i en digital løsning.
+
+## Lån er ikke knyttet mot den solgte eiendommen
+Banken skal kun svare med lån som er knyttet til den solgte eiendommen. Meglers ansvar er å innfri det som hefter i eiendommen. Alt annet må banken og kunder rydde opp i utenfor.
+
+## Saldo langt frem i tid
+Generelt for lån med oppgjør langt frem i tid må banken vurdere om det lønner seg å vente med å besvare disse til nærmere oppgjør eller om de skal svare manuelt (etter negativt svar med årsak i digital løsning). 
+
+# Deling av status og feilhåndtering
 Ulike scenarioer i løsningen der det ikke kan svares rett ut med beløp og betalingsinformasjon:
--   Lån nedbetalt, pant ikke slettet enda.
+- Lån nedbetalt, pant ikke slettet enda.
 -	Feil panthaver. Panthaver har ikke pant i nevnte eiendom(er)
 -	Pant solgt/overført til andre.
 -	Svarer i (ekstern) e-post.
--	UkjentPantsetter: Feil med ID el.
+-	Ukjent pantsetter: Feil med ID el.
 -	Generelle feil. Kan være av teknisk art eller annet som vi på nåværende tidspunkt ikke klarer å forutse.
 
 Forslag til svarkoder:
