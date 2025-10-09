@@ -117,6 +117,29 @@ Ved bruk av ServiceEngine webservices vil Altinn Formidlingstjenester automatisk
 	</tbody>
 </table>
 
+### Spesielt for PAdES/SignedMortgageDeedPdf
+Tjenesten til Kartverket for å generere PDF for PAdES signering inneholder ett vedlegg med XML-data (document.xml). 
+Det er dette vedlegget som kan hentes ut og benyttes for matching. 
+Vedlegget har overordnet samme struktur som den gamle xml delen av BIDXML formatet. Det vil si at man her har støtte for litt forskjellige varianter av xml.
+Det er viktig at man støtter alle variantene som Kartverket godtar. 
+
+Eksempel på xml vedlegg i PAdES med og uten ledende <?xml ... ?> deklarasjon: 
+```
+<dokument xmlns="http://kartverket.no/grunnbok/wsapi/v2/domain/innsending">
+    <dokumentreferanse>911647_987630009057</dokumentreferanse>
+    <rettsstiftelser>
+        <pant>
+```
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:dokument xmlns:ns5="http://ws.infotorg.no/xml/EVRY/AltinnFormidling/2019-01-11/AltinnFormidling.xsd" xmlns:ns2="http://kartverket.no/grunnbok/wsapi/v2/domain/innsending">
+    <ns2:dokumentreferanse>910189_978030269057</ns2:dokumentreferanse>
+    <ns2:rettsstiftelser>
+        <ns2:pant>
+
+```
+
+
 
 ## Retur av ACK/NACK notification fra fagsystem til bank (etter behandling av mottatt pantedokument):
 <table>
