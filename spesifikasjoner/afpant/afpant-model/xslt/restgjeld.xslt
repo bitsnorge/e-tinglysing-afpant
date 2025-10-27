@@ -248,7 +248,7 @@
         <xsl:if test="string-length($prefix) &gt; 0">
             <xsl:value-of select="$prefix"/>
         </xsl:if>
-        <xsl:value-of select="format-number(number($numericValue), '### ### ### ###', 'nb-no-space')"/>
+        <xsl:value-of select="format-number(number($numericValue), '### ### ### ###,00', 'nb-no-space')"/>
     </xsl:template>
     <xsl:template name="formatPhoneNumber">
         <xsl:param name="prefix"/>
