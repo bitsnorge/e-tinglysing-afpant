@@ -3,18 +3,21 @@
 	<tbody>
 		<tr>
 			<td><p><strong>Navn</strong></p></td>
-			<td><p><strong>ServiceCode</strong></p></td>
-			<td><p><strong>ServiceEditionCode</strong></p></td>
+			<td><p><strong>Altinn 2 ServiceCode</strong></p></td>
+			<td><p><strong>Altinn 2 ServiceEditionCode</strong></p></td>
+			<td><p><strong>Altinn 3 Resource ID</strong></p></td>
 		</tr>
 		<tr>
 			<td><p>AFPANT (Altinn Test TT02)</p></td>
 			<td><p>4752</p></td>
 			<td><p>1</p></td>
+			<td><p>kv_dsve_test</p></td>
 		</tr>
 		<tr>
 			<td><p>AFPANT (Altinn Prod)</p></td>
 			<td><p>4752</p></td>
 			<td><p>1</p></td>
+			<td><p>kv_dsve</p></td>
 		</tr>
 	</tbody>
 </table>
