@@ -8,5 +8,7 @@ Aktørregisteret har oversikt over hvilke organisasjonsnumre (banker og eiendoms
 
 Innmelding av organisasjoner og støttede meldingstyper gjøres via Kartverket Applikasjonsdrift.
 
+For å hente ut informasjon om kun én aktør kan man gå til `https://akeldo.grunnbok.no/akeldo/aktoer/:organisasjonsnummer`.
+
 ## AKELDO test
 [REST API i test er tilgjengelig her](https://akeldotest.grunnbok.no/akeldo/aktoer).
