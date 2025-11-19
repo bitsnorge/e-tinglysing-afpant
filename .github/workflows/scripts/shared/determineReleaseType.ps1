@@ -8,6 +8,7 @@ if ( ($null -ne $Env:prPath) -and ($null -ne $Env:mergeCommitMessage) ) { #If bo
   $PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/$($mergeLessPRPath.Substring($mergeLessPRPath.indexOf("pull/")))" #Combine to URL, remove "/refs" i.e only include "pull/<nr>"
 
   $CommitMessage = gh pr view $PullRequestUrl --json commits | ConvertFrom-Json | Select-Object -Expand commits | ForEach-Object { $_.messageHeadline } | Select-Object -Last 1
+  Write-Output "::notify::The commit message to evaluate was found to be: $CommitMessage"
 
   if ($CommitMessage -match '^Merge.*') { #If a merge conflict was solved the commit message might not follow the standard, jumping one up
     Write-Output "::notify::The last commit on the pull request: $PullRequestUrl contained 'Merge' on the last commit message, this might be due to a merge-conflict resolution, checking previous to last commit message"
@@ -15,14 +16,20 @@ if ( ($null -ne $Env:prPath) -and ($null -ne $Env:mergeCommitMessage) ) { #If bo
   }
 } elseif ($null -ne $Env:mergeCommitMessage) { #If this is not null, then the commit message was a merge commit message, we need to find the final commit message of the merge branch
   if ( $Env:mergeCommitMessage -notmatch '^(Merge pull request #)[0-9]+( from ).*') {
-    Write-Output "::error title=Script-Error::The script has encountered an error while attempting to find the release type. The script got the commit message as input, which means that this was called as part of a push to the master branch, but the commit message did not follow the regex pattern for a merge commit, this means that somone pushed straight to master. Naughty Naughty! The commit message was: $Env:mergeCommitMessage"
-    exit 1
+    Write-Output "::notify::::The script got the commit message as input, which means that this was called as part of a push to the master branch, but the commit message did not follow the regex pattern for a merge commit, this might indcate that somone pushed straight to master. The commit message was: $Env:mergeCommitMessage. Using this commit message to find the release type."
+
+    #Use the commit message on this commit.
+    $CommitMessage = $Env:mergeCommitMessage
+
+    Write-Output "::notify::The commit message to evaluate was found to be: $CommitMessage"
   } else { #Find the last Pull-Request commit message using the PR number from the commit message of the merge commit message
     $NoAfterNumber = $Env:mergeCommitMessage.Substring(0, $Env:mergeCommitMessage.indexOf("from"))
     [Int]$PullRequestNumber = $NoAfterNumber.Substring($NoAfterNumber.indexOf("#") + 1)
     $PullRequestUrl = "$Env:gitHubHost/$Env:repoPath/pull/$PullRequestNumber"
 
     $CommitMessage = gh pr view $PullRequestUrl --json commits | ConvertFrom-Json | Select-Object -Expand commits | ForEach-Object { $_.messageHeadline } | Select-Object -Last 1
+
+    Write-Output "::notify::The commit message to evaluate was found to be: $CommitMessage"
 
     if ($CommitMessage -match '^Merge.*') { #If a merge conflict was solved the commit message might not follow the standard, jumping one up
       Write-Output "::notify::The last commit on the pull request: $PullRequestUrl contained 'Merge' on the last commit message, this might be due to a merge-conflict resolution, checking previous to last commit message"
