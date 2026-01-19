@@ -732,7 +732,7 @@
       <xs:choice>
         <xs:element name="matrikkel" type="Matrikkel"/>
         <xs:element name="borettsandel" type="Borettsandel"/>
-        <xs:element name="aksjeleilighet" type="Aksjeleilighet"/>
+        <xs:element name="aksjeleilighet" type="AksjeleilighetMedAksjeInformasjon"/>
       </xs:choice>
       <xs:element minOccurs="1" maxOccurs="1" name="hjemmelshavere" type="Hjemmelshavere"/>
     </xs:sequence>
@@ -773,6 +773,16 @@
     <xs:attribute name="organisasjonsnummer" type="xs:string" use="required"/>
     <xs:attribute name="organisasjonsnavn" type="xs:string" use="required"/>
     <xs:attribute name="leilighetsnummer" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="AksjeleilighetMedAksjeInformasjon">
+    <xs:sequence>
+      <xs:element name="aksjeinformasjon" type="Aksjeinformasjon" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="organisasjonsnummer" type="xs:string" use="required"/>
+    <xs:attribute name="organisasjonsnavn" type="xs:string" use="required"/>
+    <xs:attribute name="leilighetsnummer" type="xs:string" use="required"/>
+
   </xs:complexType>
 
   <xs:simpleType name="Eiendomsnivaa">
