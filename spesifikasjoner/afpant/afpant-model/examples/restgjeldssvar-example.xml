@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/dsve.xslt"?>
-<restgjeldssvar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNameSpaceLocation="https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/dsve.xsd">
+<restgjeldssvar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceLocation="https://prod.cdn.dsop.no/dsve/v/2.0.0/xsd/dsve.xsd">
 	<avsender id="945811714">
 		<foretaksnavn>DNB Bank ASA</foretaksnavn>
 		<kontaktperson>
