@@ -1,5 +1,5 @@
 <?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
-<restgjeldsforespoersel>
+<restgjeldsforespoersel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve.xsd">
   <avsender id="910968955">
     <foretaksnavn>DNB EIENDOM AS</foretaksnavn>
     <!--Optional:-->
@@ -93,7 +93,14 @@
     </registerenhetMedHjemmelshavere>
     <registerenhetMedHjemmelshavere>
       <!--You have a CHOICE of the next 3 items at this level-->
-      <aksjeleilighet organisasjonsnummer="954442403" organisasjonsnavn="Feråsen Akjselag" leilighetsnummer="71"/>
+      <aksjeleilighet organisasjonsnummer="954442403" organisasjonsnavn="Feråsen Akjselag" leilighetsnummer="71">
+        <aksjeinformasjon>
+          <akjsenummerFra>1</akjsenummerFra>
+          <akjsenummerTil>1</akjsenummerTil>
+          <paalydende>10000</paalydende>
+          <antall>1</antall>
+        </aksjeinformasjon>
+      </aksjeleilighet>
       <hjemmelshavere>
         <!--1 or more repetitions:-->
         <hjemmelshaver>

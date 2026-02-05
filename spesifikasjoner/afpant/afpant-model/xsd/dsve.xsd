@@ -192,7 +192,7 @@
       <xs:choice>
         <xs:element name="matrikkel" type="Matrikkel"/>
         <xs:element name="borettsandel" type="Borettsandel"/>
-        <xs:element name="aksjeleilighet" type="Aksjeleilighet"/>
+        <xs:element name="aksjeleilighet" type="AksjeleilighetMedAksjeInformasjon"/>
       </xs:choice>
       <xs:element minOccurs="1" maxOccurs="1" name="pantedokumentreferanser" type="Pantedokumentreferanser"/>
     </xs:sequence>
