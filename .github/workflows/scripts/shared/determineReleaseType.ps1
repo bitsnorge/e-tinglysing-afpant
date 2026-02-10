@@ -55,6 +55,7 @@ if ( $CommitMessage -match '^doc:(\s|\S)*$') {
 }
 
 Write-Output "::notice::The merge was determined to be a $releaseType change"
+
 #Escape multiline input for the commit message
 $EscapedCommitMessage = $CommitMessage -replace '%','%25' -replace "`r","%0D" -replace "`n","%0A"
 
