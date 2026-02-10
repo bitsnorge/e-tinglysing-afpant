@@ -48,6 +48,8 @@ if ( $CommitMessage -match '^doc:(\s|\S)*$') {
 }
 
 Write-Output "::notice::The merge was determined to be a $releaseType change"
+#Escape multiline input for the commit message
+$EscapedCommitMessage = $CommitMessage -replace '%','%25' -replace "`r","%0D" -replace "`n","%0A"
 
 Add-Content -Value "releaseType=$releaseType" -Path $Env:GITHUB_OUTPUT -Encoding utf8
-Add-Content -Value "commitMessage=$CommitMessage" -Path $Env:GITHUB_OUTPUT -Encoding utf8
+Add-Content -Value "commitMessage=$EscapedCommitMessage" -Path $Env:GITHUB_OUTPUT -Encoding utf8
