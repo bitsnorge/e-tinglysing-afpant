@@ -1,52 +1,61 @@
 Restgjeldsoppgave og Innfrielsessaldo - teknisk-beskrivelse
 ===========================================================
 
-
 # Implementasjonskrav
-Det er ikke krav til å støtte både Restgjeldsoppgave og Innfrielsessaldo i førsteomgang. 
+
+Det er ikke krav til å støtte både Restgjeldsoppgave og Innfrielsessaldo i førsteomgang.
 Det er opp til den enkelte aktør å velge rekkefølge på implementert støtte. Det er forventet at man støtter begge innen rimelig tid.
 
 ## Akeldo-registeret
+
 For å kunne sende og motta meldinger av typen Restgjeldsoppgave og Innfrielsessaldo må aktøren være registrert i Akeldo-registeret med støtte for disse meldingstypene.  
 En aktør kan være registrert for både sending og mottak av samme meldingstype. (Megler --> Bank, Bank --> Bank)
 
 ### Avsender:
-**sendeliste:**  
- - Restgjeldsforespoersel
- - Innfrielsessaldoforespoersel
- 
+
+**sendeliste:**
+
+- Restgjeldsforespoersel
+- Innfrielsessaldoforespoersel
+
 **mottaksliste:**
- - Restgjeldssvar
- - Innfrielsessaldosvar
+
+- Restgjeldssvar
+- Innfrielsessaldosvar
 
 ### Mottaker:
+
 **sendeliste:**
- - Restgjeldssvar
- - Innfrielsessaldosvar
+
+- Restgjeldssvar
+- Innfrielsessaldosvar
 
 **mottaksliste:**
- - Restgjeldsforespoersel
- - Innfrielsessaldoforespoerspoersel
 
+- Restgjeldsforespoersel
+- Innfrielsessaldoforespoerspoersel
 
 # Meldingstyper
 
 ## Restgjeldsforespoersel
 
 ### Manifest
+
 (BrokerServiceInitiation.Manifest.PropertyList)
 
-|Manifest key|Type|Obligatorisk|Beskrivelse|
-|--- |--- |--- |--- |
-|messageType|String|Ja|Restgjeldsforespoersel|
+| Manifest key | Type   | Obligatorisk | Beskrivelse            |
+|--------------|--------|--------------|------------------------|
+| messageType  | String | Ja           | Restgjeldsforespoersel |
 
 ### Payload *(request)*
+
 En xml-fil av modell **Restgjeldsforespoersel** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve.xsd).  
-Navnet på filen må følge konvensjonen "restgjeldsforespoersel_*.xml". Case er ikke sensitivt.  
+Navnet på filen må følge konvensjonen "restgjeldsforespoersel_*.xml". Case er ikke sensitivt.
 
 ## Restgjeldssvar
 
 ### Retur av ACK/NACK notification fra fagsystem tilbake til requester (Megler/Bank) etter behandling av mottatt forespørsel:
+
 <table>
 	<thead>
 		<tr>
@@ -91,8 +100,8 @@ Navnet på filen må følge konvensjonen "restgjeldsforespoersel_*.xml". Case er
 			<td>Denne kan være en av følgende statuser:	
                 <ul>
                     <li>RutetSuksessfullt</li>
-                    <li>LånNedbetalt</li>
-                    <li>LånSolgt</li>
+                    <li>LaanNedbetalt</li>
+                    <li>LaanSolgt</li>
                     <li>SvarerMedEpost</li>
                     <li>Feil</li>
                 </ul> Kun status 'RutetSuksessfullt' er å anse som ACK (positive acknowledgement). Øvrige statuser er å anse som NACK (negative acknowledgement).</td>
@@ -105,23 +114,25 @@ Navnet på filen må følge konvensjonen "restgjeldsforespoersel_*.xml". Case er
 	</tbody>
 </table>
 
-
 ## Innfrielsessaldoforespoersel
 
 ### Manifest
+
 (BrokerServiceInitiation.Manifest.PropertyList)
 
-|Manifest key|Type|Obligatorisk|Beskrivelse|
-|--- |--- |--- |--- |
-|messageType|String|Ja|Innfrielsessaldoforespoersel|
+| Manifest key | Type   | Obligatorisk | Beskrivelse                  |
+|--------------|--------|--------------|------------------------------|
+| messageType  | String | Ja           | Innfrielsessaldoforespoersel |
 
 ### Payload *(request)*
+
 En xml-fil av modell **Innfrielsessaldoforespoersel** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve.xsd).  
 Navnet på filen må følge konvensjonen "innfrielsessaldoforespoersel_*.xml". Case er ikke sensitivt.
 
 ## Innfrielsessaldosvar
 
 ### Retur av ACK/NACK notification fra fagsystem tilbake til requester (Megler/Bank) etter behandling av mottatt forespørsel:
+
 <table>
 	<thead>
 		<tr>
@@ -147,6 +158,7 @@ Navnet på filen må følge konvensjonen "innfrielsessaldoforespoersel_*.xml". C
 </table>
 
 ### Innfrielsessaldosvar objekt
+
 <table>
 	<tbody>
 		<tr>
@@ -163,8 +175,8 @@ Navnet på filen må følge konvensjonen "innfrielsessaldoforespoersel_*.xml". C
 			<td>Denne kan være en av følgende statuser:	
                 <ul>
                     <li>RutetSuksessfullt</li>
-                    <li>LånNedbetalt</li>
-                    <li>LånSolgt</li>
+                    <li>LaanNedbetalt</li>
+                    <li>LaanSolgt</li>
                     <li>SvarerMedEpost</li>
                     <li>Feil</li>
                 </ul> Kun status 'RutetSuksessfullt' er å anse som ACK (positive acknowledgement). Øvrige statuser er å anse som NACK (negative acknowledgement).</td>
