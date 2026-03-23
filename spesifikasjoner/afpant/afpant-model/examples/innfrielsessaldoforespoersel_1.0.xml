@@ -131,17 +131,4 @@
     <innfrielsesdato>2025-05-13</innfrielsesdato>
     <innfrielsesdato>2025-05-14</innfrielsesdato>
   </innfrielsesdatoer>
-  <metadata>
-    <!--Optional:-->
-    <ressurser>
-      <!--Zero or more repetitions:-->
-      <vedlegg>
-        <navn>Vedlegg 1</navn>
-        <mimetype>application/pdf</mimetype>
-        <!--Optional:-->
-        <beskrivelse>Beskrivelse av vedlegg 1</beskrivelse>
-      </vedlegg>
-    </ressurser>
-    <opprettet>2004-01-17T04:42:06</opprettet>
-  </metadata>
 </innfrielsessaldoforespoersel>

@@ -136,10 +136,6 @@
               <xsl:call-template name="overskrift"/>
             </h1>
             <hr/>
-            <xsl:call-template name="footerForH1">
-              <xsl:with-param name="home" select="*"/>
-              <xsl:with-param name="meldingsnavn" select="$dsveMeldingstypeBeskrivelse"/>
-            </xsl:call-template>
           </div>
           <div id="body">
             <xsl:apply-templates select="innfrielsessaldoforespoersel"/>
@@ -171,7 +167,6 @@
       <xsl:with-param name="registerenhetsliste" select="registerenheterMedHjemmelshavere/registerenhetMedHjemmelshavere"/>
     </xsl:call-template>
     <xsl:call-template name="innfrielsesdatoer"/>
-    <xsl:call-template name="ressurser"/>
     <xsl:call-template name="avsender"/>
     <hr/>
   </xsl:template>
@@ -181,7 +176,6 @@
       <xsl:with-param name="registerenhetsliste" select="registerenheterMedDokumentreferanser/registerenhetMedDokumentreferanse"/>
     </xsl:call-template>
     <xsl:call-template name="laan"/>
-    <xsl:call-template name="ressurser"/>
     <xsl:call-template name="avsender"/>
     <hr/>
   </xsl:template>
@@ -191,7 +185,6 @@
       <xsl:with-param name="registerenhetsliste" select="registerenheterMedHjemmelshavere/registerenhetMedHjemmelshavere"/>
     </xsl:call-template>
     <xsl:apply-templates select="prisantydning"/>
-    <xsl:call-template name="ressurser"/>
     <xsl:call-template name="avsender"/>
     <hr/>
   </xsl:template>
@@ -202,7 +195,6 @@
     </xsl:call-template>
     <xsl:call-template name="laan"/>
     <xsl:apply-templates select="sperretForVidereOpplaan"/>
-    <xsl:call-template name="ressurser"/>
     <xsl:call-template name="avsender"/>
     <hr/>
   </xsl:template>
@@ -251,7 +243,6 @@
     <xsl:value-of select="format-number(number($numericValue), '### ### ### ###,00', 'nb-no-space')"/>
   </xsl:template>
   <xsl:template name="formatPhoneNumber">
-    <xsl:param name="prefix"/>
     <xsl:param name="phoneValue" select="."/>
     <xsl:choose>
       <xsl:when test="string-length($phoneValue) = 8">
@@ -520,6 +511,7 @@
             <div>
               <span>Pålydende: </span>
               <xsl:call-template name="formatNumber">
+                <xsl:with-param name="prefix" select="'NOK '"/>
                 <xsl:with-param name="numericValue" select="$aksjeleilighet/aksjeinformasjon/paalydende"/>
               </xsl:call-template>
             </div>
@@ -672,35 +664,6 @@
           <xsl:with-param name="numericValue" select="$dokument/@beloep"/>
         </xsl:call-template>
         <br/>
-      </div>
-    </div>
-  </xsl:template>
-  <xsl:template name="ressurser">
-    <div class="hovedseksjon">
-      <xsl:call-template name="seksjon">
-        <xsl:with-param name="tittel" select="'Vedlegg'"/>
-      </xsl:call-template>
-      <div class="tabell innhold">
-        <div class="rad" style="font-style: italic;">
-          <div class="celle kol1">Filnavn</div>
-          <div class="celle">Beskrivelse</div>
-        </div>
-        <xsl:for-each select="metadata/ressurser/vedlegg">
-          <xsl:call-template name="vedlegg">
-            <xsl:with-param name="vedlegg" select="."/>
-          </xsl:call-template>
-        </xsl:for-each>
-      </div>
-    </div>
-  </xsl:template>
-  <xsl:template name="vedlegg">
-    <xsl:param name="vedlegg"/>
-    <div class="rad">
-      <div class="celle">
-        <xsl:value-of select="$vedlegg/navn"/>
-      </div>
-      <div class="celle">
-        <xsl:value-of select="$vedlegg/beskrivelse"/>
       </div>
     </div>
   </xsl:template>
@@ -897,17 +860,5 @@
         <xsl:text>Ukjent</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:template>
-  <xsl:template name="footerForH1">
-    <xsl:param name="home"/>
-    <xsl:param name="meldingsnavn"/>
-    <div style="padding-bottom:16px;">
-      <small style="float:right;">DSVE&#xA0;
-        <xsl:value-of select="$meldingsnavn"/>,&#x20;opprettet
-        <xsl:call-template name="tiddato">
-          <xsl:with-param name="dato" select="$home/metadata/opprettet"/>
-        </xsl:call-template>
-      </small>
-    </div>
   </xsl:template>
 </xsl:stylesheet>

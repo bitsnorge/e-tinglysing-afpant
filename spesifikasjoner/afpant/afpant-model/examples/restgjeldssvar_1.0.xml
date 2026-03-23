@@ -221,17 +221,4 @@
     </registerenhetMedDokumentreferanse>
   </registerenheterMedDokumentreferanser>
   <sperretForVidereOpplaan>true</sperretForVidereOpplaan>
-  <metadata>
-    <!--Optional:-->
-    <ressurser>
-      <!--Zero or more repetitions:-->
-      <vedlegg>
-        <navn>string</navn>
-        <mimetype>string</mimetype>
-        <!--Optional:-->
-        <beskrivelse>string</beskrivelse>
-      </vedlegg>
-    </ressurser>
-    <opprettet>2014-04-14T05:47:22+02:00</opprettet>
-  </metadata>
 </restgjeldssvar>
