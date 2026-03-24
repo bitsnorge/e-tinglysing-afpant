@@ -102,17 +102,4 @@
       </pantedokumentreferanser>
     </registerenhetMedDokumentreferanse>
   </registerenheterMedDokumentreferanser>
-  <metadata>
-    <!--Optional:-->
-    <ressurser>
-      <!--Zero or more repetitions:-->
-      <vedlegg>
-        <navn>Vedlegg 1</navn>
-        <mimetype>application/pdf</mimetype>
-        <!--Optional:-->
-        <beskrivelse>Beskrivelse av vedlegg 1</beskrivelse>
-      </vedlegg>
-    </ressurser>
-    <opprettet>2003-09-03T02:04:43</opprettet>
-  </metadata>
 </innfrielsessaldosvar>

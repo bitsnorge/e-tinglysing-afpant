@@ -39,9 +39,8 @@ Banken må være oppmerksom på at 'OppnaaddPrioritetOk' sendes per pantedokumen
 |messageType|String|Ja|OppnaaddPrioritetOk|
 
 ### Payload
-Et ZIP-arkiv med 2 filer:
+Et ZIP-arkiv med 1 fil:
 - En 'OppnaaddPrioritetOk' XML med data ihht. [definert skjema.](../afpant-model/xsd/dsve.xsd)
-- Et vedlegg med forsendelsesstatus xml data.
 
 #### Om payload
 Følgende info er inkludert om pantedokumentet som ble sendt i SignedMortgageDeed melding fra bank til megler, og nå er tinglyst:
@@ -50,6 +49,4 @@ Følgende info er inkludert om pantedokumentet som ble sendt i SignedMortgageDee
 - Dokumentreferanse
 
 #### Krav/begrensninger
-I 'OppnaaddPrioritetOk' meldingen må metadata.ressurser elementet registeres med "application/xml" i feltet "mimetype".
-Feltet "navn" må tilsvare navnet på vedlegget (som følger konvensjonen "forsendelsesstatus_*.xml").
-Meldingen GjennomfoertEtinglysing skal sendes når tinglysning gjennomført og er en forutsetting for senere forsendelse av 'OppnaaddPrioritetOk' meldingen.
+Meldingen GjennomfoertEtinglysing skal sendes når tinglysning gjennomført og er en forutsetting for senere forsendelse av 'OppnaaddPrioritetOk'-meldingen.
