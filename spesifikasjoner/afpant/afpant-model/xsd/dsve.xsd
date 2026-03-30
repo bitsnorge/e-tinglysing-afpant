@@ -99,7 +99,6 @@
       <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
       <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedHjemmelshavere" type="RegisterenheterMedHjemmelshavere"/>
       <xs:element minOccurs="0" name="prisantydning" type="Prisantydning"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -124,7 +123,6 @@
       <xs:element minOccurs="1" maxOccurs="1" name="laanliste" type="LaanRestgjeldListe"/>
       <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedDokumentreferanser" type="RegisterenheterMedDokumentreferanse"/>
       <xs:element minOccurs="1" maxOccurs="1" name="sperretForVidereOpplaan" type="xs:boolean"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -140,7 +138,6 @@
       <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
       <xs:element minOccurs="1" maxOccurs="1" name="laanliste" type="LaanInnfrielsessaldoListe"/>
       <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedDokumentreferanser" type="RegisterenheterMedDokumentreferanse"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -216,7 +213,6 @@
       <xs:element minOccurs="1" maxOccurs="1" name="mottaker" type="Mottaker"/>
       <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedHjemmelshavere" type="RegisterenheterMedHjemmelshavere"/>
       <xs:element minOccurs="1" maxOccurs="1" name="innfrielsesdatoer" type="Innfrielsesdatoer"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="metadata" type="Metadata"/>
     </xs:sequence>
   </xs:complexType>
 
