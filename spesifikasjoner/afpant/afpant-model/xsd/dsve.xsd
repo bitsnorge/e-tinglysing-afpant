@@ -570,8 +570,8 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="akjsenummerFra" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="akjsenummerTil" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="aksjenummerFra" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="aksjenummerTil" type="xs:integer" minOccurs="0" maxOccurs="1"/>
       <xs:element name="paalydende" type="xs:long" minOccurs="0" maxOccurs="1"/>
       <xs:element name="antall" type="xs:integer" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
@@ -949,7 +949,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
 
 
 </xs:schema>
