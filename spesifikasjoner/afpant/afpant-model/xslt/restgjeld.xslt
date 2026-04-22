@@ -666,6 +666,20 @@
         <br/>
       </div>
     </div>
+    <xsl:if test="$dokument/laanenummer">
+      <div class="rad">
+        <div class="celle kol1">
+          <span>Lånenummer:</span>
+        </div>
+        <div class="celle">
+          <xsl:for-each select="$dokument/laanenummer">
+            <div>
+              <xsl:value-of select="."/>
+            </div>
+          </xsl:for-each>
+        </div>
+      </div>
+    </xsl:if>
   </xsl:template>
   <xsl:template name="seksjon">
     <xsl:param name="tittel"/>
