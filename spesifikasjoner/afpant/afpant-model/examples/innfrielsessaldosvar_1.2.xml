@@ -1,0 +1,69 @@
+<?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
+<innfrielsessaldosvar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve.xsd">
+  <avsender id="984851006">
+    <foretaksnavn>DNB BANK ASA</foretaksnavn>
+    <kontaktperson>
+      <navn>Ole Bankesen</navn>
+      <epost>ole@dnb.no</epost>
+      <telefondirekte>41414141</telefondirekte>
+      <telefon>22224455</telefon>
+    </kontaktperson>
+    <referanse>FX12398731273123</referanse>
+  </avsender>
+  <mottaker id="910968955">
+    <foretaksnavn>DNB EIENDOM AS</foretaksnavn>
+    <referanse>OPGNR-123</referanse>
+  </mottaker>
+  <laanliste>
+    <laan>
+      <laantakerIkkeHjemmelshaver>false</laantakerIkkeHjemmelshaver>
+      <transporterklaering>true</transporterklaering>
+      <laanenummer>91582722531</laanenummer>
+      <kontonummer>91582722531</kontonummer>
+      <saldoerPerDato>
+        <saldoPerDato>
+          <beloep>12345000</beloep>
+          <dato>2025-05-17</dato>
+        </saldoPerDato>
+        <saldoPerDato>
+          <beloep>123456</beloep>
+          <dato>2025-05-16</dato>
+        </saldoPerDato>
+      </saldoerPerDato>
+      <laantakereHjemmelshaver>
+        <navn>Kari Nordmann</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+    <laan>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>92610464159</laanenummer>
+      <kontonummer>92610464159</kontonummer>
+      <saldoerPerDato>
+        <saldoPerDato>
+          <beloep>23123</beloep>
+          <dato>2025-05-17</dato>
+        </saldoPerDato>
+        <saldoPerDato>
+          <beloep>43213</beloep>
+          <dato>2025-05-16</dato>
+        </saldoPerDato>
+      </saldoerPerDato>
+      <laantakereHjemmelshaver>
+        <navn>Kari Nordmann</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+  </laanliste>
+  <registerenheterMedDokumentreferanser>
+    <registerenhetMedDokumentreferanse>
+      <matrikkel kommunenavn="Lillestrøm" kommunenummer="3205" gaardsnummer="273" bruksnummer="220" festenummer="0" seksjonsnummer="12" eiendomsnivaa="E"/>
+      <pantedokumentreferanser>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000">
+          <!-- Liste over laanenummer som pantet er knyttet til -->
+          <laanenummer>92610464159</laanenummer>
+          <laanenummer>91582722531</laanenummer>
+        </pantedokumentreferanse>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+  </registerenheterMedDokumentreferanser>
+</innfrielsessaldosvar>
