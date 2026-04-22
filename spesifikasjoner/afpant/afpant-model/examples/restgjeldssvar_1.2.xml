@@ -1,0 +1,52 @@
+<?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
+<restgjeldssvar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve.xsd">
+  <avsender id="984851006">
+    <foretaksnavn>DNB BANK ASA</foretaksnavn>
+    <kontaktperson>
+      <navn>Ole Bankesen</navn>
+      <epost>ole@dnb.no</epost>
+      <telefondirekte>41414141</telefondirekte>
+      <telefon>22224455</telefon>
+    </kontaktperson>
+    <referanse>FX12398731273123</referanse>
+  </avsender>
+  <mottaker id="910968955">
+    <foretaksnavn>DNB EIENDOM AS</foretaksnavn>
+    <referanse>OPGNR-123</referanse>
+  </mottaker>
+  <laanliste>
+    <laan>
+      <rammelaan>true</rammelaan>
+      <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
+      <fastrente>false</fastrente>
+      <realkausjon>false</realkausjon>
+      <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
+      <transporterklaering>false</transporterklaering>
+      <laanenummer>92610464159</laanenummer>
+      <kontonummer>92610464159</kontonummer>
+      <saldo>1000.20</saldo>
+      <laantakereHjemmelshaver>
+        <navn>Ola Normann</navn>
+        <navn>Kari Normann</navn>
+      </laantakereHjemmelshaver>
+    </laan>
+  </laanliste>
+  <registerenheterMedDokumentreferanser>
+    <registerenhetMedDokumentreferanse>
+      <matrikkel kommunenavn="Lillestrøm" kommunenummer="3205" gaardsnummer="273" bruksnummer="220" festenummer="0" seksjonsnummer="12" eiendomsnivaa="E"/>
+      <pantedokumentreferanser>
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1998" embetenummer="200" rettsstiftelsesnummer="1" registreringstidspunkt="1998-01-02T07:00:47+01:00" beloep="3500000">
+          <!-- Liste over laanenummer som pantet er knyttet til -->
+          <laanenummer>92610464159</laanenummer>
+          <laanenummer>91582722531</laanenummer>
+        </pantedokumentreferanse>
+        <pantedokumentreferanse dokumentnummer="234123" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="125000">
+          <!-- Liste over laanenummer som pantet er knyttet til -->
+          <laanenummer>92610464159</laanenummer>
+          <laanenummer>91582722531</laanenummer>
+        </pantedokumentreferanse>
+      </pantedokumentreferanser>
+    </registerenhetMedDokumentreferanse>
+  </registerenheterMedDokumentreferanser>
+  <sperretForVidereOpplaan>true</sperretForVidereOpplaan>
+</restgjeldssvar>
