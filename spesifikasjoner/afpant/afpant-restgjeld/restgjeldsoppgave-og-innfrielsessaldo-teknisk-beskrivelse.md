@@ -52,6 +52,27 @@ En aktør kan være registrert for både sending og mottak av samme meldingstype
 En xml-fil av modell **Restgjeldsforespoersel** som er i henhold til [definert skjema.](../afpant-model/xsd/dsve.xsd).  
 Navnet på filen må følge konvensjonen "restgjeldsforespoersel_*.xml". Case er ikke sensitivt.
 
+
+## Kobling mellom lån og tinglyst dokument
+Endring: april 2026
+
+For å kunne oppdatere oppdraget i meglersystemet automatisk er det behov for å kunne koble riktig lån til riktig pantedokument hvis det er mer enn ett lån eller pantedokument hos banken.
+I restgjeldssvar og innfrielsessaldosvar er det derfor lagt til en liste med lånenummer under hver dokumentreferanse. Her kan banken liste ut ett eller flere lånenummer som er knyttet til det aktuelle pantedokumentet.
+Dersom banken ikke kan levere denne koblingen er det mulig å ikke fylle ut denne informasjonen, men da vil ikke megler kunne skille på:
+ 1 - Om det ikke er lån knyttet til det aktuelle pantedokumentet fordi lånet er nedbetalt og pantedokumentet ikke er slettet
+ 2 - Om banken ikke klarer å levere koblingen mellom lån og pantedokument.
+
+```xml
+<pantedokumentreferanser>
+  <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000">
+    <!-- Liste over laanenummer som pantet er knyttet til. 0, 1 eller flere -->
+    <laanenummer>92610464159</laanenummer>
+    <laanenummer>91582722531</laanenummer>
+  </pantedokumentreferanse>
+</pantedokumentreferanser>
+```
+Eksempel hvoe det kan angis 0, 1 eller flere lånenummer knyttet til et pantedokument.
+
 ## Restgjeldssvar
 
 ### Retur av ACK/NACK notification fra fagsystem tilbake til requester (Megler/Bank) etter behandling av mottatt forespørsel:
