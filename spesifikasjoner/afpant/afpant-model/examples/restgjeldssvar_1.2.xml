@@ -35,9 +35,15 @@
     <registerenhetMedDokumentreferanse>
       <matrikkel kommunenavn="Lillestrøm" kommunenummer="3205" gaardsnummer="273" bruksnummer="220" festenummer="0" seksjonsnummer="12" eiendomsnivaa="E"/>
       <pantedokumentreferanser>
-        <pantedokumentreferanse dokumentnummer="3" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="3500000">
+        <pantedokumentreferanse dokumentnummer="3" dokumentaar="1998" embetenummer="200" rettsstiftelsesnummer="1" registreringstidspunkt="1998-01-02T07:00:47+01:00" beloep="3500000">
           <!-- Liste over laanenummer som pantet er knyttet til -->
           <laanenummer>92610464159</laanenummer>
+          <laanenummer>91582722531</laanenummer>
+        </pantedokumentreferanse>
+        <pantedokumentreferanse dokumentnummer="234123" dokumentaar="2024" embetenummer="201" rettsstiftelsesnummer="1" registreringstidspunkt="2024-01-10T19:00:47+01:00" beloep="125000">
+          <!-- Liste over laanenummer som pantet er knyttet til -->
+          <laanenummer>92610464159</laanenummer>
+          <laanenummer>91582722531</laanenummer>
         </pantedokumentreferanse>
       </pantedokumentreferanser>
     </registerenhetMedDokumentreferanse>
