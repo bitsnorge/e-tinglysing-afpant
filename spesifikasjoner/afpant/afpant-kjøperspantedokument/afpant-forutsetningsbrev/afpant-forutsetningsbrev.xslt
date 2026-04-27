@@ -196,6 +196,12 @@
                   <xsl:value-of select="OverfoerselDetaljer/KID"/>
                 </td>
               </tr>
+              <tr>
+                <td>Betalingsmelding</td>
+                <td>
+                  <xsl:value-of select="OverfoerselDetaljer/Betalingsmelding"/>
+                </td>
+              </tr>
               <xsl:if test="string-length(OverfoerselDetaljer/MeglerSaksnummer) &gt; 0">
                 <tr>
                   <td>Oppdragsnummer megler</td>
