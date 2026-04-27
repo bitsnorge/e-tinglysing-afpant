@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="https://prod.cdn.dsop.no/dsve/v/2.0.0/xslt/afpant-forutsetningsbrev.xslt"?>
+<?xml-stylesheet type="text/xsl" href="./afpant-forutsetningsbrev.xslt"?>
 <Forutsetningsbrev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Kreditor>
     <Nummer>123456789</Nummer>
@@ -55,7 +55,7 @@
     <BeloepOverforesDato>2019-01-23</BeloepOverforesDato>
     <TotalBeloep>2500000</TotalBeloep>
     <TilKontonummer>65501100000</TilKontonummer>
-    <KID>10001000222111</KID>
+    <Betalingsmelding>Merk innbetaling med: AF123M7</Betalingsmelding>
     <KreditorSaksnummer>Lånesak 124-221/22</KreditorSaksnummer>
     <MeglerSaksnummer>117-00-1002 Lånegaten 15 B</MeglerSaksnummer>
     <BeloepGjelder>dekning av kjøpesum for ovennevnte eiendom</BeloepGjelder>

@@ -131,6 +131,9 @@ Informasjon om innbetalingen (beløp, totalbeløp, mottakerkontonummer og kid) b
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="Overfoersel">
+    <xs:annotation>
+      <xs:documentation>Overføringsdetaljer. Kan ikke angi både KID og betalingsmelding.</xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="1" name="Beloep" type="xs:double">
           <xs:annotation>
@@ -149,6 +152,7 @@ Informasjon om innbetalingen (beløp, totalbeløp, mottakerkontonummer og kid) b
       </xs:element>
       <xs:element minOccurs="1" maxOccurs="1" name="TilKontonummer" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="1" name="KID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Betalingsmelding" type="xs:string" />
       <xs:element minOccurs="0" maxOccurs="1" name="KreditorSaksnummer" type="xs:string">
           <xs:annotation>
               <xs:documentation>Kan angi f.eks lånesaksnummer eller referanse i (bank)fagsystem</xs:documentation>

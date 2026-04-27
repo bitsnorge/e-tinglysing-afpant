@@ -122,3 +122,8 @@ tilbake.
 Dersom bank mot formodning ikke kan sende forutsetningene som strukturerte data, må brevet
 skrives ut og sendes per post (eventuelt per e-post). Det vil være angitt i oversendingen at man kan
 forvente et forutsetningsbrev på annet format, i annen kanal.
+
+# Endring i spesifikasjonen 2026-04-27
+På teknisk møte i DSVE 27. april 2026 ble partene enige om at vi skulle legge til et nytt, frivillig felt i 
+overføringsdetaljene for å kunne angi en betalingsmelding når det brukes istedenfor KID. Skal ikke være et krav at dette feltet må fylles
+ut, men man skal ikke fylle ut både KID og betalingsmelding.
