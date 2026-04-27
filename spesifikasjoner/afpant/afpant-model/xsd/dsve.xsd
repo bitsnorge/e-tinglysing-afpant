@@ -893,13 +893,20 @@
     <xs:annotation>
       <xs:documentation>Beløp er opprinnelig tinglyst beløp i hele kroner.</xs:documentation>
     </xs:annotation>
+    <xs:sequence>
+      <xs:element name="laanenummer" minOccurs="0" maxOccurs="unbounded" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Liste over lånenummer som pantet er knyttet mot. En tom/manglende lite med lånenumre betyr at lånet er nedbetalt men pantedokumentet ikke er slettet enda.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
     <xs:attribute name="dokumentnummer" type="Dokumentnummer" use="required"/>
     <xs:attribute name="dokumentaar" type="Aar" use="required"/>
     <xs:attribute name="embetenummer" type="Embetenummer" use="required"/>
     <xs:attribute name="rettsstiftelsesnummer" type="Rettsstiftelsesnummer" use="required"/>
     <xs:attribute name="registreringstidspunkt" type="xs:dateTime" use="optional"/>
-    <xs:attribute name="beloep" type="Pantedokumentbeloep" use="optional">
-    </xs:attribute>
+    <xs:attribute name="beloep" type="Pantedokumentbeloep" use="optional"/>
   </xs:complexType>
 
   <xs:complexType name="Metadata">
