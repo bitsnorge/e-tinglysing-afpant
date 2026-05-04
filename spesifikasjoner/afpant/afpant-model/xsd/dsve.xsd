@@ -115,6 +115,7 @@
         Liste med de pantedokumentene, per eiendom, som banken sletter om listen med lån innfris.
         Angivelse av om lånene er sperret for videre opplån eller ikke, og om panterettigheter blir slettet om lånene
         innfris.
+        Realkausjon er true hvis eiendom som selges er brukt som sikkerhet for lån hvor hjemmelsjaver ikke er med- eller låntaker.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -123,6 +124,7 @@
       <xs:element minOccurs="1" maxOccurs="1" name="laanliste" type="LaanRestgjeldListe"/>
       <xs:element minOccurs="1" maxOccurs="1" name="registerenheterMedDokumentreferanser" type="RegisterenheterMedDokumentreferanse"/>
       <xs:element minOccurs="1" maxOccurs="1" name="sperretForVidereOpplaan" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="realkausjon" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -154,7 +156,6 @@
         Hvis ikke kid-nummer eller betalingsmelding er nødvendig kan begge utelates.
         Dersom lånenummer er likt kontonummer legges samme data i begge felter.
         Øvre grense for rammelån er kun brukt dersom det er rammelån.
-        Realkausjon er true hvis det er realkausjon i bildet
         laantakerIkkeHjemmelshaver er true dersom det finnes en eller flere låntakere som ikke er hjemmelshavere.
         laantakereHjemmelshaver er en liste med navn på de låntakerne som ogsp er hjemmelshavere.
         transporterklaering er true dersom det er et lån brukt til mellomfinansiering (transporterklæring)
@@ -165,7 +166,6 @@
       <xs:element minOccurs="1" maxOccurs="1" name="rammelaan" type="xs:boolean"/>
       <xs:element minOccurs="0" maxOccurs="1" name="oevreGrenseRammelaan" type="xs:double"/>
       <xs:element minOccurs="1" maxOccurs="1" name="fastrente" type="xs:boolean"/>
-      <xs:element minOccurs="1" maxOccurs="1" name="realkausjon" type="xs:boolean"/>
       <xs:element minOccurs="1" maxOccurs="1" name="laantakerIkkeHjemmelshaver" type="xs:boolean"/>
       <xs:element minOccurs="1" maxOccurs="1" name="transporterklaering" type="xs:boolean"/>
       <xs:element minOccurs="1" maxOccurs="1" name="laanenummer" type="xs:string"/>

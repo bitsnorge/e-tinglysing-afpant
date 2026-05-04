@@ -209,3 +209,36 @@ Navnet på filen må følge konvensjonen "innfrielsessaldoforespoersel_*.xml". C
 		</tr>
 	</tbody>
 </table>
+
+# Eksemple på utfylling av restgjeldssvar fra bank
+
+For å gjøre eksemplene enklere brukes scenarier hvor foreldre bruker sin eiendom som sikkerhet for lån hvor barna har kjøpt egen eiendom. For enkelthetsskyld skilles det ikke her mellom låntaker og medlåntaker
+da dette er en teknisk ting i banksystemet og ikke betyr noe for utfyllingen av svaret
+
+
+## Foreldre selger og er ikke låntakere
+
+Når eiendom som selges er brukt utelukkende som sikring for tredjepartslån (realkausjon) og hjemmelshaverne (som selger) ikke er låntaker, vil banken sende dokumentreferansen tilbake i svaret, men ikke avgi noe
+informasjon om lånet. Pantedokumentet som er sikringsdokument vil da ikke være koblet mot noen lån knyttet til hjemmelshaverne som selger. Lånet vil da ikke være med i svaret og dokumentet vil ikke være 
+knyttet mot lånenummeret. Feltet for realkausjon vil ha verdien `true` som signaliserer til megler at saken må følges opp. 
+
+
+## Foreldre som selger også er låntakere
+
+Når eiendom som selges er brukt som sikring og hjemmelshaverne (som selger) også er med- eller låntaker, vil banken sende dokumentreferansen og låneinformasjon tilbake i svaret.
+Pantedokumentet som er sikringsdokument er koblet mot lånet, barnas navn vil stå i listen over låntakere som ikke er hjemmelshaver, og feltet for realkausjon vil ha verdien `false`. 
+
+## Barna selger og foreldre er ikke låntakere, to pantedokumenter
+
+Med to pantedokumenter menes her at det er forskjellige pantedokumenter som hefter i barnas og foreldrenes eiendom som sikkerhet for barnas lån i banken. 
+Pantedokument tinglyst på foreldres eiendom blir ikke oppgitt i svaret da det ikke er tinglyst på barnas eiendom som selges. Lånet som banken oppgir i svaret vil være det fulle restbeløpet på lånet,
+inkludert det som er sikret i foreldrense eiendom. Låntakere som ikker er hjemmelshaver vil være tom da foreldrene ikke er låntaker, feltet for realkausjon vil være false da selgende eiendom ikke 
+er brukt som sikring for noen andre enn hjemmelshavers lån.
+
+## Barna selger og foreldre er låntakere
+
+Når foreldrene også er låntakere, vil navn på foreldrene stå i listen over låntakere som ikke er hjemmelshaver i eiendom som selges. Feltet realkausejon vil være `false`. Lånet vil være oppgitt og
+koblet mot pantedokumentet.
+
+
+
