@@ -195,6 +195,7 @@
     </xsl:call-template>
     <xsl:call-template name="laan"/>
     <xsl:apply-templates select="sperretForVidereOpplaan"/>
+    <xsl:apply-templates select="realkausjon"/>
     <xsl:call-template name="avsender"/>
     <hr/>
   </xsl:template>
@@ -336,6 +337,18 @@
     <div class="hovedseksjon">
       <xsl:call-template name="seksjon">
         <xsl:with-param name="tittel" select="'Sperret for videre opplån'"/>
+      </xsl:call-template>
+      <div class="innhold">
+        <xsl:call-template name="yesNo">
+          <xsl:with-param name="booleanValue" select="."/>
+        </xsl:call-template>
+      </div>
+    </div>
+  </xsl:template>
+  <xsl:template match="realkausjon">
+    <div class="hovedseksjon">
+      <xsl:call-template name="seksjon">
+        <xsl:with-param name="tittel" select="'Realkausjon'"/>
       </xsl:call-template>
       <div class="innhold">
         <xsl:call-template name="yesNo">
@@ -740,16 +753,6 @@
                     <td>
                       <xsl:call-template name="yesNo">
                         <xsl:with-param name="booleanValue" select="fastrente"/>
-                      </xsl:call-template>
-                    </td>
-                  </tr>
-                </xsl:if>
-                <xsl:if test="realkausjon">
-                  <tr>
-                    <td>Realkausjon</td>
-                    <td>
-                      <xsl:call-template name="yesNo">
-                        <xsl:with-param name="booleanValue" select="realkausjon"/>
                       </xsl:call-template>
                     </td>
                   </tr>

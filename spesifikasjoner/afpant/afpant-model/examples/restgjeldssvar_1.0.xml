@@ -1,5 +1,5 @@
 <?xml-stylesheet type="text/xsl" href="../xslt/restgjeld.xslt"?>
-<restgjeldssvar>
+<restgjeldssvar  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/dsve.xsd">
   <avsender id="984851006">
     <foretaksnavn>DNB BANK ASA</foretaksnavn>
     <kontaktperson>
@@ -20,7 +20,6 @@
       <rammelaan>true</rammelaan>
       <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>false</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133341</laanenummer>
@@ -41,7 +40,6 @@
     <laan>
       <rammelaan>false</rammelaan>
       <fastrente>true</fastrente>
-      <realkausjon>true</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133342</laanenummer>
@@ -62,7 +60,6 @@
     <laan>
       <rammelaan>false</rammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>true</realkausjon>
       <laantakerIkkeHjemmelshaver>false</laantakerIkkeHjemmelshaver>
       <transporterklaering>true</transporterklaering>
       <laanenummer>12342133343</laanenummer>
@@ -83,7 +80,6 @@
       <rammelaan>true</rammelaan>
       <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>false</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133345</laanenummer>
@@ -104,7 +100,6 @@
       <rammelaan>true</rammelaan>
       <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>false</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133345</laanenummer>
@@ -125,7 +120,6 @@
       <rammelaan>true</rammelaan>
       <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>false</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133345</laanenummer>
@@ -146,7 +140,6 @@
       <rammelaan>true</rammelaan>
       <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>false</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133345</laanenummer>
@@ -167,7 +160,6 @@
       <rammelaan>true</rammelaan>
       <oevreGrenseRammelaan>12341234</oevreGrenseRammelaan>
       <fastrente>false</fastrente>
-      <realkausjon>false</realkausjon>
       <laantakerIkkeHjemmelshaver>true</laantakerIkkeHjemmelshaver>
       <transporterklaering>false</transporterklaering>
       <laanenummer>12342133345</laanenummer>
@@ -221,4 +213,5 @@
     </registerenhetMedDokumentreferanse>
   </registerenheterMedDokumentreferanser>
   <sperretForVidereOpplaan>true</sperretForVidereOpplaan>
+  <realkausjon>true</realkausjon>
 </restgjeldssvar>
