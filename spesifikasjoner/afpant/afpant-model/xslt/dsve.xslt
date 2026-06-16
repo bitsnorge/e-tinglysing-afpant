@@ -842,12 +842,17 @@
       <xsl:value-of select="$matrikkel/@gaardsnummer"/>
       <xsl:text>,&#x20;bruksnr.:&#x20;</xsl:text>
       <xsl:value-of select="$matrikkel/@bruksnummer"/>
-      <!-- Siden XSD sier at seksjonsnummer / festenummer er optional tester vi også mot tom streng (PH) -->
-      <xsl:if test="not($matrikkel/@seksjonsnummer = '0') and not($matrikkel/@seksjonsnummer = '')">
+      <!--
+      Seksjonsnummer/festenummer er ikke påkrevd i XSD-en, så vi må sjekke at
+      vi har fått noe overhodet, samt at dette noe er et tall.
+      I tillegg betyr 0 "intet seksjonsnummer/festenummer",
+      så vi viser ingenting i det tilfellet heller.
+      !-->
+      <xsl:if test="number($matrikkel/@seksjonsnummer) > 0">
         <xsl:text>,&#x20;seksjonsnr.:&#x20;</xsl:text>
         <xsl:value-of select="$matrikkel/@seksjonsnummer"/>
       </xsl:if>
-      <xsl:if test="not($matrikkel/@festenummer = '0') and not($matrikkel/@festenummer = '')">
+      <xsl:if test="number($matrikkel/@festenummer) > 0">
         <xsl:text>,&#x20;festenr.:&#x20;</xsl:text>
         <xsl:value-of select="$matrikkel/@festenummer"/>
       </xsl:if>
