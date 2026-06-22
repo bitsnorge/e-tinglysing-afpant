@@ -28,26 +28,24 @@
     <Beloep>251230</Beloep>
     <ForstePrioritet>false</ForstePrioritet>
     <Prioritet>
-            <PrioritetsAngivelse>
-            <Rekkefolge>PrioritetEtter</Rekkefolge>
-            <Panthaver>
-                <Nummer>987412548</Nummer>
-                <Navn>Husbanken</Navn>
-            </Panthaver>
-            <Beloep>1250000</Beloep>
-            <PrioritetsBeskrivelse>Tekst av noe slag</PrioritetsBeskrivelse>
-            </PrioritetsAngivelse>
-    </Prioritet>
-    <Prioritet>
-            <PrioritetsAngivelse>
-            <Rekkefolge>PrioritetLikestiltMed</Rekkefolge>
-            <Panthaver>
-                <Nummer>921345687</Nummer>
-                <Navn>Sparebanken Vest</Navn>
-            </Panthaver>
-            <Beloep>2000000</Beloep>
-            <PrioritetsBeskrivelse>Bank til annet familie medlem</PrioritetsBeskrivelse>
-            </PrioritetsAngivelse>
+      <PrioritetsAngivelse>
+        <Rekkefolge>PrioritetEtter</Rekkefolge>
+        <Panthaver>
+          <Nummer>987412548</Nummer>
+          <Navn>Husbanken</Navn>
+        </Panthaver>
+        <Beloep>1250000</Beloep>
+        <PrioritetsBeskrivelse>Tekst av noe slag</PrioritetsBeskrivelse>
+      </PrioritetsAngivelse>
+      <PrioritetsAngivelse>
+        <Rekkefolge>PrioritetLikestiltMed</Rekkefolge>
+        <Panthaver>
+          <Nummer>921345687</Nummer>
+          <Navn>Sparebanken Vest</Navn>
+        </Panthaver>
+        <Beloep>2000000</Beloep>
+        <PrioritetsBeskrivelse>Bank til annet familie medlem</PrioritetsBeskrivelse>
+      </PrioritetsAngivelse>
     </Prioritet>
   </PantedokumentDetaljer>
   <OverfoerselDetaljer>
