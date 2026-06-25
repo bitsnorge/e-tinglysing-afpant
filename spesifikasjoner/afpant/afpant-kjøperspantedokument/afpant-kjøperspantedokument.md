@@ -33,7 +33,7 @@ Referansen settes ved opprettelse av dokumentet i "no.kartverket.grunnbok.wsapi.
 
 ### Teknisk-beskrivelse: Matching og routing
 - Mottakende systemleverandør søker blant alle sine kunders matrikkelenhet(er). 
-- Utvalget avgrenses til matrikkelenheter som tilhører meglersaker der organisasjonsnummeret til _enten_ meglerforetaket eller oppgjørsforetaket på meglersaken er lik organisasjonsnummeret pantedokumentet er sendt til ("reportee"). 
+- Utvalget begrenses til matrikkelenheter i saker som tilhører samme organisasjonsnummer som pantedokumentet er sendt til ("reportee").
 - Utvalget begrenses til meglersaker hvor **minst en av debitorene i pantedokumentet må finnes som kjøpere i meglersaken**. (Dersom det mangler fødselsnummer eller organisasjonsnummer på kjøper(e), kan leverandøren selv bestemme graden av fuzzy matching som skal tillates)
   - For eksempel, i eiendomshandler der en person kjøper seg inn i en bolig (andel), vil de eksisterende eier(e) av boligen være debitor(er) i pantedokumentet, og ikke kjøper(e) i meglersaken. Banken vil som regel hefte i hele eiendommen, noe som medfører at de eksisterende eier(e) vil være debitor(er) i pantedokumentet, og ikke kjøper(e) i meglersaken.
 - Dersom **ingen av debitorene i pantedokumentet er til stede som kjøper i meglersaken**, skal det mottakende systemet avvise forsendelsen med en SignedMortgageDeedProcessedMessage (NACK) der status = DebitorMismatch.
