@@ -7,7 +7,7 @@ Oversikt over alle aktører som benytter løsningen ligger i AKELDO: https://ake
 | Leverandør           | På vegne av |
 | -------------------- | ----------- |
 | Ambita AS            | Bank/Megler |
-| Vitec Megler AS      | Megler      |
-| Visma Real Estate AS | Megler      |
 | Nordea               | Bank        |
 | TietoEVRY            | Bank        |
+| Visma Real Estate AS | Megler      |
+| Vitec Megler AS      | Megler      |
