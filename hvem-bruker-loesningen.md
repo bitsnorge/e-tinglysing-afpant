@@ -6,8 +6,10 @@ Oversikt over alle aktører som benytter løsningen ligger i AKELDO: https://ake
 
 | Leverandør           | På vegne av |
 | -------------------- | ----------- |
+| Alice & Bob          | Megler      |
 | Ambita AS            | Bank/Megler |
 | Nordea               | Bank        |
+| Propware             | Megler      |
 | TietoEVRY            | Bank        |
 | Visma Real Estate AS | Megler      |
 | Vitec Megler AS      | Megler      |
