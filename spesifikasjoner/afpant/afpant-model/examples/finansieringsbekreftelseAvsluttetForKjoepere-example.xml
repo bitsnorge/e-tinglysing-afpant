@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<finansieringsbekreftelseAvsluttetForKjoepere xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../xsd/dsve.xsd">
+    <referanse>134565678</referanse>
+    <ssn>134565678</ssn>
+    <kjoepesum>3000000.00</kjoepesum>
+    <akseptdato>2025-10-21</akseptdato>
+    <megler id="987654321">
+        <foretaksnavn>EiendomsMegler</foretaksnavn>
+        <ansvarligmegler>
+            <navn>Knut Knutsen</navn>
+            <epost>knut@megling.no</epost>
+            <telefon>95875545</telefon>
+        </ansvarligmegler>
+        <referanse>MEGLER-5678</referanse>
+    </megler>
+    <bank id="123456789">
+        <foretaksnavn>Din Bank ASA</foretaksnavn>
+        <referanse>BANK-1234</referanse>
+    </bank>
+    <salgsobjekt>
+        <matrikkelSalgsobjekt>
+            <matrikkel kommunenavn="Oslo" kommunenummer="0301" gaardsnummer="30" bruksnummer="15"
+                eiendomsnivaa="F" />
+        </matrikkelSalgsobjekt>
+        <parter>
+            <selgere>
+                <rettssubjekt>
+                    <person id="23456789909">
+                        <fornavn>selger</fornavn>
+                        <etternavn>selgersen</etternavn>
+                    </person>
+                    <andel teller="1" nevner="1" />
+                </rettssubjekt>
+            </selgere>
+            <kjoepere>
+                <rettssubjekt>
+                    <person id="1">
+                        <fornavn>kjøper1</fornavn>
+                        <etternavn>kjøpersen</etternavn>
+                    </person>
+                    <andel teller="1" nevner="3" />
+                </rettssubjekt>
+                <rettssubjekt>
+                    <person id="2">
+                        <fornavn>kjøper2</fornavn>
+                        <etternavn>kjøpersen</etternavn>
+                    </person>
+                    <andel teller="1" nevner="3" />
+                </rettssubjekt>
+                <rettssubjekt>
+                    <person id="3">
+                        <fornavn>kjøper3</fornavn>
+                        <etternavn>kjøpersen</etternavn>
+                    </person>
+                    <andel teller="1" nevner="3" />
+                </rettssubjekt>
+            </kjoepere>
+        </parter>
+        <adresse>
+            <gatenavn>Karl Johans gate 2</gatenavn>
+            <postnummer>0162</postnummer>
+            <poststed>Oslo</poststed>
+        </adresse>
+    </salgsobjekt>
+    <objektstype>LEILIGHET</objektstype>
+    <lenkeTilSalgsoppgave>https://example.com/salgsoppgave</lenkeTilSalgsoppgave>
+    <metadata>
+        <opprettet>2025-06-01T08:30:00</opprettet>
+    </metadata>
+</finansieringsbekreftelseAvsluttetForKjoepere>
