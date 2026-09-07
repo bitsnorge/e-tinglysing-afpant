@@ -129,7 +129,7 @@ Forslag til svarkoder:
 -	LAAN_SOLGT
 -	FEIL
 
-Uansett hva feilkoden er, vil det også sendes med en tekst som beskriver hva som er feil.
+Uansett hva feilkoden er, vil det også sendes med en tekst som beskriver hva som er feil. **Maksimal lengde på feilmeldingsteksten er 1024 tegn.**
 
 
 # Juridisk grunnlag/personvern
