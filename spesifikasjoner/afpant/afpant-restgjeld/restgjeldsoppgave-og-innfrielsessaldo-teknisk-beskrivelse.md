@@ -205,7 +205,7 @@ Navnet på filen må følge konvensjonen "innfrielsessaldoforespoersel_*.xml". C
 		<tr>
 			<td><p>statusDescription</p></td>
 			<td><p>String</p></td>
-			<td><p>Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et. Teksten skal være på norsk og være mulig å vise til sluttbruker</td>
+			<td><p>Inneholder en utfyllende human-readable beskrivelse om hvorfor en forsendelse ble NACK'et. Teksten skal være på norsk og være mulig å vise til sluttbruker. <b>Maksimal lengde på beskrivelsen er 1024 tegn.</b></td>
 		</tr>
 	</tbody>
 </table>
