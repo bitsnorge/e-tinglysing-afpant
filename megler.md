@@ -1,0 +1,1 @@
+## TODO: Kjell fyller i for meglersiden
