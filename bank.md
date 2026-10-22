@@ -11,7 +11,7 @@ Det finnes per i dag ingen muligheter i [AKELDO](https://akeldo.grunnbok.no/akel
 Løsningen må derfor baseres på konkrete avtaler mellom Bank og bankens leverandører. Banken må gi rettigheter til begge leverandørene i Altinn.
 Etter avtale med banken må leverandørene inngå en felles forståelse av hvilke meldinger som tilhører hvilken leverandør.
 Når man henter informasjon om filer enten basert på webhooks fra Altinn eller via polling mot 'filetransfer' endepunktet
-må leverandør benytte 'filtranser/{id} eller 'download' for å hente nok informasjon om filen for å verifisere att dette er en fil som tilhører dem.
+må leverandør benytte `filetransfer/{id}` eller `download` for å hente nok informasjon om filen for å verifisere at dette er en fil som tilhører dem.
 Filer som ikke er av korrekt type skal ignoreres og ikke bekreftes.
 Ved oppsett av webhooks kan en eller flere av partene abonnere, man skal gi 200 OK ved mottak av webhook kallet fra Altinn uavhengig om meldingen tilhører leverandøren eller ikke.
 Hvis man ikke setter opp webhooks og bare benytter getAvailableFiles vil man risikere å bli påvirket av driftsforstyrrelser hos den andre leverandører.
